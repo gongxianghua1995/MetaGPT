@@ -182,11 +182,11 @@ submit() {
     # Check if the patch file exists and is non-empty
     if [ -s "$SWE_CMD_WORK_DIR/test.patch" ]; then
         # Apply the patch in reverse
-        git apply -R < "$SWE_CMD_WORK_DIR/test.patch"
+        git apply -R < "$SWE_CMD_WORK_DIR/test.patch" || return $?
     fi
 
-    git add -A
+    git add -A || return $?
     echo "<<SUBMISSION START||"
-    git diff --cached
+    git diff --cached || return $?
     echo "||SUBMISSION DONE>>"
 }

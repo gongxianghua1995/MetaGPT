@@ -1,0 +1,900 @@
+{
+  "updated": "2026-09-22T06:56:57.440101+00:00",
+  "completed": true,
+  "cases": [
+    {
+      "instance_id": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "folder": "workspace/pro22_handoff_smoke_20260922/openlibrary_322d/run/openlibrary/case_001",
+      "outcome": "resolved",
+      "patch_chars": 30497,
+      "patch_sha256": "544817d26cfd1799114c07c6a579be4000912caf29462f1c128f3968bafea8ad",
+      "case_seconds": 1500.163,
+      "terminal_reason": "wall time budget exhausted",
+      "usage": {
+        "prompt_tokens": 1110030,
+        "completion_tokens": 62124,
+        "total_tokens": 1172154,
+        "cached_prompt_tokens": 856832,
+        "reported_reasoning_tokens": 46342
+      },
+      "usage_by_role": {
+        "Mike": {
+          "prompt_tokens": 12652,
+          "completion_tokens": 1959,
+          "total_tokens": 14611
+        },
+        "Alex": {
+          "prompt_tokens": 1019189,
+          "completion_tokens": 44353,
+          "total_tokens": 1063542
+        },
+        "Reviewer": {
+          "prompt_tokens": 78189,
+          "completion_tokens": 15812,
+          "total_tokens": 94001
+        }
+      },
+      "api_errors": {
+        "CancelledError": 1
+      },
+      "network_isolated": true,
+      "history_isolated": true,
+      "model_responses": 47,
+      "submissions": 2,
+      "verification_followups": 1,
+      "reviews": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 1033.223,
+          "status": "inconclusive",
+          "reason": "verification_missing",
+          "content": "The patch implements the required new API in openlibrary/solr/update_work.py: SolrUpdateState (adds/deletes/keys/commit, to_solr_requests_json, has_changes, clear_requests, __add__), solr_update(update_request=...), AbstractSolrUpdater plus Work/Author/Edition subclasses, removal of AddRequest/DeleteRequest/CommitRequest/SolrUpdateRequest, redirect/delete → deletes handling, synthetic work creation with __None__ title fallback (title passed through work.get('title')), and author work_count/top_subjects with default [] when no facets. A focused API check on the current tree passed (serialization parses as valid JSON with and without indent, merging/clearing/has_changes work, abstract methods exist).\n\nHowever, a behavioral check on the current tree showed update_keys(['/works/OL1W', '/books/OL1M']) with an edition that references that work produces duplicate adds ['/works/OL1W','/works/OL1W'] plus deletes ['/works/OL1M'], and keys accumulate the target key twice. The original code used a wkeys set to avoid re-updating the same work, and the synthetic/IA cleanup behavior is inconsistent: the requirement says edition-with-works must route to the work updater without re-adding, and delete/redirect keys must land in deletes. The dedup patch visible in recent_actions did not take effect for the edition path. Additionally, openlibrary/tests/solr/test_update_work.py still imports/uses the removed request classes (lines 11, 576, 581, 824-881), so the repository test suite cannot pass on this tree; that failure is expected under the new contract only if hidden tests replace it, but the duplicate-add behavior is not covered by the requirements' exact expectations and remains unverified.\n\nEvidence: fake-provider run printed `adds: ['/works/OL1W', '/works/OL1W'] deletes: ['/works/OL1M'] keys: ['/works/OL1W', '/books/OL1M', '/works/OL1W', '/works/OL1W']` on tree 0020a0ec; API check exited 0.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && PYTHONPATH=/app python3 /tmp/test_new_api.py",
+              "evidence": "ModuleNotFoundError: No module named 'openlibrary' — ran without PYTHONPATH=/app; rerun with PYTHONPATH on the current tree succeeded (exit 0, valid JSON, merge/clear/has_changes verified).",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && python3 -m py_compile openlibrary/solr/update_work.py && PYTHONPATH=/app python3 - <<'PYEOF' (fake-provider update_keys run)",
+              "evidence": "Exit 0 but output shows duplicate work add: adds: ['/works/OL1W', '/works/OL1W'], deletes: ['/works/OL1M'], keys: ['/works/OL1W', '/books/OL1M', '/works/OL1W', '/works/OL1W']. The edition-with-works path adds the work doc a second time even though it was already added from the /works/ key; original code deduped via a wkeys set. Not consistent with requirement that results be aggregated from routed updaters without redundant re-indexing.",
+              "resolution": "unresolved"
+            }
+          ]
+        }
+      ],
+      "check_evidence": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 976.695,
+          "command": "cd /app && PYTHONPATH=/app python3 - <<'PYEOF'\nimport json, asyncio\nfrom openlibrary.solr.update_work import (\n    SolrUpdateState, AbstractSolrUpdater, WorkSolrUpdater, AuthorSolrUpdater,\n    EditionSolrUpdater, solr_update, update_keys,\n)\ns = SolrUpdateState(adds=[{'key': '/works/OL1W', 'type': 'work'}], deletes=['/works/OL2W'], commit=True)\nprint('default:', s.to_solr_requests_json())\nprint('parsed:', json.loads(s.to_solr_requests_json()))\nprint('indent4:', json.loads(s.to_solr_requests_json(indent=4)))\nprint('has_changes:', s.has_changes())\nm = s + SolrUpdateState(adds=[{'key': '/works/OL3W'}])\nprint('merged adds:', [a['key'] for a in m.adds], 'commit:', m.commit)\ns.clear_requests()\nprint('cleared:', s.adds, s.deletes, s.has_changes())\nprint('abstract methods:', AbstractSolrUpdater.key_test, AbstractSolrUpdater.update_key, AbstractSolrUpdater.preload_keys)\nPYEOF",
+          "evidence": null,
+          "tree_after": "0020a0ec064a06c8428c6b1a46503846e0bd8d81779801282d046e5073115044  -"
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1440.128,
+          "command": "cd /app && PYTHONPATH=/app python3 -m pytest openlibrary/tests/solr/test_update_work.py -x -q 2>&1 | tail -30",
+          "evidence": {
+            "status": "timeout",
+            "returncode": 124,
+            "summary": "",
+            "note": "Output classification, not a correctness verdict. Relate failures to requirements and the recorded tree version."
+          },
+          "tree_after": "544817d26cfd1799114c07c6a579be4000912caf29462f1c128f3968bafea8ad  -"
+        }
+      ],
+      "report": "workspace/pro22_handoff_smoke_20260922/openlibrary_322d/run/openlibrary/case_001/reports/DeepSeek-V4-Flash-0731.run_dce15e44_openlibrary_001.json",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "openlibrary/tests/solr/test_update_work.py::TestAuthorUpdater::test_workless_author",
+              "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_delete",
+              "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_redirects",
+              "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_no_title",
+              "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_work_no_title",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_successful_response",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_non_json_solr_503",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_solr_offline",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_invalid_solr_request",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_bad_apple_in_solr_request",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_other_non_ok_status"
+            ],
+            "failure": []
+          },
+          "PASS_TO_PASS": {
+            "success": [],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "label": "openlibrary_322d",
+      "controller": {
+        "label": "openlibrary_322d",
+        "started": "2026-09-22T06:31:04.680604+00:00",
+        "finished": "2026-09-22T06:56:51.157485+00:00",
+        "wall_seconds": 1546.4770012181252,
+        "returncode": 0
+      },
+      "first_repository_change_seconds": 626.413,
+      "handoff_files": [
+        {
+          "submission_id": 1,
+          "paths": [
+            "openlibrary/tests/solr/test_update_work.py",
+            "openlibrary/solr/update_work.py",
+            "openlibrary/solr/data_provider.py"
+          ]
+        },
+        {
+          "submission_id": 2,
+          "paths": [
+            "openlibrary/tests/solr/test_update_work.py",
+            "openlibrary/solr/update_work.py",
+            "openlibrary/solr/data_provider.py"
+          ]
+        }
+      ],
+      "review_actions": [
+        {
+          "event": "review_read",
+          "submission_id": 1,
+          "elapsed_seconds": 938.459,
+          "command": "cd /app && grep -rn \"AddRequest\\|DeleteRequest\\|CommitRequest\\|SolrUpdateRequest\\|update_work\\|update_author\\|solr_update\\|update_keys\" --include=*.py openlibrary/ scripts/ | grep -v \"openlibrary/solr/update_work.py\" | grep -v \"test_\" | head -50",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 1,
+          "elapsed_seconds": 938.559,
+          "command": "cd /app && sed -n '1000,1250p' openlibrary/solr/update_work.py",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 1,
+          "elapsed_seconds": 975.527,
+          "command": "cd /app && grep -n \"SolrUpdateState\\|AbstractSolrUpdater\\|update_keys\\|AddRequest\\|DeleteRequest\\|CommitRequest\\|SolrUpdateRequest\\|to_solr_requests_json\" openlibrary/tests/solr/test_update_work.py | head -60",
+          "evidence": null
+        },
+        {
+          "event": "review_check",
+          "submission_id": 1,
+          "elapsed_seconds": 976.695,
+          "command": "cd /app && PYTHONPATH=/app python3 - <<'PYEOF'\nimport json, asyncio\nfrom openlibrary.solr.update_work import (\n    SolrUpdateState, AbstractSolrUpdater, WorkSolrUpdater, AuthorSolrUpdater,\n    EditionSolrUpdater, solr_update, update_keys,\n)\ns = SolrUpdateState(adds=[{'key': '/works/OL1W', 'type': 'work'}], deletes=['/works/OL2W'], commit=True)\nprint('default:', s.to_solr_requests_json())\nprint('parsed:', json.loads(s.to_solr_requests_json()))\nprint('indent4:', json.loads(s.to_solr_requests_json(indent=4)))\nprint('has_changes:', s.has_changes())\nm = s + SolrUpdateState(adds=[{'key': '/works/OL3W'}])\nprint('merged adds:', [a['key'] for a in m.adds], 'commit:', m.commit)\ns.clear_requests()\nprint('cleared:', s.adds, s.deletes, s.has_changes())\nprint('abstract methods:', AbstractSolrUpdater.key_test, AbstractSolrUpdater.update_key, AbstractSolrUpdater.preload_keys)\nPYEOF",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 2,
+          "elapsed_seconds": 1346.49,
+          "command": "cd /app && sed -n '1140,1300p' openlibrary/solr/update_work.py",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 2,
+          "elapsed_seconds": 1346.6,
+          "command": "cd /app && sed -n '1560,1640p' openlibrary/solr/update_work.py",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 2,
+          "elapsed_seconds": 1439.009,
+          "command": "cd /app && sed -n '1300,1420p' openlibrary/solr/update_work.py && echo '=====TESTS=====' && grep -n 'def test' openlibrary/tests/solr/test_update_work.py | head -50",
+          "evidence": null
+        },
+        {
+          "event": "review_check",
+          "submission_id": 2,
+          "elapsed_seconds": 1440.128,
+          "command": "cd /app && PYTHONPATH=/app python3 -m pytest openlibrary/tests/solr/test_update_work.py -x -q 2>&1 | tail -30",
+          "evidence": {
+            "status": "timeout",
+            "returncode": 124,
+            "summary": "",
+            "note": "Output classification, not a correctness verdict. Relate failures to requirements and the recorded tree version."
+          }
+        }
+      ],
+      "review_request_tools": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 900.574,
+          "tools": null
+        },
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 938.559,
+          "tools": null
+        },
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 976.695,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1320.386,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1346.601,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1440.128,
+          "tools": null
+        }
+      ],
+      "previous_pro20": {
+        "instance_id": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "folder": "workspace/pro20_review_smoke_20260922/openlibrary_322d/run/openlibrary/case_001",
+        "outcome": "unresolved",
+        "patch_chars": 28566,
+        "patch_sha256": "bbddc72e14534661971cbf85a2598da1701a7a2d419acf11ffa151b1549d64b0",
+        "case_seconds": 1391.248,
+        "terminal_reason": "review inconclusive; current patch preserved",
+        "usage": {
+          "prompt_tokens": 1234057,
+          "completion_tokens": 40485,
+          "total_tokens": 1274542,
+          "cached_prompt_tokens": 982016,
+          "reported_reasoning_tokens": 24586
+        },
+        "usage_by_role": {
+          "Mike": {
+            "prompt_tokens": 10582,
+            "completion_tokens": 1293,
+            "total_tokens": 11875
+          },
+          "Alex": {
+            "prompt_tokens": 1162863,
+            "completion_tokens": 32435,
+            "total_tokens": 1195298
+          },
+          "Reviewer": {
+            "prompt_tokens": 60612,
+            "completion_tokens": 6757,
+            "total_tokens": 67369
+          }
+        },
+        "api_errors": {},
+        "network_isolated": true,
+        "history_isolated": true,
+        "model_responses": 48,
+        "submissions": 2,
+        "verification_followups": 1,
+        "reviews": [
+          {
+            "submission_id": 1,
+            "elapsed_seconds": 956.825,
+            "status": "inconclusive",
+            "reason": "verification_missing",
+            "content": "Unresolved failed/unverified checks: cd /app && sed -n '1340,1626p' openlibrary/solr/update_work.py; cd /app && sed -n '1195,1361p' openlibrary/solr/update_work.py; cd /app && sed -n '721,956p' openlibrary/solr/update_work.py; cd /app && grep -rn 'SolrUpdateState' / 2>/dev/null | head -10. Verified against the public requirements using the current tree (bbddc72). Key evidence from the current tree and a successful direct reproduction:\n- `SolrUpdateState` exists with adds/deletes/keys/commit, `to_solr_requests_json(indent, sep)`, `has_changes()`, `clear_requests()`, and `__add__` merge; `json.loads(to_solr_requests_json(...))` yields `{'add': [{'doc': ...}], 'delete': [...], 'commit': {}}` both with and without indent/sep.\n- `solr_update` takes a `SolrUpdateState` and serializes via `to_solr_requests_json()`.\n- `grep AddRequest|DeleteRequest|CommitRequest|SolrUpdateRequest` over `update_work.py` and `scripts/solr_updater.py` returns nothing (all old classes removed).\n- `AbstractSolrUpdater` (ABC) defines `key_test`, `preload_keys`, `update_key`; `WorkSolrUpdater`, `AuthorSolrUpdater`, `EditionSolrUpdater` implement them; `update_keys` groups by prefix, routes to updaters, aggregates into one `SolrUpdateState`, sets `combined.keys = list(keys)` and commit flag.\n- Author updater adds `work_count`/`top_subjects` unconditionally (default `[]` when no facets) and handles redirect/delete by adding to deletes and processing redirect location.\n- Edition updater creates synthetic work for editions without `works`, handles redirects/deletes, routes to works.\n- Repro confirms: edition→synthetic work key `/works/OL1M`; missing-title work serializes `title` as `__None__`; delete-type doc yields deletes only; `update_keys` aggregates 2 adds with keys `['/works/OL1W', '/books/OL1M']`, commit False.\nNo repository test files exist under openlibrary/solr (grep found none); no modified test files. No failed contract remains.",
+            "failure_dispositions": []
+          },
+          {
+            "submission_id": 2,
+            "elapsed_seconds": 1391.248,
+            "status": "inconclusive",
+            "reason": "verification_missing",
+            "content": "Unresolved failed/unverified checks: cd /app && grep -rn 'SolrUpdateState' / 2>/dev/null | head -10; cat > /tmp/repro.py <<'PYEOF'\nimport asyncio, json, sys\nsys.path.insert(0, '/app')\nfrom openlibrary.solr import update_work\nfrom openlibrary.solr.data_provider import DataProvider\nfrom openlibrary.solr.update_work import (\n    SolrUpdateState, WorkSolrUpdater, AuthorSolrUpdater, EditionSolrUpdater,\n    update_keys, solr_update, AbstractSolrUpdater,\n)\nfrom openlibrary.solr.update_work import data_p\n[truncated]\nf): return self\n        async def __aexit__(self, *a): return False\n        async def get(self, *a, **kw): return FakeResp2()\n    uw.get_solr_base_url = lambda: 'http://solr'\n    uw.httpx.AsyncClient = lambda **kw: FakeClient2()\n    ast2 = await AuthorSolrUpdater().update_key(author)\n    assert any(a['key']=='/authors/OL1A' and a['work_count']==0 and a['top_subjects']==[] for a in ast2.adds), ast2.adds\n    uw.get_solr_base_url = original_get\n    uw.httpx.AsyncClient = orig_client\n    print('Author no facets OK')\n\n    # 11. abstract base\n    assert AbstractSolrUpdater.__abstractmethods__ == frozenset({'key_test','update_key'})\n    print('AbstractSolrUpdater OK')\n\n    print('ALL PASS')\n\nasyncio.run(main())\nPYEOF\ncd /app && PYTHONPATH=/app python3 /tmp/repro.py 2>&1 | grep -v \"statsd\\|config\"; cd /app && python3 - <<'PYEOF'\nimport re\np='/tmp/repro.py'\ns=open(p).read()\ns=s.replace(\"    # 2. Work updater\\n    work = \", \"    # 2. Work updater\\n    dp0 = FakeDP([])\\n    update_work.data_provider = dp0\\n    work = \")\nopen(p,'w').write(s)\nPYEOF\ncd /app && PYTHONPATH=/app python3 /tmp/repro.py 2>&1 | grep -v \"statsd\\|config\"; cd /app && python3 -m pytest openlibrary/solr/tests/test_update_work.py -x -q 2>&1 | tail -20. The submission reorganizes openlibrary/solr/update_work.py around SolrUpdateState with WorkSolrUpdater, AuthorSolrUpdater, EditionSolrUpdater, an AbstractSolrUpdater base, and a rewritten update_keys() that aggregates results into one state; the obsolete request classes were removed and the CommitRequest import in scripts/solr_updater.py dropped. The current tree is the same commit the full custom reproduction was run against, and that run reported ALL PASS covering: SolrUpdateState fields/operators, work updates (including missing-title __None__ serialization), synthetic work creation from editions, edition-with-works routing, redirect/delete deletes handling, update_keys prefix routing/aggregation, author work_count/top_subjects (including empty-facet defaults), AbstractSolrUpdater abstractness, and solr_update/print modes. The only repository pytest target does not exist (openlibrary/solr/tests/ is absent), so no existing test was modified and no in-repo test suite could be run. The packet's earlier failures (e.g., grep timeout scanning '/') and the AttributeError/TypeError failures came from a pre-patch tree (e3b0c442.../sed of lines 1195-1361 shows old update_work/update_author code) or repro scaffolding before data_provider was mocked; they do not reflect the current patch. Requirement coverage is complete per direct verification; no unresolved contract remains.",
+            "failure_dispositions": [
+              {
+                "command": "cd /app && sed -n '1195,1361p' openlibrary/solr/update_work.py",
+                "evidence": "Shows old update_work/update_author/AddRequest code from tree e3b0c442 (pre-patch); not representative of current bbddc72 tree.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && sed -n '721,956p' openlibrary/solr/update_work.py",
+                "evidence": "Pre-patch tree content (build_data/solr_insert_documents); no bearing on new requirements.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && grep -rn 'SolrUpdateState' / 2>/dev/null | head -10",
+                "evidence": "Timeout (returncode 124) scanning entire filesystem; environmental, not a code defect. Current-tree repro confirms SolrUpdateState exists and passes.",
+                "resolution": "environment_blocked"
+              },
+              {
+                "command": "cd /app && sed -n '1260,1527p' openlibrary/solr/update_work.py",
+                "evidence": "Current-tree content excerpt; repro on same tree passed ALL PASS.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cat > /tmp/repro.py <<'PYEOF' ... && cd /app && PYTHONPATH=/app python3 /tmp/repro.py",
+                "evidence": "Earlier iterations failed due to unmocked data_provider (AttributeError/TypeError). Final iteration with FakeDP mocked returned ALL PASS (returncode 0) on the current tree.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && python3 - <<'PYEOF' ... && cd /app && PYTHONPATH=/app python3 /tmp/repro.py",
+                "evidence": "Rerun with mocked data_provider and corrected author_role shape: returned 0 with ALL PASS covering every stated requirement.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && grep -n \"update_work\\|update_author\" openlibrary/solr/update_work.py",
+                "evidence": "Returncode 1 (no matches) — confirms legacy update_work/update_author functions were fully removed, satisfying the replacement requirement.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && python3 -m pytest openlibrary/solr/tests/test_update_work.py -x -q",
+                "evidence": "No openlibrary/solr/tests/ directory exists in the repo; test target not found (exit 4). No existing test was modified; verification used the custom repro on the current tree.",
+                "resolution": "environment_blocked"
+              }
+            ]
+          }
+        ],
+        "check_evidence": [
+          {
+            "submission_id": 2,
+            "elapsed_seconds": 1350.793,
+            "command": "cd /app && python3 -m pytest openlibrary/solr/tests/test_update_work.py -x -q 2>&1 | tail -20",
+            "evidence": {
+              "status": "no_tests",
+              "returncode": 4,
+              "summary": "ERROR: file or directory not found: openlibrary/solr/tests/test_update_work.py\nplugins: anyio-4.10.0, cov-4.1.0, rerunfailures-15.1, asyncio-0.21.1\n============================ no tests ran in 0.01s =============================\n[check exit code: 4]",
+              "note": "Output classification, not a correctness verdict. Relate failures to requirements and the recorded tree version."
+            },
+            "tree_after": "bbddc72e14534661971cbf85a2598da1701a7a2d419acf11ffa151b1549d64b0  -"
+          }
+        ],
+        "report": "workspace/pro20_review_smoke_20260922/openlibrary_322d/run/openlibrary/case_001/reports/DeepSeek-V4-Flash-0731.run_ae892031_openlibrary_001.json",
+        "eval_detail": {
+          "patch_is_None": false,
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "infra_failure": false,
+          "tests_status": {
+            "FAIL_TO_PASS": {
+              "success": [
+                "openlibrary/tests/solr/test_update_work.py::TestAuthorUpdater::test_workless_author",
+                "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_no_title",
+                "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_work_no_title",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_successful_response",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_non_json_solr_503",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_solr_offline",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_invalid_solr_request",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_bad_apple_in_solr_request",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_other_non_ok_status"
+              ],
+              "failure": [
+                "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_delete",
+                "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_redirects"
+              ]
+            },
+            "PASS_TO_PASS": {
+              "success": [],
+              "failure": []
+            },
+            "FAIL_TO_FAIL": {
+              "success": [],
+              "failure": []
+            },
+            "PASS_TO_FAIL": {
+              "success": [],
+              "failure": []
+            }
+          }
+        }
+      },
+      "source_sha256": {
+        "metagpt/roles/di/reviewer.py": "911222f2b86c83eb0fd5df453a6d1f531bfe66577b9dbe72fcd15d5f9b8d3d7e",
+        "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+        "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+        "metagpt/roles/di/swe_checks.py": "7d882136e8485674febcd292b0249b92e2c43ebc968a3454e843db57be40f657",
+        "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+        "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+        "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+        "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+        "metagpt/roles/di/swe_protocol.py": "2a81ef2af57192d81f8624eec4e1f6a3249912c60ff811ccf0ab8ee2316ca67e",
+        "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+        "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+        "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+        "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+        "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+        "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+        "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+        "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+        "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+        "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+        "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+      },
+      "source_hashes_still_match": true
+    },
+    {
+      "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "folder": "workspace/pro22_handoff_smoke_20260922/ansible_bec27/run/ansible/case_001",
+      "outcome": "unresolved",
+      "patch_chars": 8423,
+      "patch_sha256": "03222162689d6c8577ba195ef323a39f51cf08a103e3a069e88c972343aaf931",
+      "case_seconds": 1442.143,
+      "terminal_reason": "insufficient editing time for requested changes; patch preserved",
+      "usage": {
+        "prompt_tokens": 1561912,
+        "completion_tokens": 49089,
+        "total_tokens": 1611001,
+        "cached_prompt_tokens": 1292288,
+        "reported_reasoning_tokens": 38488
+      },
+      "usage_by_role": {
+        "Mike": {
+          "prompt_tokens": 7850,
+          "completion_tokens": 3602,
+          "total_tokens": 11452
+        },
+        "Alex": {
+          "prompt_tokens": 1488293,
+          "completion_tokens": 26150,
+          "total_tokens": 1514443
+        },
+        "Reviewer": {
+          "prompt_tokens": 65769,
+          "completion_tokens": 19337,
+          "total_tokens": 85106
+        }
+      },
+      "api_errors": {},
+      "network_isolated": true,
+      "history_isolated": true,
+      "model_responses": 55,
+      "submissions": 2,
+      "verification_followups": 0,
+      "reviews": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 1023.593,
+          "status": "changes_requested",
+          "reason": "verification_missing",
+          "content": "changes_requested: The patch is a partial, mostly non-functional attempt against the task's requirements. It edits lib/ansible/cli/doc.py and lib/ansible/utils/plugin_docs.py but implements only the comma-separated doc-fragment handling and no-mid-word wrapping. The declared value-representation work (_DocDumper, _represent_doc_unicode/_represent_doc_bool, _AMBIGUOUS_SCALAR_RE, _needs_quoting) is dead code: _DocDumper is an empty AnsibleDumper subclass with no add_representer registration, so ambiguous scalars like file modes are never quoted and booleans are not emitted explicitly. Meanwhile removing default_style=\"''\" from _dump_yaml silently changes the established quoting format of -s/return output, contradicting the \"output format must remain stable\" requirement. DEFAULT_ROLE_DESCRIPTION is defined but never used, so the required placeholder role-summary behavior is absent. Role listing grouping, role-doc graceful degradation, required-option markers, FQCN resolution, non-fatal per-item error handling, and versioned-link resolution are all unaddressed. Existing test/units/cli/test_doc.py (24 tests) passes only because ANSIBLE_COLOR is False under pytest, exercising none of the new ANSI/role/formatting paths.",
+          "failure_dispositions": []
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1442.143,
+          "status": "changes_requested",
+          "reason": "verification_missing",
+          "content": "Blocking defect: `_dump_yaml` references `AnsibleUnicode` (lib/ansible/cli/doc.py:1092) without importing it, raising `NameError: name 'AnsibleUnicode' is not defined` on every call. This is the core rendering path for all non-role, non-listing `ansible-doc <plugin>` output and for keyword docs, so the primary expected behavior (styled/structured plugin docs) is broken on the current tree (confirmed by reproduction against the submission tree `0322216268...`). Fix: import `AnsibleUnicode` from `ansible.parsing.yaml.objects` (or register the representer for plain `text_type`, since docs may contain plain str values — otherwise the ambiguous-scalar quoting for e.g. `0o600` only applies to AnsibleUnicode instances). Also remove the duplicated `t = cls._ITALIC.sub(...)` line in the no-color branch of `tty_ify` (harmless but redundant). After fixing, rerun the failing reproduction plus test/units/cli/test_doc.py; role listing grouping and comma-separated fragment handling are plausibly on track but unverified while the dump path crashes.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && python -c \"from ansible.cli.doc import DocCLI; print(DocCLI._dump_yaml({'mode': '0o600', 'enabled': True}))\"",
+              "evidence": "NameError: name 'AnsibleUnicode' is not defined at lib/ansible/cli/doc.py:1092 on current tree 03222162689d6c8577ba195ef323a39f51cf08a103e3a069e88c972343aaf931; _dump_yaml is the core path for all plugin/keyword doc rendering, so the primary `ansible-doc <plugin>` output crashes.",
+              "resolution": "unresolved"
+            },
+            {
+              "command": "cd /app && python - <<'PY'\nfrom ansible.cli.doc import DocCLI\nprint(DocCLI._dump_yaml({'mode': '0o600', 'enabled': True, 'name': 'foo'}))\nPY",
+              "evidence": "Same NameError on current tree; confirms defect is in the submitted patch, not environment.",
+              "resolution": "unresolved"
+            },
+            {
+              "command": "cd /app && python - <<'PY'\nimport yaml\nfrom ansible.parsing.yaml.loader import AnsibleLoader\nd = AnsibleLoader('default: 0o600\\n', file_name='x').get_single_data()\nprint(yaml.dump({'default': d['default']}, Dumper=yaml.SafeDumper, default_style=\"''\"))\nPY",
+              "evidence": "Exploratory check on pre-patch tree showing SafeDumper cannot represent AnsibleUnicode 0o600; motivates the quoting work but is not a repository failure of the patch.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && python -m pytest test/units/cli/test_doc.py -q",
+              "evidence": "24 passed on recorded tree ab1bb5df; existing tests do not exercise the new _dump_yaml representer path, so they do not cover the NameError.",
+              "resolution": "expected_behavior"
+            }
+          ]
+        }
+      ],
+      "check_evidence": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 957.452,
+          "command": "cd /app && python -m pytest test/units/cli/test_doc.py -q 2>&1 | tail -20",
+          "evidence": {
+            "status": "tests_passed",
+            "returncode": 0,
+            "summary": "plugins: anyio-4.10.0, rerunfailures-13.0, xdist-3.5.0, forked-1.6.0, mock-3.12.0\n============================== 24 passed in 0.54s ==============================\n[check exit code: 0]",
+            "note": "Output classification, not a correctness verdict. Relate failures to requirements and the recorded tree version."
+          },
+          "tree_after": "ab1bb5dfdbdd84635d75667894c011c8b8d88ebb438eb8aa3b3c438873874678  -"
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1412.242,
+          "command": "cd /app && python -c \"from ansible.cli.doc import DocCLI; print(DocCLI._dump_yaml({'mode': '0o600', 'enabled': True}))\"",
+          "evidence": {
+            "status": "failure_observed",
+            "returncode": 1,
+            "summary": "[check log: /tmp/swe-check.3X0Ykir4]\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/app/lib/ansible/cli/doc.py\", line 1092, in _dump_yaml\n    dumper.add_representer(AnsibleUnicode, DocCLI._represent_doc_unicode)\n                           ^^^^^^^^^^^^^^\nNameError: name 'AnsibleUnicode' is not defined\n\n[check exit code: 1]\n",
+            "note": "Runtime traceback from a reproduction, not a passing test."
+          },
+          "tree_after": "03222162689d6c8577ba195ef323a39f51cf08a103e3a069e88c972343aaf931  -"
+        }
+      ],
+      "report": "workspace/pro22_handoff_smoke_20260922/ansible_bec27/run/ansible/case_001/reports/DeepSeek-V4-Flash-0731.run_957e57b7_ansible_001.json",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [],
+            "failure": [
+              "test/units/cli/test_doc.py::test_ttyify[I(italic)-`italic`]",
+              "test/units/cli/test_doc.py::test_rolemixin__build_summary_empty_argspec",
+              "test/units/cli/test_doc.py::test_rolemixin__build_summary"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [
+              "test/units/cli/test_doc.py::test_ttyify[The",
+              "test/units/cli/test_doc.py::test_ttyify[M(ansible.builtin.module)-[ansible.builtin.module]]",
+              "test/units/cli/test_doc.py::test_ttyify[yolo",
+              "test/units/cli/test_doc.py::test_rolemixin__build_doc",
+              "test/units/cli/test_doc.py::test_ttyify[U(https://docs.ansible.com)-https://docs.ansible.com]",
+              "test/units/cli/test_doc.py::test_ttyify[..",
+              "test/units/cli/test_doc.py::test_ttyify[IBM(International",
+              "test/units/cli/test_doc.py::test_ttyify[R(the",
+              "test/units/cli/test_doc.py::test_ttyify[L(the",
+              "test/units/cli/test_doc.py::test_ttyify[HORIZONTALLINE-\\n-------------\\n]",
+              "test/units/cli/test_doc.py::test_ttyify[C(/usr/bin/file)-`/usr/bin/file']",
+              "test/units/cli/test_doc.py::test_ttyify[B(bold)-*bold*]",
+              "test/units/cli/test_doc.py::test_rolemixin__build_doc_no_filter_match",
+              "test/units/cli/test_doc.py::test_ttyify[no-op",
+              "test/units/cli/test_doc.py::test_legacy_modules_list",
+              "test/units/cli/test_doc.py::test_ttyify[no-op-no-op]",
+              "test/units/cli/test_doc.py::test_builtin_modules_list"
+            ],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "label": "ansible_bec27",
+      "controller": {
+        "label": "ansible_bec27",
+        "started": "2026-09-22T06:31:04.684688+00:00",
+        "finished": "2026-09-22T06:55:59.328800+00:00",
+        "wall_seconds": 1494.6443704869598,
+        "returncode": 0
+      },
+      "first_repository_change_seconds": 837.749,
+      "handoff_files": [
+        {
+          "submission_id": 1,
+          "paths": [
+            "test/units/cli/test_doc.py",
+            "lib/ansible/cli/doc.py",
+            "lib/ansible/parsing/plugin_docs.py",
+            "changelogs/fragments/82465-ansible-doc-paragraphs.yml",
+            "lib/ansible/constants.py",
+            "lib/ansible/utils/plugin_docs.py",
+            "lib/ansible/parsing/yaml/dumper.py"
+          ]
+        },
+        {
+          "submission_id": 2,
+          "paths": [
+            "test/units/cli/test_doc.py",
+            "lib/ansible/cli/doc.py",
+            "lib/ansible/parsing/plugin_docs.py",
+            "changelogs/fragments/82465-ansible-doc-paragraphs.yml",
+            "lib/ansible/constants.py",
+            "lib/ansible/utils/plugin_docs.py",
+            "lib/ansible/parsing/yaml/dumper.py"
+          ]
+        }
+      ],
+      "review_actions": [
+        {
+          "event": "review_read",
+          "submission_id": 1,
+          "elapsed_seconds": 921.646,
+          "command": "cd /app && sed -n '395,470p' lib/ansible/cli/doc.py",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 1,
+          "elapsed_seconds": 921.76,
+          "command": "cd /app && grep -n \"_SEM_OPTION_NAME\\|_RST_SEEALSO\\|_RULER\\|_RST_NOTE\\|_RST_ROLES\\|_RST_DIRECTIVES\\|_SEM_ENV_VARIABLE\\|_SEM_RET_VALUE\" lib/ansible/cli/doc.py | head -40",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 1,
+          "elapsed_seconds": 955.828,
+          "command": "cd /app && sed -n '1,80p' lib/ansible/utils/color.py && grep -n \"bright\" lib/ansible/utils/color.py | head",
+          "evidence": null
+        },
+        {
+          "event": "review_check",
+          "submission_id": 1,
+          "elapsed_seconds": 957.452,
+          "command": "cd /app && python -m pytest test/units/cli/test_doc.py -q 2>&1 | tail -20",
+          "evidence": {
+            "status": "tests_passed",
+            "returncode": 0,
+            "summary": "plugins: anyio-4.10.0, rerunfailures-13.0, xdist-3.5.0, forked-1.6.0, mock-3.12.0\n============================== 24 passed in 0.54s ==============================\n[check exit code: 0]",
+            "note": "Output classification, not a correctness verdict. Relate failures to requirements and the recorded tree version."
+          }
+        },
+        {
+          "event": "review_read",
+          "submission_id": 2,
+          "elapsed_seconds": 1356.844,
+          "command": "cd /app && grep -n \"_dump_yaml\\|AnsibleUnicode\\|AnsibleDumper\" lib/ansible/cli/doc.py",
+          "evidence": null
+        },
+        {
+          "event": "review_read",
+          "submission_id": 2,
+          "elapsed_seconds": 1375.096,
+          "command": "cd /app && grep -rn \"AnsibleUnicode\" lib/ansible/parsing/yaml/objects.py | head -5 && sed -n '1066,1100p' lib/ansible/cli/doc.py",
+          "evidence": null
+        },
+        {
+          "event": "review_check",
+          "submission_id": 2,
+          "elapsed_seconds": 1412.242,
+          "command": "cd /app && python -c \"from ansible.cli.doc import DocCLI; print(DocCLI._dump_yaml({'mode': '0o600', 'enabled': True}))\"",
+          "evidence": {
+            "status": "failure_observed",
+            "returncode": 1,
+            "summary": "[check log: /tmp/swe-check.3X0Ykir4]\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"/app/lib/ansible/cli/doc.py\", line 1092, in _dump_yaml\n    dumper.add_representer(AnsibleUnicode, DocCLI._represent_doc_unicode)\n                           ^^^^^^^^^^^^^^\nNameError: name 'AnsibleUnicode' is not defined\n\n[check exit code: 1]\n",
+            "note": "Runtime traceback from a reproduction, not a passing test."
+          }
+        },
+        {
+          "event": "review_read",
+          "submission_id": 2,
+          "elapsed_seconds": 1412.353,
+          "command": "cd /app && grep -n \"AnsibleUnicode\\|from ansible.parsing.yaml\\|import yaml\" lib/ansible/cli/doc.py",
+          "evidence": null
+        }
+      ],
+      "review_request_tools": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 900.587,
+          "tools": null
+        },
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 921.76,
+          "tools": null
+        },
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 957.453,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1320.462,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1356.845,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1375.096,
+          "tools": null
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1412.353,
+          "tools": null
+        }
+      ],
+      "previous_pro20": {
+        "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+        "folder": "workspace/pro20_review_smoke_20260922/ansible_bec27/run/ansible/case_001",
+        "outcome": "unresolved",
+        "patch_chars": 12530,
+        "patch_sha256": "c252bd7c20c0759ff273c9c52dc60e2eb4823c970c3865566e56a2043f580c3e",
+        "case_seconds": 1397.096,
+        "terminal_reason": "insufficient editing time for requested changes; patch preserved",
+        "usage": {
+          "prompt_tokens": 1411894,
+          "completion_tokens": 42229,
+          "total_tokens": 1454123,
+          "cached_prompt_tokens": 1098752,
+          "reported_reasoning_tokens": 29309
+        },
+        "usage_by_role": {
+          "Mike": {
+            "prompt_tokens": 6484,
+            "completion_tokens": 2503,
+            "total_tokens": 8987
+          },
+          "Alex": {
+            "prompt_tokens": 1363274,
+            "completion_tokens": 30863,
+            "total_tokens": 1394137
+          },
+          "Reviewer": {
+            "prompt_tokens": 42136,
+            "completion_tokens": 8863,
+            "total_tokens": 50999
+          }
+        },
+        "api_errors": {},
+        "network_isolated": true,
+        "history_isolated": true,
+        "model_responses": 50,
+        "submissions": 2,
+        "verification_followups": 1,
+        "reviews": [
+          {
+            "submission_id": 1,
+            "elapsed_seconds": 971.78,
+            "status": "inconclusive",
+            "reason": "verification_missing",
+            "content": "The submission is a partial, time-exhausted patch. It adds ANSI styling to `DocCLI.tty_ify` (with a no-color fallback), colors required options and sem-formatting, groups role listings under single headings, disables mid-word breaks in `warp_fill`, normalizes comma-separated doc fragments, and adds per-role error skipping. However, multiple mandatory behaviors are unaddressed/unverified: verbosity-gated \"added in\"/metadata surfacing, versioned-docsite resolution for relative links, role summary placeholder when metadata is missing, consistent value quoting in examples/return sections, stable diagnostic wording, and a no-color ASCII marker for required options (no-color mode still relies only on the pre-existing `=`/`-` leadin). Only a self-authored reproduction ran; the matching repository unit test for this source (test/units/cli/test_doc.py) was never executed, so compatibility with existing expectations is unverified. Per policy, a custom reproduction alone does not establish compatibility, and zero repository tests means unverified.",
+            "failure_dispositions": [
+              {
+                "command": "cd /app && sed -n '1,120p' lib/ansible/playbook/role/metadata.py",
+                "evidence": "Plain file-read command, exit 0; not a correctness test. Output classification only, unrelated to patch requirements.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && sed -n '1,60p' lib/ansible/utils/display.py",
+                "evidence": "Plain file-read command, exit 0; no assertion of task behavior. Confirms Display exists but tests nothing.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && grep -n \"color\\|COLOR\\|no_color\\|ANSIBLE_NOCOLOR\\|FORCE_COLOR\" lib/ansible/utils/display.py | head -40",
+                "evidence": "Grep inspection, exit 0; confirms color infra exists, but is not a behavioral test.",
+                "resolution": "expected_behavior"
+              }
+            ]
+          },
+          {
+            "submission_id": 2,
+            "elapsed_seconds": 1397.096,
+            "status": "changes_requested",
+            "reason": "verification_missing",
+            "content": "All repository checks pass: `test/units/cli/test_doc.py` runs green (24 passed) on the current tree c252bd7c, and the earlier read-only commands were source inspection, not failures. The patch implements ANSI styling with a no-color fallback (backticks/asterisks), colors required options when ANSI is active, groups role listings under a single heading, gates \"ADDED IN\" behind verbosity, disables mid-word wrapping, normalizes comma-separated doc fragments, and resolves FQCNs. However, in no-color mode required options are not visually distinguished: the `_get_color()` branch only colors, while the else branch emits the same plain text for required and optional entries — violating \"required options clearly indicated in both styled and no-color modes.\" Also, no source evidence verifies the role-metadata/argspec graceful-skip path (role summary placeholder, \"Skipping role\" warning) beyond the `'error' in role_data` branch added to `_display_role_doc`; role listing lacks the standardized placeholder requirement for missing metadata (\"No entry points found\" is used only for empty entry_points). Recommend adding a no-color ASCII required marker (e.g., \"(required)\") in the else branch and verifying role metadata fallback with a focused check.",
+            "failure_dispositions": [
+              {
+                "command": "cd /app && python -m pytest test/units/cli/test_doc.py -q",
+                "evidence": "24 passed on current tree c252bd7c; no failures to dispose.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && sed -n '1,120p' lib/ansible/playbook/role/metadata.py",
+                "evidence": "Informational source read only; returncode 0; not a correctness check.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && sed -n '1,60p' lib/ansible/utils/display.py",
+                "evidence": "Informational source read only; returncode 0; not a correctness check.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && grep -n \"color|COLOR|no_color|ANSIBLE_NOCOLOR|FORCE_COLOR\" lib/ansible/utils/display.py",
+                "evidence": "Informational grep; returncode 0; not a correctness check.",
+                "resolution": "expected_behavior"
+              },
+              {
+                "command": "cd /app && python - <<'EOF' ... verbosity gating edits ... EOF",
+                "evidence": "Subsequent edit restructured the gating; final state (if 'version_added' in doc: ... if verbosity>0) passes tests.",
+                "resolution": "expected_behavior"
+              }
+            ]
+          }
+        ],
+        "check_evidence": [
+          {
+            "submission_id": 1,
+            "elapsed_seconds": 926.845,
+            "command": "cd /app && python -m py_compile lib/ansible/cli/doc.py lib/ansible/utils/color.py lib/ansible/utils/plugin_docs.py && python - <<'EOF'\nimport ansible.constants as C\nfrom ansible.cli.doc import DocCLI\n# no-color path\nDocCLI._get_color = staticmethod(lambda: False)\nout = DocCLI.tty_ify(\"See B(required) and I(italic), C(const), U(http://x.y), O(module.param#opt=val)\")\nprint(\"NOCOLOR:\", repr(out))\n# color path\nDocCLI._get_color = staticmethod(lambda: True)\nout2 = DocCLI.tty_ify(\"B(bold) O(a.b#opt=1)\")\nprint(\"COLOR:\", repr(out2))\n# check color names exist in COLOR_CODES\nfor c in ('bright cyan','bright red','bright blue','bright yellow','bright green'):\n    print(c, c in C.COLOR_CODES)\nEOF",
+            "evidence": null,
+            "tree_after": "b87b208b2d0e849504c303b87112810c6edc2332c5156d62d143a6f92f08897d  -"
+          }
+        ],
+        "report": "workspace/pro20_review_smoke_20260922/ansible_bec27/run/ansible/case_001/reports/DeepSeek-V4-Flash-0731.run_e030b8ac_ansible_001.json",
+        "eval_detail": {
+          "patch_is_None": false,
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "infra_failure": false,
+          "tests_status": {
+            "FAIL_TO_PASS": {
+              "success": [],
+              "failure": [
+                "test/units/cli/test_doc.py::test_ttyify[I(italic)-`italic`]",
+                "test/units/cli/test_doc.py::test_rolemixin__build_summary_empty_argspec",
+                "test/units/cli/test_doc.py::test_rolemixin__build_summary"
+              ]
+            },
+            "PASS_TO_PASS": {
+              "success": [
+                "test/units/cli/test_doc.py::test_ttyify[The",
+                "test/units/cli/test_doc.py::test_ttyify[M(ansible.builtin.module)-[ansible.builtin.module]]",
+                "test/units/cli/test_doc.py::test_ttyify[yolo",
+                "test/units/cli/test_doc.py::test_rolemixin__build_doc",
+                "test/units/cli/test_doc.py::test_ttyify[U(https://docs.ansible.com)-https://docs.ansible.com]",
+                "test/units/cli/test_doc.py::test_ttyify[..",
+                "test/units/cli/test_doc.py::test_ttyify[IBM(International",
+                "test/units/cli/test_doc.py::test_ttyify[R(the",
+                "test/units/cli/test_doc.py::test_ttyify[L(the",
+                "test/units/cli/test_doc.py::test_ttyify[HORIZONTALLINE-\\n-------------\\n]",
+                "test/units/cli/test_doc.py::test_ttyify[C(/usr/bin/file)-`/usr/bin/file']",
+                "test/units/cli/test_doc.py::test_ttyify[B(bold)-*bold*]",
+                "test/units/cli/test_doc.py::test_rolemixin__build_doc_no_filter_match",
+                "test/units/cli/test_doc.py::test_ttyify[no-op",
+                "test/units/cli/test_doc.py::test_legacy_modules_list",
+                "test/units/cli/test_doc.py::test_ttyify[no-op-no-op]",
+                "test/units/cli/test_doc.py::test_builtin_modules_list"
+              ],
+              "failure": []
+            },
+            "FAIL_TO_FAIL": {
+              "success": [],
+              "failure": []
+            },
+            "PASS_TO_FAIL": {
+              "success": [],
+              "failure": []
+            }
+          }
+        }
+      },
+      "source_sha256": {
+        "metagpt/roles/di/reviewer.py": "911222f2b86c83eb0fd5df453a6d1f531bfe66577b9dbe72fcd15d5f9b8d3d7e",
+        "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+        "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+        "metagpt/roles/di/swe_checks.py": "7d882136e8485674febcd292b0249b92e2c43ebc968a3454e843db57be40f657",
+        "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+        "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+        "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+        "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+        "metagpt/roles/di/swe_protocol.py": "2a81ef2af57192d81f8624eec4e1f6a3249912c60ff811ccf0ab8ee2316ca67e",
+        "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+        "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+        "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+        "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+        "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+        "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+        "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+        "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+        "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+        "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+        "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+      },
+      "source_hashes_still_match": true
+    }
+  ],
+  "regression_tests": 72,
+  "notes": [
+    "Targeted two-case smoke, not benchmark success-rate estimate.",
+    "Count model_usage only; reasoning included in completion tokens. Failed/interrupted requests may have unreported usage.",
+    "Generation and evaluation are offline; no gold patch or hidden tests supplied to agents."
+  ]
+}

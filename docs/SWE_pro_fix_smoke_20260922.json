@@ -1,0 +1,1132 @@
+{
+  "updated": "2026-09-22T03:46:07.302918+00:00",
+  "completed": true,
+  "smoke": [
+    {
+      "instance_id": "instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86",
+      "folder": "workspace/pro20_review_smoke_20260922/ansible_bf98/run/ansible/case_001",
+      "outcome": "unresolved",
+      "patch_chars": 11083,
+      "patch_sha256": "2e1cd2f1c23784c18cae494bec75882ea1d4dcff519a1e485b96757a456c3365",
+      "case_seconds": 1403.932,
+      "terminal_reason": "review inconclusive; current patch preserved",
+      "usage": {
+        "prompt_tokens": 1210253,
+        "completion_tokens": 85747,
+        "total_tokens": 1296000,
+        "cached_prompt_tokens": 961792,
+        "reported_reasoning_tokens": 75210
+      },
+      "usage_by_role": {
+        "Mike": {
+          "prompt_tokens": 7878,
+          "completion_tokens": 4799,
+          "total_tokens": 12677
+        },
+        "Alex": {
+          "prompt_tokens": 1170795,
+          "completion_tokens": 68231,
+          "total_tokens": 1239026
+        },
+        "Reviewer": {
+          "prompt_tokens": 31580,
+          "completion_tokens": 12717,
+          "total_tokens": 44297
+        }
+      },
+      "api_errors": {},
+      "network_isolated": true,
+      "history_isolated": true,
+      "model_responses": 41,
+      "submissions": 2,
+      "verification_followups": 1,
+      "reviews": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 981.59,
+          "status": "inconclusive",
+          "reason": "verification_missing",
+          "content": "placeholder - will finalize",
+          "failure_dispositions": []
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1403.932,
+          "status": "inconclusive",
+          "reason": "verification_missing",
+          "content": "No successful focused verification is attached to this submission. Current patch is preserved; inspection alone is not approval. Patch implements both required helpers and the uri integration. On the current tree (2e1cd2f...), a direct verification confirmed: remove_values redacts values with exactly 8 asterisks for text and bytes tokens, preserves scalars (datetime/True/None), handles 10000-deep nesting iteratively; sanitize_keys replaces exact key matches with VALUE_SPECIFIED_IN_NO_LOG_PARAMETER, honors ignore_keys ('changed' kept, 'a_changed' → 'a_********'), skips _ansible-prefixed keys (text and bytes), passes through non-mappings (sets/tuples/scalars), and NO_MODIFY_KEYS equals the required 14-key set, applied only when module.no_log_values is non-empty.\n\nThe two failing unit tests (test_strings_to_remove, test_hit_recursion_limit) encode the OLD contract where exact value matches yield the OMIT sentinel; the new public task explicitly requires every value occurrence to become '********' (sentinel applies only to mapping keys in sanitize_keys). Failures are old-expectation drift, not defects. No tests were modified. py_compile passes.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && python -m py_compile lib/ansible/module_utils/basic.py lib/ansible/modules/uri.py && echo OK && python -m pytest test/units/module_utils/basic/test_no_log.py -q 2>&1 | tail -20",
+              "evidence": "Compile OK; the 2 failures assert old sentinel VALUE_SPECIFIED_IN_NO_LOG_PARAMETER for scalar values, contradicting the new requirement that remove_values replace every value occurrence with '********' (sentinel reserved for exact mapping-key matches in sanitize_keys). Expected under new spec.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && python - <<'PYEOF' (custom reproduction for sanitize_keys/remove_values requirements)",
+              "evidence": "Passed on current tree: bytes/text iterables, exact-key sentinel, ignore_keys, scalar passthrough, _ansible keys, deep nesting (10k levels) without recursion error, NO_MODIFY_KEYS set matches required 14 keys.",
+              "resolution": "expected_behavior"
+            }
+          ]
+        }
+      ],
+      "check_evidence": [
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1368.118,
+          "command": "cd /app && python - <<'PYEOF'\nfrom ansible.module_utils.basic import remove_values, sanitize_keys\nimport datetime\n# requirement: remove_values accepts iterable of bytes/text via to_native\nprint('rv bytes:', remove_values('secret x', [b'secret']))\nprint('rv text:', remove_values('secret x', ['secret']))\n# exact key match -> sentinel\nprint('keys exact:', sanitize_keys({'password': 1}, ['password']))\n# ignore list\nprint('ignore:', sanitize_keys({'changed': 1, 'a_changed': 1}, ['changed'], frozenset(['changed'])))\n# non-mapping passthrough\nprint('scalars:', sanitize_keys(datetime.datetime(2020,1,1), ['x']), sanitize_keys(True, ['x']), sanitize_keys(None, ['x']))\n# uri constants\nimport ansible.modules.uri as u\nexpected = {'msg','exception','warnings','deprecations','failed','skipped','changed','rc','stdout','stderr','elapsed','path','location','content_type'}\nprint('NO_MODIFY_KEYS ok:', expected == set(u.NO_MODIFY_KEYS))\nprint('DONE')\nPYEOF",
+          "evidence": null,
+          "tree_after": "2e1cd2f1c23784c18cae494bec75882ea1d4dcff519a1e485b96757a456c3365  -"
+        }
+      ],
+      "report": "workspace/pro20_review_smoke_20260922/ansible_bf98/run/ansible/case_001/reports/DeepSeek-V4-Flash-0731.run_1452e053_ansible_001.json",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "test/units/module_utils/basic/test_sanitize_keys.py::test_sanitize_keys_non_dict_types",
+              "test/units/module_utils/basic/test_sanitize_keys.py::test_sanitize_keys_with_ignores",
+              "test/units/module_utils/basic/test_sanitize_keys.py::test_sanitize_keys_dict"
+            ],
+            "failure": [
+              "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_strings_to_remove"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [
+              "test/units/module_utils/basic/test_no_log.py::TestReturnValues::test_unknown_type",
+              "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_no_removal",
+              "test/units/module_utils/basic/test_no_log.py::TestReturnValues::test_return_datastructure_name",
+              "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_unknown_type"
+            ],
+            "failure": [
+              "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_hit_recursion_limit"
+            ]
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "label": "ansible_bf98",
+      "controller": {
+        "label": "ansible_bf98",
+        "started": "2026-09-22T02:52:55.810305+00:00",
+        "finished": "2026-09-22T03:17:14.681886+00:00",
+        "wall_seconds": 1458.8716137316078,
+        "returncode": 0
+      },
+      "previous": {
+        "instance_id": "instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86",
+        "folder": "workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_001",
+        "outcome": "unresolved",
+        "patch_chars": 17214,
+        "patch_sha256": "d7582733d89720d832a15c8b3788d286e1992656bdc7dc7fb70d10bec37c04e9",
+        "case_seconds": 1009.692,
+        "terminal_reason": "review inconclusive; current patch preserved",
+        "usage": {
+          "prompt_tokens": 1436071,
+          "completion_tokens": 83284,
+          "total_tokens": 1519355,
+          "cached_prompt_tokens": 1321216,
+          "reported_reasoning_tokens": 67408
+        },
+        "usage_by_role": {
+          "Mike": {
+            "prompt_tokens": 7546,
+            "completion_tokens": 10685,
+            "total_tokens": 18231
+          },
+          "Alex": {
+            "prompt_tokens": 1406306,
+            "completion_tokens": 54986,
+            "total_tokens": 1461292
+          },
+          "Reviewer": {
+            "prompt_tokens": 22219,
+            "completion_tokens": 17613,
+            "total_tokens": 39832
+          }
+        },
+        "api_errors": {},
+        "network_isolated": true,
+        "history_isolated": true,
+        "model_responses": 39,
+        "submissions": 1,
+        "verification_followups": 0,
+        "reviews": [
+          {
+            "submission_id": 1,
+            "elapsed_seconds": 1009.692,
+            "status": "inconclusive",
+            "reason": null,
+            "content": "No successful focused verification is attached to this submission. Current patch is preserved; inspection alone is not approval. approved\n\nEvidence: The patch (tree d7582733) implements all new-requirement behaviors. `remove_values` replaces value substrings with exactly 8 asterisks, leaves mapping keys untouched, preserves scalars (numbers/bools/dates/None) and container classes (tuple/set/frozenset via deferred finalize), and handles 10000-deep structures iteratively without recursion. `sanitize_keys(obj, no_log_strings, ignore_keys=frozenset())` redacts mapping keys recursively (including inside lists/sets/mappings), replaces exact token matches with VALUE_SPECIFIED_IN_NO_LOG_PARAMETER, honors ignore_keys and the `_ansible` prefix, passes non-mappings through unchanged, and preserves container classes. Both functions accept any iterable of text/binary via to_native. uri.py imports sanitize_keys, defines NO_MODIFY_KEYS with all 14 required names (verified), and invokes it only when module.no_log_values is non-empty. The repo test test/units/module_utils/basic/test_no_log.py fails only on old expectations that directly contradict the new requirements (OMIT vs `********`, key sanitization inside remove_values, scalar OMIT replacement), which the task explicitly changes; the submission did not modify tests. Custom final checks on the current tree pass.",
+            "failure_dispositions": null
+          }
+        ],
+        "check_evidence": [],
+        "report": "workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_001/reports/DeepSeek-V4-Flash-0731.ansible_ansible_001.json",
+        "eval_detail": {
+          "patch_is_None": false,
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "infra_failure": false,
+          "tests_status": {
+            "FAIL_TO_PASS": {
+              "success": [
+                "test/units/module_utils/basic/test_sanitize_keys.py::test_sanitize_keys_non_dict_types",
+                "test/units/module_utils/basic/test_sanitize_keys.py::test_sanitize_keys_with_ignores",
+                "test/units/module_utils/basic/test_sanitize_keys.py::test_sanitize_keys_dict"
+              ],
+              "failure": [
+                "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_strings_to_remove"
+              ]
+            },
+            "PASS_TO_PASS": {
+              "success": [
+                "test/units/module_utils/basic/test_no_log.py::TestReturnValues::test_unknown_type",
+                "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_no_removal",
+                "test/units/module_utils/basic/test_no_log.py::TestReturnValues::test_return_datastructure_name",
+                "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_unknown_type"
+              ],
+              "failure": [
+                "test/units/module_utils/basic/test_no_log.py::TestRemoveValues::test_hit_recursion_limit"
+              ]
+            },
+            "FAIL_TO_FAIL": {
+              "success": [],
+              "failure": []
+            },
+            "PASS_TO_FAIL": {
+              "success": [],
+              "failure": []
+            }
+          }
+        }
+      },
+      "source_sha256": {
+        "metagpt/roles/di/reviewer.py": "512309d5e4e9698686fffc9934ff1ef818b0abfe13a885b54096ef0921f3e7e8",
+        "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+        "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+        "metagpt/roles/di/swe_checks.py": "fd13b3a4b916e061edd46fc1cadd6fcc10521eac08a0b6789d6bd6ac0ace2d22",
+        "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+        "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+        "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+        "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+        "metagpt/roles/di/swe_protocol.py": "662e5a487e710623bfe6bc0eae39f9bdf28a7a1872d249b87a179f2b7676a121",
+        "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+        "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+        "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+        "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+        "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+        "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+        "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+        "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+        "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+        "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+        "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+      }
+    },
+    {
+      "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "folder": "workspace/pro20_review_smoke_20260922/ansible_bec27/run/ansible/case_001",
+      "outcome": "unresolved",
+      "patch_chars": 12530,
+      "patch_sha256": "c252bd7c20c0759ff273c9c52dc60e2eb4823c970c3865566e56a2043f580c3e",
+      "case_seconds": 1397.096,
+      "terminal_reason": "insufficient editing time for requested changes; patch preserved",
+      "usage": {
+        "prompt_tokens": 1411894,
+        "completion_tokens": 42229,
+        "total_tokens": 1454123,
+        "cached_prompt_tokens": 1098752,
+        "reported_reasoning_tokens": 29309
+      },
+      "usage_by_role": {
+        "Mike": {
+          "prompt_tokens": 6484,
+          "completion_tokens": 2503,
+          "total_tokens": 8987
+        },
+        "Alex": {
+          "prompt_tokens": 1363274,
+          "completion_tokens": 30863,
+          "total_tokens": 1394137
+        },
+        "Reviewer": {
+          "prompt_tokens": 42136,
+          "completion_tokens": 8863,
+          "total_tokens": 50999
+        }
+      },
+      "api_errors": {},
+      "network_isolated": true,
+      "history_isolated": true,
+      "model_responses": 50,
+      "submissions": 2,
+      "verification_followups": 1,
+      "reviews": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 971.78,
+          "status": "inconclusive",
+          "reason": "verification_missing",
+          "content": "The submission is a partial, time-exhausted patch. It adds ANSI styling to `DocCLI.tty_ify` (with a no-color fallback), colors required options and sem-formatting, groups role listings under single headings, disables mid-word breaks in `warp_fill`, normalizes comma-separated doc fragments, and adds per-role error skipping. However, multiple mandatory behaviors are unaddressed/unverified: verbosity-gated \"added in\"/metadata surfacing, versioned-docsite resolution for relative links, role summary placeholder when metadata is missing, consistent value quoting in examples/return sections, stable diagnostic wording, and a no-color ASCII marker for required options (no-color mode still relies only on the pre-existing `=`/`-` leadin). Only a self-authored reproduction ran; the matching repository unit test for this source (test/units/cli/test_doc.py) was never executed, so compatibility with existing expectations is unverified. Per policy, a custom reproduction alone does not establish compatibility, and zero repository tests means unverified.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && sed -n '1,120p' lib/ansible/playbook/role/metadata.py",
+              "evidence": "Plain file-read command, exit 0; not a correctness test. Output classification only, unrelated to patch requirements.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && sed -n '1,60p' lib/ansible/utils/display.py",
+              "evidence": "Plain file-read command, exit 0; no assertion of task behavior. Confirms Display exists but tests nothing.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && grep -n \"color\\|COLOR\\|no_color\\|ANSIBLE_NOCOLOR\\|FORCE_COLOR\" lib/ansible/utils/display.py | head -40",
+              "evidence": "Grep inspection, exit 0; confirms color infra exists, but is not a behavioral test.",
+              "resolution": "expected_behavior"
+            }
+          ]
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1397.096,
+          "status": "changes_requested",
+          "reason": "verification_missing",
+          "content": "All repository checks pass: `test/units/cli/test_doc.py` runs green (24 passed) on the current tree c252bd7c, and the earlier read-only commands were source inspection, not failures. The patch implements ANSI styling with a no-color fallback (backticks/asterisks), colors required options when ANSI is active, groups role listings under a single heading, gates \"ADDED IN\" behind verbosity, disables mid-word wrapping, normalizes comma-separated doc fragments, and resolves FQCNs. However, in no-color mode required options are not visually distinguished: the `_get_color()` branch only colors, while the else branch emits the same plain text for required and optional entries — violating \"required options clearly indicated in both styled and no-color modes.\" Also, no source evidence verifies the role-metadata/argspec graceful-skip path (role summary placeholder, \"Skipping role\" warning) beyond the `'error' in role_data` branch added to `_display_role_doc`; role listing lacks the standardized placeholder requirement for missing metadata (\"No entry points found\" is used only for empty entry_points). Recommend adding a no-color ASCII required marker (e.g., \"(required)\") in the else branch and verifying role metadata fallback with a focused check.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && python -m pytest test/units/cli/test_doc.py -q",
+              "evidence": "24 passed on current tree c252bd7c; no failures to dispose.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && sed -n '1,120p' lib/ansible/playbook/role/metadata.py",
+              "evidence": "Informational source read only; returncode 0; not a correctness check.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && sed -n '1,60p' lib/ansible/utils/display.py",
+              "evidence": "Informational source read only; returncode 0; not a correctness check.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && grep -n \"color|COLOR|no_color|ANSIBLE_NOCOLOR|FORCE_COLOR\" lib/ansible/utils/display.py",
+              "evidence": "Informational grep; returncode 0; not a correctness check.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && python - <<'EOF' ... verbosity gating edits ... EOF",
+              "evidence": "Subsequent edit restructured the gating; final state (if 'version_added' in doc: ... if verbosity>0) passes tests.",
+              "resolution": "expected_behavior"
+            }
+          ]
+        }
+      ],
+      "check_evidence": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 926.845,
+          "command": "cd /app && python -m py_compile lib/ansible/cli/doc.py lib/ansible/utils/color.py lib/ansible/utils/plugin_docs.py && python - <<'EOF'\nimport ansible.constants as C\nfrom ansible.cli.doc import DocCLI\n# no-color path\nDocCLI._get_color = staticmethod(lambda: False)\nout = DocCLI.tty_ify(\"See B(required) and I(italic), C(const), U(http://x.y), O(module.param#opt=val)\")\nprint(\"NOCOLOR:\", repr(out))\n# color path\nDocCLI._get_color = staticmethod(lambda: True)\nout2 = DocCLI.tty_ify(\"B(bold) O(a.b#opt=1)\")\nprint(\"COLOR:\", repr(out2))\n# check color names exist in COLOR_CODES\nfor c in ('bright cyan','bright red','bright blue','bright yellow','bright green'):\n    print(c, c in C.COLOR_CODES)\nEOF",
+          "evidence": null,
+          "tree_after": "b87b208b2d0e849504c303b87112810c6edc2332c5156d62d143a6f92f08897d  -"
+        }
+      ],
+      "report": "workspace/pro20_review_smoke_20260922/ansible_bec27/run/ansible/case_001/reports/DeepSeek-V4-Flash-0731.run_e030b8ac_ansible_001.json",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [],
+            "failure": [
+              "test/units/cli/test_doc.py::test_ttyify[I(italic)-`italic`]",
+              "test/units/cli/test_doc.py::test_rolemixin__build_summary_empty_argspec",
+              "test/units/cli/test_doc.py::test_rolemixin__build_summary"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [
+              "test/units/cli/test_doc.py::test_ttyify[The",
+              "test/units/cli/test_doc.py::test_ttyify[M(ansible.builtin.module)-[ansible.builtin.module]]",
+              "test/units/cli/test_doc.py::test_ttyify[yolo",
+              "test/units/cli/test_doc.py::test_rolemixin__build_doc",
+              "test/units/cli/test_doc.py::test_ttyify[U(https://docs.ansible.com)-https://docs.ansible.com]",
+              "test/units/cli/test_doc.py::test_ttyify[..",
+              "test/units/cli/test_doc.py::test_ttyify[IBM(International",
+              "test/units/cli/test_doc.py::test_ttyify[R(the",
+              "test/units/cli/test_doc.py::test_ttyify[L(the",
+              "test/units/cli/test_doc.py::test_ttyify[HORIZONTALLINE-\\n-------------\\n]",
+              "test/units/cli/test_doc.py::test_ttyify[C(/usr/bin/file)-`/usr/bin/file']",
+              "test/units/cli/test_doc.py::test_ttyify[B(bold)-*bold*]",
+              "test/units/cli/test_doc.py::test_rolemixin__build_doc_no_filter_match",
+              "test/units/cli/test_doc.py::test_ttyify[no-op",
+              "test/units/cli/test_doc.py::test_legacy_modules_list",
+              "test/units/cli/test_doc.py::test_ttyify[no-op-no-op]",
+              "test/units/cli/test_doc.py::test_builtin_modules_list"
+            ],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "label": "ansible_bec27",
+      "controller": {
+        "label": "ansible_bec27",
+        "started": "2026-09-22T02:52:55.810677+00:00",
+        "finished": "2026-09-22T03:17:08.927771+00:00",
+        "wall_seconds": 1453.1171195209026,
+        "returncode": 0
+      },
+      "previous": {
+        "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+        "folder": "workspace/pro18_api_paced_smoke/ansible/case_001",
+        "outcome": "unresolved",
+        "patch_chars": 23375,
+        "patch_sha256": "9aafec3234c0baacd58ea783630dd19969a6254e82db1ac33dedfc1f26a8749a",
+        "case_seconds": 1355.04,
+        "terminal_reason": "insufficient editing time for requested changes; patch preserved",
+        "usage": {
+          "prompt_tokens": 2429243,
+          "completion_tokens": 48801,
+          "total_tokens": 2478044,
+          "cached_prompt_tokens": 2243584,
+          "reported_reasoning_tokens": 32448
+        },
+        "usage_by_role": {
+          "Mike": {
+            "prompt_tokens": 5980,
+            "completion_tokens": 1978,
+            "total_tokens": 7958
+          },
+          "Alex": {
+            "prompt_tokens": 2374216,
+            "completion_tokens": 38454,
+            "total_tokens": 2412670
+          },
+          "Reviewer": {
+            "prompt_tokens": 49047,
+            "completion_tokens": 8369,
+            "total_tokens": 57416
+          }
+        },
+        "api_errors": {
+          "BadGatewayError": 1
+        },
+        "network_isolated": true,
+        "history_isolated": true,
+        "model_responses": 71,
+        "submissions": 2,
+        "verification_followups": 0,
+        "reviews": [
+          {
+            "submission_id": 1,
+            "elapsed_seconds": 941.997,
+            "status": "changes_requested",
+            "reason": null,
+            "content": "changes_requested\n\nEvidence:\n- Existing unit tests test/units/cli/test_doc.py fail: test_rolemixin__build_summary, test_rolemixin__build_summary_empty_argspec, test_rolemixin__build_doc. The patch unconditionally injects 'description': '[No description available for role test_role]' into every summary/doc, but these tests call _build_summary/_build_doc WITHOUT metadata (None) and expect no 'description' key. The new requirement does call for a standardized placeholder when metadata is missing, but that placeholder must be introduced only when metadata is actually absent in the production path (or tests updated only per new contract); unconditionally adding the key breaks the documented dict shape and the existing interface.\n- _format_text gates on the module-level constant ansible_color.ANSIBLE_COLOR (set at import time), not on the CLI --color/--nocolor selection, so the no-color fallback requirement is not reliably honored.\n- No existing-test restore or reproduction run in the current tree; the earlier pytest run predates the last source edits and was never re-run, so current behavior of get_man_text/_display_available_roles is unverified.\n\nRequired: fix description injection so missing-metadata placeholder appears only when metadata is absent (pass metadata through consistently), re-run test/units/cli/test_doc.py, and make styling respect the CLI color setting with ASCII fallback markers.",
+            "failure_dispositions": null
+          },
+          {
+            "submission_id": 2,
+            "elapsed_seconds": 1355.04,
+            "status": "changes_requested",
+            "reason": null,
+            "content": "Verdict: changes_requested.\n\nEvidence of a critical defect: the patch makes `find_plugin_docfile` return `context.resolved_fqcn` (plugin_docs.py:323) and stores it as `docs[0]['fqcn']`, but a repository-wide grep shows `resolved_fqcn` is defined nowhere else in `lib/ansible` (not in `_collection_finder.py`, not on any context object). The bundled unit tests pass only because they mock the loader/context; a real `ansible-doc <plugin>` run would raise AttributeError when building every plugin doc, defeating the FQCN requirement (\"accurate, fully-qualified identifier when available\").\n\nRequired changes: (1) derive the FQCN from data that actually exists on the resolved plugin context (or guard with `getattr(context, 'resolved_fqcn', None)`), and verify with a real `ansible-doc` invocation against a collection plugin; (2) confirm the placeholder/no-description handling against the repo's current tests (they pass in the current tree, but no reproduction of a real role listing run was shown).",
+            "failure_dispositions": null
+          }
+        ],
+        "check_evidence": [],
+        "report": "workspace/pro18_api_paced_smoke/ansible/case_001/reports/DeepSeek-V4-Flash-0731.pro18_api_paced_smoke_ansible_001.json",
+        "eval_detail": {
+          "patch_is_None": false,
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": false,
+          "infra_failure": false,
+          "tests_status": {
+            "FAIL_TO_PASS": {
+              "success": [],
+              "failure": [
+                "test/units/cli/test_doc.py::test_ttyify[I(italic)-`italic`]",
+                "test/units/cli/test_doc.py::test_rolemixin__build_summary_empty_argspec",
+                "test/units/cli/test_doc.py::test_rolemixin__build_summary"
+              ]
+            },
+            "PASS_TO_PASS": {
+              "success": [
+                "test/units/cli/test_doc.py::test_ttyify[The",
+                "test/units/cli/test_doc.py::test_ttyify[M(ansible.builtin.module)-[ansible.builtin.module]]",
+                "test/units/cli/test_doc.py::test_ttyify[yolo",
+                "test/units/cli/test_doc.py::test_rolemixin__build_doc",
+                "test/units/cli/test_doc.py::test_ttyify[U(https://docs.ansible.com)-https://docs.ansible.com]",
+                "test/units/cli/test_doc.py::test_ttyify[..",
+                "test/units/cli/test_doc.py::test_ttyify[IBM(International",
+                "test/units/cli/test_doc.py::test_ttyify[R(the",
+                "test/units/cli/test_doc.py::test_ttyify[L(the",
+                "test/units/cli/test_doc.py::test_ttyify[HORIZONTALLINE-\\n-------------\\n]",
+                "test/units/cli/test_doc.py::test_ttyify[C(/usr/bin/file)-`/usr/bin/file']",
+                "test/units/cli/test_doc.py::test_ttyify[B(bold)-*bold*]",
+                "test/units/cli/test_doc.py::test_rolemixin__build_doc_no_filter_match",
+                "test/units/cli/test_doc.py::test_ttyify[no-op",
+                "test/units/cli/test_doc.py::test_legacy_modules_list",
+                "test/units/cli/test_doc.py::test_ttyify[no-op-no-op]",
+                "test/units/cli/test_doc.py::test_builtin_modules_list"
+              ],
+              "failure": []
+            },
+            "FAIL_TO_FAIL": {
+              "success": [],
+              "failure": []
+            },
+            "PASS_TO_FAIL": {
+              "success": [],
+              "failure": []
+            }
+          }
+        }
+      },
+      "source_sha256": {
+        "metagpt/roles/di/reviewer.py": "512309d5e4e9698686fffc9934ff1ef818b0abfe13a885b54096ef0921f3e7e8",
+        "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+        "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+        "metagpt/roles/di/swe_checks.py": "fd13b3a4b916e061edd46fc1cadd6fcc10521eac08a0b6789d6bd6ac0ace2d22",
+        "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+        "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+        "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+        "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+        "metagpt/roles/di/swe_protocol.py": "662e5a487e710623bfe6bc0eae39f9bdf28a7a1872d249b87a179f2b7676a121",
+        "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+        "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+        "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+        "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+        "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+        "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+        "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+        "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+        "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+        "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+        "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+      }
+    },
+    {
+      "instance_id": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "folder": "workspace/pro20_review_smoke_20260922/openlibrary_322d/run/openlibrary/case_001",
+      "outcome": "unresolved",
+      "patch_chars": 28566,
+      "patch_sha256": "bbddc72e14534661971cbf85a2598da1701a7a2d419acf11ffa151b1549d64b0",
+      "case_seconds": 1391.248,
+      "terminal_reason": "review inconclusive; current patch preserved",
+      "usage": {
+        "prompt_tokens": 1234057,
+        "completion_tokens": 40485,
+        "total_tokens": 1274542,
+        "cached_prompt_tokens": 982016,
+        "reported_reasoning_tokens": 24586
+      },
+      "usage_by_role": {
+        "Mike": {
+          "prompt_tokens": 10582,
+          "completion_tokens": 1293,
+          "total_tokens": 11875
+        },
+        "Alex": {
+          "prompt_tokens": 1162863,
+          "completion_tokens": 32435,
+          "total_tokens": 1195298
+        },
+        "Reviewer": {
+          "prompt_tokens": 60612,
+          "completion_tokens": 6757,
+          "total_tokens": 67369
+        }
+      },
+      "api_errors": {},
+      "network_isolated": true,
+      "history_isolated": true,
+      "model_responses": 48,
+      "submissions": 2,
+      "verification_followups": 1,
+      "reviews": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 956.825,
+          "status": "inconclusive",
+          "reason": "verification_missing",
+          "content": "Unresolved failed/unverified checks: cd /app && sed -n '1340,1626p' openlibrary/solr/update_work.py; cd /app && sed -n '1195,1361p' openlibrary/solr/update_work.py; cd /app && sed -n '721,956p' openlibrary/solr/update_work.py; cd /app && grep -rn 'SolrUpdateState' / 2>/dev/null | head -10. Verified against the public requirements using the current tree (bbddc72). Key evidence from the current tree and a successful direct reproduction:\n- `SolrUpdateState` exists with adds/deletes/keys/commit, `to_solr_requests_json(indent, sep)`, `has_changes()`, `clear_requests()`, and `__add__` merge; `json.loads(to_solr_requests_json(...))` yields `{'add': [{'doc': ...}], 'delete': [...], 'commit': {}}` both with and without indent/sep.\n- `solr_update` takes a `SolrUpdateState` and serializes via `to_solr_requests_json()`.\n- `grep AddRequest|DeleteRequest|CommitRequest|SolrUpdateRequest` over `update_work.py` and `scripts/solr_updater.py` returns nothing (all old classes removed).\n- `AbstractSolrUpdater` (ABC) defines `key_test`, `preload_keys`, `update_key`; `WorkSolrUpdater`, `AuthorSolrUpdater`, `EditionSolrUpdater` implement them; `update_keys` groups by prefix, routes to updaters, aggregates into one `SolrUpdateState`, sets `combined.keys = list(keys)` and commit flag.\n- Author updater adds `work_count`/`top_subjects` unconditionally (default `[]` when no facets) and handles redirect/delete by adding to deletes and processing redirect location.\n- Edition updater creates synthetic work for editions without `works`, handles redirects/deletes, routes to works.\n- Repro confirms: edition→synthetic work key `/works/OL1M`; missing-title work serializes `title` as `__None__`; delete-type doc yields deletes only; `update_keys` aggregates 2 adds with keys `['/works/OL1W', '/books/OL1M']`, commit False.\nNo repository test files exist under openlibrary/solr (grep found none); no modified test files. No failed contract remains.",
+          "failure_dispositions": []
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1391.248,
+          "status": "inconclusive",
+          "reason": "verification_missing",
+          "content": "Unresolved failed/unverified checks: cd /app && grep -rn 'SolrUpdateState' / 2>/dev/null | head -10; cat > /tmp/repro.py <<'PYEOF'\nimport asyncio, json, sys\nsys.path.insert(0, '/app')\nfrom openlibrary.solr import update_work\nfrom openlibrary.solr.data_provider import DataProvider\nfrom openlibrary.solr.update_work import (\n    SolrUpdateState, WorkSolrUpdater, AuthorSolrUpdater, EditionSolrUpdater,\n    update_keys, solr_update, AbstractSolrUpdater,\n)\nfrom openlibrary.solr.update_work import data_p\n[truncated]\nf): return self\n        async def __aexit__(self, *a): return False\n        async def get(self, *a, **kw): return FakeResp2()\n    uw.get_solr_base_url = lambda: 'http://solr'\n    uw.httpx.AsyncClient = lambda **kw: FakeClient2()\n    ast2 = await AuthorSolrUpdater().update_key(author)\n    assert any(a['key']=='/authors/OL1A' and a['work_count']==0 and a['top_subjects']==[] for a in ast2.adds), ast2.adds\n    uw.get_solr_base_url = original_get\n    uw.httpx.AsyncClient = orig_client\n    print('Author no facets OK')\n\n    # 11. abstract base\n    assert AbstractSolrUpdater.__abstractmethods__ == frozenset({'key_test','update_key'})\n    print('AbstractSolrUpdater OK')\n\n    print('ALL PASS')\n\nasyncio.run(main())\nPYEOF\ncd /app && PYTHONPATH=/app python3 /tmp/repro.py 2>&1 | grep -v \"statsd\\|config\"; cd /app && python3 - <<'PYEOF'\nimport re\np='/tmp/repro.py'\ns=open(p).read()\ns=s.replace(\"    # 2. Work updater\\n    work = \", \"    # 2. Work updater\\n    dp0 = FakeDP([])\\n    update_work.data_provider = dp0\\n    work = \")\nopen(p,'w').write(s)\nPYEOF\ncd /app && PYTHONPATH=/app python3 /tmp/repro.py 2>&1 | grep -v \"statsd\\|config\"; cd /app && python3 -m pytest openlibrary/solr/tests/test_update_work.py -x -q 2>&1 | tail -20. The submission reorganizes openlibrary/solr/update_work.py around SolrUpdateState with WorkSolrUpdater, AuthorSolrUpdater, EditionSolrUpdater, an AbstractSolrUpdater base, and a rewritten update_keys() that aggregates results into one state; the obsolete request classes were removed and the CommitRequest import in scripts/solr_updater.py dropped. The current tree is the same commit the full custom reproduction was run against, and that run reported ALL PASS covering: SolrUpdateState fields/operators, work updates (including missing-title __None__ serialization), synthetic work creation from editions, edition-with-works routing, redirect/delete deletes handling, update_keys prefix routing/aggregation, author work_count/top_subjects (including empty-facet defaults), AbstractSolrUpdater abstractness, and solr_update/print modes. The only repository pytest target does not exist (openlibrary/solr/tests/ is absent), so no existing test was modified and no in-repo test suite could be run. The packet's earlier failures (e.g., grep timeout scanning '/') and the AttributeError/TypeError failures came from a pre-patch tree (e3b0c442.../sed of lines 1195-1361 shows old update_work/update_author code) or repro scaffolding before data_provider was mocked; they do not reflect the current patch. Requirement coverage is complete per direct verification; no unresolved contract remains.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && sed -n '1195,1361p' openlibrary/solr/update_work.py",
+              "evidence": "Shows old update_work/update_author/AddRequest code from tree e3b0c442 (pre-patch); not representative of current bbddc72 tree.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && sed -n '721,956p' openlibrary/solr/update_work.py",
+              "evidence": "Pre-patch tree content (build_data/solr_insert_documents); no bearing on new requirements.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && grep -rn 'SolrUpdateState' / 2>/dev/null | head -10",
+              "evidence": "Timeout (returncode 124) scanning entire filesystem; environmental, not a code defect. Current-tree repro confirms SolrUpdateState exists and passes.",
+              "resolution": "environment_blocked"
+            },
+            {
+              "command": "cd /app && sed -n '1260,1527p' openlibrary/solr/update_work.py",
+              "evidence": "Current-tree content excerpt; repro on same tree passed ALL PASS.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cat > /tmp/repro.py <<'PYEOF' ... && cd /app && PYTHONPATH=/app python3 /tmp/repro.py",
+              "evidence": "Earlier iterations failed due to unmocked data_provider (AttributeError/TypeError). Final iteration with FakeDP mocked returned ALL PASS (returncode 0) on the current tree.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && python3 - <<'PYEOF' ... && cd /app && PYTHONPATH=/app python3 /tmp/repro.py",
+              "evidence": "Rerun with mocked data_provider and corrected author_role shape: returned 0 with ALL PASS covering every stated requirement.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && grep -n \"update_work\\|update_author\" openlibrary/solr/update_work.py",
+              "evidence": "Returncode 1 (no matches) — confirms legacy update_work/update_author functions were fully removed, satisfying the replacement requirement.",
+              "resolution": "expected_behavior"
+            },
+            {
+              "command": "cd /app && python3 -m pytest openlibrary/solr/tests/test_update_work.py -x -q",
+              "evidence": "No openlibrary/solr/tests/ directory exists in the repo; test target not found (exit 4). No existing test was modified; verification used the custom repro on the current tree.",
+              "resolution": "environment_blocked"
+            }
+          ]
+        }
+      ],
+      "check_evidence": [
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1350.793,
+          "command": "cd /app && python3 -m pytest openlibrary/solr/tests/test_update_work.py -x -q 2>&1 | tail -20",
+          "evidence": {
+            "status": "no_tests",
+            "returncode": 4,
+            "summary": "ERROR: file or directory not found: openlibrary/solr/tests/test_update_work.py\nplugins: anyio-4.10.0, cov-4.1.0, rerunfailures-15.1, asyncio-0.21.1\n============================ no tests ran in 0.01s =============================\n[check exit code: 4]",
+            "note": "Output classification, not a correctness verdict. Relate failures to requirements and the recorded tree version."
+          },
+          "tree_after": "bbddc72e14534661971cbf85a2598da1701a7a2d419acf11ffa151b1549d64b0  -"
+        }
+      ],
+      "report": "workspace/pro20_review_smoke_20260922/openlibrary_322d/run/openlibrary/case_001/reports/DeepSeek-V4-Flash-0731.run_ae892031_openlibrary_001.json",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "openlibrary/tests/solr/test_update_work.py::TestAuthorUpdater::test_workless_author",
+              "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_no_title",
+              "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_work_no_title",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_successful_response",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_non_json_solr_503",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_solr_offline",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_invalid_solr_request",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_bad_apple_in_solr_request",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_other_non_ok_status"
+            ],
+            "failure": [
+              "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_delete",
+              "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_redirects"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "label": "openlibrary_322d",
+      "controller": {
+        "label": "openlibrary_322d",
+        "started": "2026-09-22T02:52:55.813797+00:00",
+        "finished": "2026-09-22T03:16:58.301808+00:00",
+        "wall_seconds": 1442.4880550261587,
+        "returncode": 0
+      },
+      "previous": {
+        "instance_id": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "folder": "workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_001",
+        "outcome": "resolved",
+        "patch_chars": 27477,
+        "patch_sha256": "57fe93dfef99d9c0100009f083cef46bd55a6d4b17cb88024dd6e34494747e75",
+        "case_seconds": 930.854,
+        "terminal_reason": "review inconclusive; current patch preserved",
+        "usage": {
+          "prompt_tokens": 1868691,
+          "completion_tokens": 52430,
+          "total_tokens": 1921121,
+          "cached_prompt_tokens": 1740800,
+          "reported_reasoning_tokens": 35083
+        },
+        "usage_by_role": {
+          "Mike": {
+            "prompt_tokens": 10390,
+            "completion_tokens": 1397,
+            "total_tokens": 11787
+          },
+          "Alex": {
+            "prompt_tokens": 1828077,
+            "completion_tokens": 46031,
+            "total_tokens": 1874108
+          },
+          "Reviewer": {
+            "prompt_tokens": 30224,
+            "completion_tokens": 5002,
+            "total_tokens": 35226
+          }
+        },
+        "api_errors": {},
+        "network_isolated": true,
+        "history_isolated": true,
+        "model_responses": 46,
+        "submissions": 1,
+        "verification_followups": 0,
+        "reviews": [
+          {
+            "submission_id": 1,
+            "elapsed_seconds": 930.853,
+            "status": "inconclusive",
+            "reason": null,
+            "content": "inconclusive",
+            "failure_dispositions": null
+          }
+        ],
+        "check_evidence": [],
+        "report": "workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_001/reports/DeepSeek-V4-Flash-0731.openlibrary_openlibrary_001.json",
+        "eval_detail": {
+          "patch_is_None": false,
+          "patch_exists": true,
+          "patch_successfully_applied": true,
+          "resolved": true,
+          "infra_failure": false,
+          "tests_status": {
+            "FAIL_TO_PASS": {
+              "success": [
+                "openlibrary/tests/solr/test_update_work.py::TestAuthorUpdater::test_workless_author",
+                "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_delete",
+                "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_redirects",
+                "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_no_title",
+                "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_work_no_title",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_successful_response",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_non_json_solr_503",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_solr_offline",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_invalid_solr_request",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_bad_apple_in_solr_request",
+                "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_other_non_ok_status"
+              ],
+              "failure": []
+            },
+            "PASS_TO_PASS": {
+              "success": [],
+              "failure": []
+            },
+            "FAIL_TO_FAIL": {
+              "success": [],
+              "failure": []
+            },
+            "PASS_TO_FAIL": {
+              "success": [],
+              "failure": []
+            }
+          }
+        }
+      },
+      "source_sha256": {
+        "metagpt/roles/di/reviewer.py": "512309d5e4e9698686fffc9934ff1ef818b0abfe13a885b54096ef0921f3e7e8",
+        "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+        "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+        "metagpt/roles/di/swe_checks.py": "fd13b3a4b916e061edd46fc1cadd6fcc10521eac08a0b6789d6bd6ac0ace2d22",
+        "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+        "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+        "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+        "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+        "metagpt/roles/di/swe_protocol.py": "662e5a487e710623bfe6bc0eae39f9bdf28a7a1872d249b87a179f2b7676a121",
+        "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+        "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+        "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+        "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+        "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+        "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+        "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+        "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+        "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+        "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+        "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+      }
+    }
+  ],
+  "recovered_eval": [
+    {
+      "instance_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "source": "/home/xhgong/project/MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_002/all_preds.jsonl",
+      "source_sha256": "f9b34ddae90025128d7703b134a56d0288b4512f4f462d45829d9da0360644b1",
+      "patch_sha256": "e92af3d4d1df21fb45805e0e925882b69676e70a44c7f6f7d563193142264aac",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "test/units/modules/network/f5/test_bigip_message_routing_route.py::TestParameters::test_module_parameters",
+              "test/units/modules/network/f5/test_bigip_message_routing_route.py::TestManager::test_create_generic_route"
+            ],
+            "failure": [
+              "test/units/modules/network/f5/test_bigip_message_routing_route.py::TestParameters::test_api_parameters",
+              "test/units/modules/network/f5/test_bigip_message_routing_route.py::TestManager::test_update_generic_peer"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "source_unchanged": true
+    },
+    {
+      "instance_id": "instance_flipt-io__flipt-3ef34d1fff012140ba86ab3cafec8f9934b492be",
+      "source": "/home/xhgong/project/MetaGPT/workspace/pro19_api_paced_anomaly_rerun/flipt/flipt/case_001/all_preds.jsonl",
+      "source_sha256": "ded3b91edfc881b350f3d54caa16c2177ea51b8f02612c3a589b8937d6160d46",
+      "patch_sha256": "15c6d9b49ca756e39a4e569022410285a35267b83a4d4bd06a50fd1ebdc23e48",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "TestSetJSON_HandleMarshalError",
+              "TestGetJSON_HandleGetError",
+              "TestGetJSON_HandleUnmarshalError",
+              "TestGetProtobuf_HandleGetError",
+              "TestGetProtobuf_HandleUnmarshalError"
+            ],
+            "failure": []
+          },
+          "PASS_TO_PASS": {
+            "success": [],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "source_unchanged": true
+    },
+    {
+      "instance_id": "instance_internetarchive__openlibrary-427f1f4eddfc54735ca451779d4f95bf683d1b0e-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+      "source": "/home/xhgong/project/MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_002/all_preds.jsonl",
+      "source_sha256": "a2a80632681f87527643580dac79ca08574eb30aaa5074c52f8d132b8d2d2c60",
+      "patch_sha256": "0d4493def711749e61266b5a1a16266b990c933cde194f61af06e0266bcde2c1",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": true,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_q_to_solr_params_edition_key[edition_key:OL123M-+key:\"/books/OL123M\"]",
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_q_to_solr_params_edition_key[edition_key:\"OL123M\"-+key:\"/books/OL123M\"]",
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_q_to_solr_params_edition_key[edition_key:\"/books/OL123M\"-+key:\"/books/OL123M\"]",
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_q_to_solr_params_edition_key[edition_key:(OL123M)-+key:(\"/books/OL123M\")]"
+            ],
+            "failure": []
+          },
+          "PASS_TO_PASS": {
+            "success": [
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_process_user_query[Misc]",
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_process_user_query[Quotes]",
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_process_user_query[Operators]",
+              "openlibrary/plugins/worksearch/schemes/tests/test_works.py::test_process_user_query[ISBN-like]"
+            ],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "source_unchanged": true
+    },
+    {
+      "instance_id": "instance_protonmail__webclients-2f2f6c311c6128fe86976950d3c0c2db07b03921",
+      "source": "/home/xhgong/project/MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_002/all_preds.jsonl",
+      "source_sha256": "a27cbb8844c8ae8139136e19f00999c2f928d961d984d3499657e416650a50fc",
+      "patch_sha256": "84212c93cc7ab4c1487a1a181dd9b92f72bdf2a1459e189fe8599af80c49e5d7",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [],
+            "failure": [
+              "src/app/store/_shares/useShareActions.test.ts | useShareActions migrateShares",
+              "src/app/store/_shares/useShareActions.test.ts | useShareActions migrateShares with 120 shares",
+              "src/app/store/_shares/useShareActions.test.ts | useShareActions stop migration when server respond 404 for unmigrated endpoint",
+              "src/app/store/_shares/useShareActions.test.ts | useShareActions stop migration when server respond 404 for migrate post endpoint",
+              "src/app/store/_shares/useShareActions.test.ts | useShareActions should send non-decryptable shares to api"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "source_unchanged": true
+    }
+  ],
+  "notes": [
+    "Diagnostic selection, not random benchmark.",
+    "Token counts include only reported successful response usage; failed or interrupted requests may consume unreported tokens.",
+    "Count model_usage events only: role_model_response repeats the same provider usage and must not be added. Reasoning tokens are included in completion_tokens, not extra."
+  ],
+  "confirmation": [
+    {
+      "instance_id": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "folder": "workspace/pro21_evidence_smoke_20260922/openlibrary_322d/run/openlibrary/case_001",
+      "outcome": "unresolved",
+      "patch_chars": 27443,
+      "patch_sha256": "6e3f190e4814f7f78175e277e2a3903b61732344bbc86553a99d4efce508735d",
+      "case_seconds": 1406.832,
+      "terminal_reason": "review inconclusive; current patch preserved",
+      "usage": {
+        "prompt_tokens": 1123794,
+        "completion_tokens": 42493,
+        "total_tokens": 1166287,
+        "cached_prompt_tokens": 902400,
+        "reported_reasoning_tokens": 30490
+      },
+      "usage_by_role": {
+        "Mike": {
+          "prompt_tokens": 10205,
+          "completion_tokens": 2323,
+          "total_tokens": 12528
+        },
+        "Alex": {
+          "prompt_tokens": 1068743,
+          "completion_tokens": 34509,
+          "total_tokens": 1103252
+        },
+        "Reviewer": {
+          "prompt_tokens": 44846,
+          "completion_tokens": 5661,
+          "total_tokens": 50507
+        }
+      },
+      "api_errors": {
+        "RateLimitError": 1
+      },
+      "network_isolated": true,
+      "history_isolated": true,
+      "model_responses": 47,
+      "submissions": 2,
+      "verification_followups": 0,
+      "reviews": [
+        {
+          "submission_id": 1,
+          "elapsed_seconds": 948.206,
+          "status": "changes_requested",
+          "reason": "verification_missing",
+          "content": "The patch is structurally broken: the entire new implementation (SolrUpdateState, AbstractSolrUpdater, WorkSolrUpdater, AuthorSolrUpdater, EditionSolrUpdater, and update_keys) is wrapped inside triple-quoted string literals assigned to `section1 = '''...'''`, `section2`, `section3` (lines 1010, 1129, 1482, 1590). These are inert strings, not module-level definitions, so `from openlibrary.solr.update_work import SolrUpdateState, update_keys, solr_update` fails with ImportError. The old `update_work()` function was also deleted, breaking existing callers. The file parses only because the code is hidden inside strings. Required interface names do not exist at module scope. Fix: remove the `sectionN = '''`/`'''` wrappers so the classes/functions are real module-level code, keep `update_work` (or a compatible alias) for existing callers, and rerun the repository's update_work tests.",
+          "failure_dispositions": [
+            {
+              "command": "cd /app && python -c \"from openlibrary.solr.update_work import SolrUpdateState, update_keys, solr_update\"",
+              "resolution": "unresolved",
+              "evidence": "grep shows 'section1 = \\'\\'\\'class SolrUpdateState:' at line 1010 and closing '\\'\\'\\'' at 1129/1482/1590; the classes/functions are inside string literals, so the required names are not defined at module level and the import fails."
+            }
+          ]
+        },
+        {
+          "submission_id": 2,
+          "elapsed_seconds": 1406.832,
+          "status": "inconclusive",
+          "reason": "environment_blocked",
+          "content": "Review could not complete due to ValueError. Current patch preserved.",
+          "failure_dispositions": []
+        }
+      ],
+      "check_evidence": [],
+      "report": "workspace/pro21_evidence_smoke_20260922/openlibrary_322d/run/openlibrary/case_001/reports/DeepSeek-V4-Flash-0731.run_fe0ff092_openlibrary_001.json",
+      "eval_detail": {
+        "patch_is_None": false,
+        "patch_exists": true,
+        "patch_successfully_applied": true,
+        "resolved": false,
+        "infra_failure": false,
+        "tests_status": {
+          "FAIL_TO_PASS": {
+            "success": [
+              "openlibrary/tests/solr/test_update_work.py::TestAuthorUpdater::test_workless_author",
+              "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_no_title",
+              "openlibrary/tests/solr/test_update_work.py::TestWorkSolrUpdater::test_work_no_title",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_successful_response",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_non_json_solr_503",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_solr_offline",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_invalid_solr_request",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_bad_apple_in_solr_request",
+              "openlibrary/tests/solr/test_update_work.py::TestSolrUpdate::test_other_non_ok_status"
+            ],
+            "failure": [
+              "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_delete",
+              "openlibrary/tests/solr/test_update_work.py::Test_update_keys::test_redirects"
+            ]
+          },
+          "PASS_TO_PASS": {
+            "success": [],
+            "failure": []
+          },
+          "FAIL_TO_FAIL": {
+            "success": [],
+            "failure": []
+          },
+          "PASS_TO_FAIL": {
+            "success": [],
+            "failure": []
+          }
+        }
+      },
+      "label": "openlibrary_322d",
+      "controller": {
+        "label": "openlibrary_322d",
+        "started": "2026-09-22T03:19:41.677487+00:00",
+        "finished": "2026-09-22T03:43:51.208965+00:00",
+        "wall_seconds": 1449.5315155088902,
+        "returncode": 0
+      },
+      "source_sha256": {
+        "metagpt/roles/di/reviewer.py": "512309d5e4e9698686fffc9934ff1ef818b0abfe13a885b54096ef0921f3e7e8",
+        "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+        "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+        "metagpt/roles/di/swe_checks.py": "7d882136e8485674febcd292b0249b92e2c43ebc968a3454e843db57be40f657",
+        "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+        "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+        "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+        "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+        "metagpt/roles/di/swe_protocol.py": "662e5a487e710623bfe6bc0eae39f9bdf28a7a1872d249b87a179f2b7676a121",
+        "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+        "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+        "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+        "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+        "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+        "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+        "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+        "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+        "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+        "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+        "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+      }
+    }
+  ],
+  "final_source_sha256": {
+    "metagpt/roles/di/reviewer.py": "c508533cd1385fddcac610bc1b16c41ced1e95632cf8b6e5c762d5099a13fc3c",
+    "metagpt/roles/di/swe_agent.py": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a",
+    "metagpt/roles/di/swe_budget.py": "8422577b3ef1e5b91d592feb7616dbe99649821749cbd55ddfa537e4f9030a32",
+    "metagpt/roles/di/swe_checks.py": "7d882136e8485674febcd292b0249b92e2c43ebc968a3454e843db57be40f657",
+    "metagpt/roles/di/swe_container.py": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211",
+    "metagpt/roles/di/swe_engineer.py": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91",
+    "metagpt/roles/di/swe_mini_engineer.py": "3987b35223a74d9c2a2803286bcfe14c27f505e82c825ead2b151ea655cad129",
+    "metagpt/roles/di/swe_mini_worker.py": "075d8b44ebc55dfcbc8be92df9166b454edd119136e83d12bbb5696bb3c85051",
+    "metagpt/roles/di/swe_protocol.py": "662e5a487e710623bfe6bc0eae39f9bdf28a7a1872d249b87a179f2b7676a121",
+    "metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+    "metagpt/roles/di/swe_repository.py": "916105404f11edbda069b44cabd17c5484862adc9c32b8ec2782659b16c47494",
+    "metagpt/roles/di/swe_role_tools.py": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553",
+    "metagpt/roles/di/swe_shell.py": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631",
+    "metagpt/roles/di/swe_team_leader.py": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd",
+    "metagpt/tools/libs/docker_bash.py": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a",
+    "metagpt/tools/libs/docker_terminal.py": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be",
+    "metagpt/utils/swe_requirements.py": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7",
+    "tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": "13888a23377180b701deb29c45562a89df761e4bd941e0163c200a9ddcbbabc0",
+    "tests/metagpt/roles/di/run_swe_full_experiment.py": "d77a16a874146ca67999bc945fcd75982b6bb86edadc9cfa7c5c9d90e7294081",
+    "tests/metagpt/roles/di/run_swebench_pro_eval.py": "822a2d828d1306c09cb8773041e22d924a785e9710b384c80598dc676cf209d9"
+  },
+  "validation": {
+    "unit_tests_passed": 69,
+    "final_guard_added_after_pro21": true,
+    "final_guard_test": "test_live_empty_verdict_is_repaired_without_review_crash",
+    "note": "Empty verdict guard tested against the observed malformed response shape with a corrected follow-up; no additional full model-driven SWE run after this final guard."
+  }
+}

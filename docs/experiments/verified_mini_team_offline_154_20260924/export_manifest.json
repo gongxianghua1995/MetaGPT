@@ -1,0 +1,128 @@
+{
+  "export_date": "2026-09-28",
+  "purpose": "Compact audit export; raw trajectories remain local and git-ignored.",
+  "inputs": {
+    "all_preds.jsonl": "ba858de0c5bcafe227c5848dcbacdf0bdd9263916b141daed8b4ddcee0146b80",
+    "progress.json": "4bf2ee07f0507217553f7065a4e4fa65da7d5fcfac1a50e67947c97184fafd06",
+    "selected_tasks": 154,
+    "resolved": 102
+  },
+  "files": {
+    "completion.json": {
+      "bytes": 157,
+      "sha256": "91b55cc8e7b0ae859e56d4fbaa626b0c18eee53c14c55518da825af31a9752de"
+    },
+    "controller_revisions/20260925_trace_recovery/previous_controller.py": {
+      "bytes": 14858,
+      "sha256": "52fab12994e28b781f46d1118c5df2426feb8bfa9601e6d9ce7328e2a5e798a6"
+    },
+    "evaluations.jsonl": {
+      "bytes": 1295677,
+      "sha256": "9b2f64174cd81e0d07f7f26210f69da06d727463c80d1874a67b99f80a68d2a7"
+    },
+    "input_provenance.json": {
+      "bytes": 37042,
+      "sha256": "e01c91d6aeaa6b70384d02464756b548d94a5d62976cab60692b5eca41e15797"
+    },
+    "manifest.json": {
+      "bytes": 7874,
+      "sha256": "b14b63ef419dad7b2bab249bb5d8645468d8bae26a514ba2277fec318d725d79"
+    },
+    "predictions.jsonl": {
+      "bytes": 246124,
+      "sha256": "e43be59e5219fd37c20c1292ba6fe982682ef9284a16844bc1cb45f867991b46"
+    },
+    "selection.json": {
+      "bytes": 104233,
+      "sha256": "458f5ea20f6d80b46ad51a3a7048173593b424e16e06fe8a5e38adbc6f5d5156"
+    },
+    "source_at_run/metagpt/roles/di/reviewer.py": {
+      "bytes": 20762,
+      "sha256": "17410cfe6370d5f8dcaf59dcf1ffe4c67ba0d818dacb766720a94d0c0cc68aaf"
+    },
+    "source_at_run/metagpt/roles/di/swe_agent.py": {
+      "bytes": 2903,
+      "sha256": "4dba1b357e44e631449d7a49730ddbea2cc7902adeb8a66c4451497987eeee2a"
+    },
+    "source_at_run/metagpt/roles/di/swe_budget.py": {
+      "bytes": 3261,
+      "sha256": "5791e28dbaf0bd45dfa4c49044ec9bf40958dba61c3a1ff4a006ea7b422fd29a"
+    },
+    "source_at_run/metagpt/roles/di/swe_checks.py": {
+      "bytes": 4916,
+      "sha256": "7d882136e8485674febcd292b0249b92e2c43ebc968a3454e843db57be40f657"
+    },
+    "source_at_run/metagpt/roles/di/swe_container.py": {
+      "bytes": 480,
+      "sha256": "b0cbc7977da757a201098da06af4c4539f73faaafacf0fd77a9f345ea523c211"
+    },
+    "source_at_run/metagpt/roles/di/swe_engineer.py": {
+      "bytes": 73897,
+      "sha256": "83be74437be20bd7444f1b4e4f5472b2d8b0607c986a4e0423f1b013d040ef91"
+    },
+    "source_at_run/metagpt/roles/di/swe_execution.py": {
+      "bytes": 2359,
+      "sha256": "c39eee64e251b7528e5cac47b9178f1c776ad7d90fdf692815fee20c3ad712df"
+    },
+    "source_at_run/metagpt/roles/di/swe_mini_engineer.py": {
+      "bytes": 4742,
+      "sha256": "fd749c9682fb05dcf9bb8eb52807782194b7e4730c4070f94df92cbe4cc94c81"
+    },
+    "source_at_run/metagpt/roles/di/swe_mini_worker.py": {
+      "bytes": 8088,
+      "sha256": "28d29d7a2202e1d68fd336d351452f5fc74625b77e410c4928ac3b95ca540c73"
+    },
+    "source_at_run/metagpt/roles/di/swe_protocol.py": {
+      "bytes": 29145,
+      "sha256": "0ce4233f7c112986621a76174787758fcc71a1071fa1a996f1622fba476d6add"
+    },
+    "source_at_run/metagpt/roles/di/swe_rate_limit.py": {
+      "bytes": 1309,
+      "sha256": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581"
+    },
+    "source_at_run/metagpt/roles/di/swe_repository.py": {
+      "bytes": 3080,
+      "sha256": "31dba2b418d137e00016f627e5d12b56ad6900c6030491e0c5e687dde8db3765"
+    },
+    "source_at_run/metagpt/roles/di/swe_role_tools.py": {
+      "bytes": 3195,
+      "sha256": "7fcda43cb60ffd90c5f38e992c26cb4b99e8a1fcdee498b14936042063e52553"
+    },
+    "source_at_run/metagpt/roles/di/swe_shell.py": {
+      "bytes": 319,
+      "sha256": "51d237046eaef81546548e3c9cce406bf704170eef7be97af71b2f40f9883631"
+    },
+    "source_at_run/metagpt/roles/di/swe_team_leader.py": {
+      "bytes": 40351,
+      "sha256": "429d164dde23a3a191cbb8d573e0df70cd95e8d273273d000dcbc71f9c7af8bd"
+    },
+    "source_at_run/metagpt/tools/libs/docker_bash.py": {
+      "bytes": 10519,
+      "sha256": "172e31fb5ecb88bbe4659b26bcdf36f415f12eca2202ae01436ec99f5b0eb71a"
+    },
+    "source_at_run/metagpt/tools/libs/docker_terminal.py": {
+      "bytes": 6956,
+      "sha256": "d1254772b46d0be01f85ccf946e9bf5127dc0c5d341628d3453be3383e84b6be"
+    },
+    "source_at_run/metagpt/utils/swe_requirements.py": {
+      "bytes": 876,
+      "sha256": "cdf5bf140acc513c8dd129b59d25cc94fdd1ba19f7efe45ac9b70fd12eb978c7"
+    },
+    "source_at_run/tests/metagpt/roles/di/run_swe_agent_for_benchmark.py": {
+      "bytes": 27238,
+      "sha256": "61e10aa68bffcb3ef5b174ed40eca77d71b5d2800761ab30b4c8246c523da8b8"
+    },
+    "source_at_run/tests/metagpt/roles/di/run_swe_full_experiment.py": {
+      "bytes": 15674,
+      "sha256": "9351f0e8516ba92a4ee9f3c2ba60584182f1c2fb6e6f59cceba00a69517e92f4"
+    },
+    "source_at_run/tests/metagpt/roles/di/run_swebench_verified_offline_eval.py": {
+      "bytes": 3053,
+      "sha256": "8e73dfd90cad6be0c29b7c6f0008bf8c47735d45214914de6b43e4a444ed23a4"
+    },
+    "summary.json": {
+      "bytes": 573,
+      "sha256": "3a8574cddb22558816e6d7ef7695788cb66283da439d931e0469b564ac334662"
+    }
+  }
+}

@@ -1,0 +1,794 @@
+{
+  "created_at": "2026-09-24T01:25:26.933255+00:00",
+  "dataset": "SWE-bench/SWE-bench_Verified",
+  "dataset_source": "local Hugging Face cache 78f471bf655a3137b2e8a75af1501690ec009ec3",
+  "split_path": "/home/xhgong/project/EvoMAS/dataset/splits/verified_new_split.json",
+  "split_sha256": "5c0728678dd2141a0aa54fec7c6065ea16594f1cbdf08f6ac413fe954ad23dac",
+  "instances_sha256": "b82c234517d04d63effaa982f5c187b63952400df61f99529e12ca8fc3222c5c",
+  "domains": {
+    "django": 59,
+    "matplotlib": 23,
+    "sphinx": 33,
+    "sympy": 39
+  },
+  "images": {
+    "django__django-10999": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-10999:latest",
+      "image_id": "sha256:22a35ae325dc5abdd397b1d474d66aad62da6d23c4e9c8763478e82bcf63af7b",
+      "entrypoint": null
+    },
+    "django__django-11087": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11087:latest",
+      "image_id": "sha256:978680ec9fef5526ee919404380e983928cbeaa4079731ff133e1a53daf5f6b5",
+      "entrypoint": null
+    },
+    "django__django-11138": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11138:latest",
+      "image_id": "sha256:ddc0080158473b72206a30e5333bcb04f19c4631c49bc039e396b721e47a11cc",
+      "entrypoint": null
+    },
+    "django__django-11141": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11141:latest",
+      "image_id": "sha256:f2decac6250608a5fa4edd0d388d34983a612c7d9951e6246591a7d3a61a8d66",
+      "entrypoint": null
+    },
+    "django__django-11149": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11149:latest",
+      "image_id": "sha256:275c2ed9e322b52aea53ce7045403c7bf0f851a6455c5747b224f6f4040340f2",
+      "entrypoint": null
+    },
+    "django__django-11206": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11206:latest",
+      "image_id": "sha256:1478ff091b2e702e3eeda873e40054431d9f2b592f8e0f61d9dc6b7ec18455b7",
+      "entrypoint": null
+    },
+    "django__django-11239": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11239:latest",
+      "image_id": "sha256:e260b7489ea9fe2c6d99f0a727badf69ff1d0fc44b4f45163f1bd7a997db2587",
+      "entrypoint": null
+    },
+    "django__django-11265": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11265:latest",
+      "image_id": "sha256:70a39003fb3ce8f01ee82dfeb16b09bc3714ab669d3743fb3e1e5689f18ea1ef",
+      "entrypoint": null
+    },
+    "django__django-11292": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11292:latest",
+      "image_id": "sha256:ed10ed40b40643a9ebf70b08e7e93f1edadf47fee5b453ae2412dbb6ed340b80",
+      "entrypoint": null
+    },
+    "django__django-11400": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11400:latest",
+      "image_id": "sha256:513ed50493a651e0fa171b199872b57c81fedba92bf1a1a8fdad8976dc47dd33",
+      "entrypoint": null
+    },
+    "django__django-11477": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11477:latest",
+      "image_id": "sha256:2a11b9c6bd131e3af00119e975a04f00ed4d9e6c41f8606bc0792459fd538293",
+      "entrypoint": null
+    },
+    "django__django-11490": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11490:latest",
+      "image_id": "sha256:efe0a8e57dfa92d296fb017ad7931d842b506ad05ef7582195b4bd9a890c3a9e",
+      "entrypoint": null
+    },
+    "django__django-11532": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11532:latest",
+      "image_id": "sha256:8abdd4a9c5f66b458599cb3b1418861dd16c1ac7cc29a226f6e0148f1ecb966c",
+      "entrypoint": null
+    },
+    "django__django-11555": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11555:latest",
+      "image_id": "sha256:e2c6d6293c8ad66c921754ee2bc13206b0f30166465ad71be92703c11ffaa3cb",
+      "entrypoint": null
+    },
+    "django__django-11734": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11734:latest",
+      "image_id": "sha256:774206c89be84e276b5e609071934e11c41b02a3e7e804558f50759914fdcf38",
+      "entrypoint": null
+    },
+    "django__django-11820": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11820:latest",
+      "image_id": "sha256:26d34e7bfd4225521b60124c4c71c7be9e00ee81255b93662edd2c31b4a68c06",
+      "entrypoint": null
+    },
+    "django__django-11848": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11848:latest",
+      "image_id": "sha256:08eac9219e5d4b15b445fde26c587157a0ad8a2d9209e4b1e266259edf51bb4b",
+      "entrypoint": null
+    },
+    "django__django-11885": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11885:latest",
+      "image_id": "sha256:dcc7a94bc42733bb59e7ce45a83e7df1f203ae55ad570a1a1f098c438c5f5ca2",
+      "entrypoint": null
+    },
+    "django__django-11964": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11964:latest",
+      "image_id": "sha256:098474801410af7303f0814d0d8557791ca2f55e455e5db766c3b3d0a9826df2",
+      "entrypoint": null
+    },
+    "django__django-12039": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12039:latest",
+      "image_id": "sha256:bd4dc8875144f8f3e0b8866575f9ab564b51774a71fa954cb8e4a9d34484a90c",
+      "entrypoint": null
+    },
+    "django__django-12125": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12125:latest",
+      "image_id": "sha256:4345ad65eec0da8a32063c2c9a32df380e10b4fb4ccebfcfed9c4be9a185e5ff",
+      "entrypoint": null
+    },
+    "django__django-12209": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12209:latest",
+      "image_id": "sha256:6781fe1de96e581d385aa7797a580274023f7a625a891f1ecd751ff303e6a256",
+      "entrypoint": null
+    },
+    "django__django-12273": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12273:latest",
+      "image_id": "sha256:ceea46664eff0d02e627ee17f0f9230e5c20a1debf3eb1ca2b53c7ca476210aa",
+      "entrypoint": null
+    },
+    "django__django-12325": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12325:latest",
+      "image_id": "sha256:9c15847c3fd7d269adf15233bd7034bb9e0491e45fefe87454013d2bdf7a6efe",
+      "entrypoint": null
+    },
+    "django__django-12406": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12406:latest",
+      "image_id": "sha256:7d3be89e5d04229df52612992c678659e25a38908edbb465f9b83549a54d9294",
+      "entrypoint": null
+    },
+    "django__django-12663": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12663:latest",
+      "image_id": "sha256:e3b5c1b9cd1583c3d046133f17c9ee5b750323fe1f7405fce8e4d2aeed6e4dfa",
+      "entrypoint": null
+    },
+    "django__django-12708": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12708:latest",
+      "image_id": "sha256:3722a130f618602e5636c8c7ddd821550e2c2462b569907c4140fc162e24671e",
+      "entrypoint": null
+    },
+    "django__django-12754": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12754:latest",
+      "image_id": "sha256:0b678f9efe11f2120db3747adfeebab3e75c0b6f410c4b43bcedf6abd9abc12a",
+      "entrypoint": null
+    },
+    "django__django-13012": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13012:latest",
+      "image_id": "sha256:29c0e742cb37711bd8439df0ab91e29900dcac93d81121b2f2c4fcfaf995eceb",
+      "entrypoint": null
+    },
+    "django__django-13023": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13023:latest",
+      "image_id": "sha256:cbcb3c6f1fd0bf874a815eb623193740af868e64b4fda2eb7ce1883e1206f4c3",
+      "entrypoint": null
+    },
+    "django__django-13112": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13112:latest",
+      "image_id": "sha256:a5e22b373f35ce538ae14aa9b2eb2c6552379ff97a560128270e45e18984eaf1",
+      "entrypoint": null
+    },
+    "django__django-13121": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13121:latest",
+      "image_id": "sha256:435fa9739e9d7142814efc5cd79871a275919523a825c212adf74dd08736f43f",
+      "entrypoint": null
+    },
+    "django__django-13128": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13128:latest",
+      "image_id": "sha256:5d3032e45ec74dcdd31d6893ba098f72b97b565334909b265921b9cfb45b01bd",
+      "entrypoint": null
+    },
+    "django__django-13158": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13158:latest",
+      "image_id": "sha256:b05beccc82fc00cbc3a3090ebe207b122dd31585aefcf7d9c1fc0c4147c664b6",
+      "entrypoint": null
+    },
+    "django__django-13297": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13297:latest",
+      "image_id": "sha256:1dca304a4ccd9f39df8794fb807c04a4076b5f35aff7d192dc5e0a14f8bf6f43",
+      "entrypoint": null
+    },
+    "django__django-13315": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13315:latest",
+      "image_id": "sha256:eee8a0db006bce8a160fd6bda1ac181edd1dedcd95c6a4e040e7aea0aed30bd8",
+      "entrypoint": null
+    },
+    "django__django-13344": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13344:latest",
+      "image_id": "sha256:bb7a5fef7132badf4cc18c9ae47d3f1fbc8f9102c447772d0c5fa0b27d85fad4",
+      "entrypoint": null
+    },
+    "django__django-13449": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13449:latest",
+      "image_id": "sha256:91f82064e9031f4fb86afddbe286409946109544df3b2b272f4ee6b6a7d7567c",
+      "entrypoint": null
+    },
+    "django__django-13568": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13568:latest",
+      "image_id": "sha256:9ea751c5a941120e5bef2c95b24eb50309cf3ddd0fab385e6d44f6686ef8a8e1",
+      "entrypoint": null
+    },
+    "django__django-13590": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13590:latest",
+      "image_id": "sha256:981974f9ed75972ce502a3c9b805513b509031ba3d5a41d93e5f95db9e3dadf8",
+      "entrypoint": null
+    },
+    "django__django-13794": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13794:latest",
+      "image_id": "sha256:da6bd792b940a0365f3cab125bcda443602646272c8cfa0e7e9e42f55bad8a1b",
+      "entrypoint": null
+    },
+    "django__django-13807": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13807:latest",
+      "image_id": "sha256:ec8bb12cc4ab731eb3d6a66439751a4b0c6516472504ac264cee7a7615d277a6",
+      "entrypoint": null
+    },
+    "django__django-13810": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13810:latest",
+      "image_id": "sha256:b3b2851bafad29b19506a85779bf248365381c6f04b228989f57d5c5c54c5ddb",
+      "entrypoint": null
+    },
+    "django__django-13821": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13821:latest",
+      "image_id": "sha256:3d4a6aee4a1b55a9610794dde388865bac8128f057c2432b573cb81505516f46",
+      "entrypoint": null
+    },
+    "django__django-13925": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13925:latest",
+      "image_id": "sha256:358f31f2359647c4a2bbfa511c40337fe98119364441b5d2c7acaf5422e4e4dc",
+      "entrypoint": null
+    },
+    "django__django-14007": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14007:latest",
+      "image_id": "sha256:32fb5c7de16d8fe61b08e4a008b602b3a54df8001345fbf9959e2fe9392790b8",
+      "entrypoint": null
+    },
+    "django__django-14011": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14011:latest",
+      "image_id": "sha256:6b66e8db005518fa6c41fb44132ee515f32fe4e24dd7bc3b340eb9bfaea88e38",
+      "entrypoint": null
+    },
+    "django__django-14017": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14017:latest",
+      "image_id": "sha256:ab40fe86d24dbe0296a4ea9a82969b0c86824274242b208764d2aee227ce9ee6",
+      "entrypoint": null
+    },
+    "django__django-14034": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14034:latest",
+      "image_id": "sha256:90e8d93cd5268291ab32adc671d6bef6f58eae6ab571140c98e677f31fc1070d",
+      "entrypoint": null
+    },
+    "django__django-14053": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14053:latest",
+      "image_id": "sha256:018c0d5a91c443e47942f6e775052316828c042a4dda2d9a8bbb448f5e66f762",
+      "entrypoint": null
+    },
+    "django__django-14122": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14122:latest",
+      "image_id": "sha256:c68adb1cb710ccc0ee7649130cebfaa0219839daf1acdbc2db25d7dc19c7bc30",
+      "entrypoint": null
+    },
+    "django__django-14155": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14155:latest",
+      "image_id": "sha256:df566a06348c488d15869f8c8745a9f6c19eeb3ebd66a823dd7f91ed92058a7e",
+      "entrypoint": null
+    },
+    "django__django-14170": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14170:latest",
+      "image_id": "sha256:c2c5eed6f8e103deca2391f740e52c120a59e3fb2086b0a092b837b8e1c8919f",
+      "entrypoint": null
+    },
+    "django__django-14351": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14351:latest",
+      "image_id": "sha256:6a6c13bbbfd1d5d89c9dfa8d1176467098dcc938be7d956743eef3fd55382e3e",
+      "entrypoint": null
+    },
+    "django__django-14434": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14434:latest",
+      "image_id": "sha256:dab450e90c01a77b1ee3faa369674964a29d6da49903a32c1f45f21560c43f14",
+      "entrypoint": null
+    },
+    "django__django-14500": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14500:latest",
+      "image_id": "sha256:32c70ff1b0518c134f1bfcd9bec5de3293220e874c472deadd2288bdfc2f11a8",
+      "entrypoint": null
+    },
+    "django__django-14539": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14539:latest",
+      "image_id": "sha256:f82cf9346e4b4a37db29ad906ca3004b2c333faf00ae7c8b91bcd5621466c3ce",
+      "entrypoint": null
+    },
+    "django__django-14725": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14725:latest",
+      "image_id": "sha256:0986189cc4022bb07d2db1666f174e48ddffc8337b311fe745fd517425dbe7cb",
+      "entrypoint": null
+    },
+    "django__django-14771": {
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14771:latest",
+      "image_id": "sha256:1e0da32b298c5c98cb54814c15164d54eb2b2aeb5d9564972dc36b05017713f7",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-21568": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-21568:latest",
+      "image_id": "sha256:406c7217f36ff5e27539fe1bb6f3bebd44473ca4deced319216896a63a6c2476",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-22719": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-22719:latest",
+      "image_id": "sha256:c717250d0f6b4a9c65cd719057124119671e995e35b1a5b48a613288c31b85e8",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-22865": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-22865:latest",
+      "image_id": "sha256:a57f77eb429bece1e7eef612143c5c1586cab2dd9da37f36faaccd9aec3062bd",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-22871": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-22871:latest",
+      "image_id": "sha256:8db2e8a94d2543644a7885b195e1cf3f102925d5c296ae25c0e6c1e40a059842",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-23299": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23299:latest",
+      "image_id": "sha256:1f27ebe052c091ba64a9ac0dcafe15ff402a1e5eddf3b41d429b284385e7028f",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-23314": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23314:latest",
+      "image_id": "sha256:f88a00b6cfc878eb62965e836134dd9425b0188bfa2b8154d439bda001ed604c",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-23412": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23412:latest",
+      "image_id": "sha256:12e202cf55f7c103677c1e0ccea3dc01087b1053e3b1b26a7a125df6fc5a48f9",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-23476": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-23476:latest",
+      "image_id": "sha256:10230151c40fbb30c572497c0d2cc6bebead75042568f9223c3266043e6fc249",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-24026": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24026:latest",
+      "image_id": "sha256:17553d6f09cbc0b9e5b3d7a8c527f609caced536a09056d72d97917eb5f877eb",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-24149": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24149:latest",
+      "image_id": "sha256:e80913d242481321c20b8ed0b5bd1513e89fcaff6eb84b5f6d39e748128b7c19",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-24570": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24570:latest",
+      "image_id": "sha256:b223a05746c5783ce2865a57b8fabf45b6404ef3451707a25669a99e21223182",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-24627": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24627:latest",
+      "image_id": "sha256:476e2188798df71e5e904360d15fe2c6fe23c7f215eb3dafd3001688cbc40adc",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-24637": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24637:latest",
+      "image_id": "sha256:bb2ad4cfe0a3f605f875a0f65c4f110cefecde547dd9a1edb3d1c992f4ac8698",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-24870": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24870:latest",
+      "image_id": "sha256:e7387d51d146c5aa492184a1ba8b4be444964ba3f653b3304e8d5d9a27ea3c33",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-25122": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25122:latest",
+      "image_id": "sha256:0fa06f48ba2c929c68f74e8bf02673e9f8cb007059d4455289feb18805aaca38",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-25311": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25311:latest",
+      "image_id": "sha256:3e08e93c4788b52c21ed959dc401e62e5dd6d95f52b92a389018a36b8f1e3142",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-25332": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25332:latest",
+      "image_id": "sha256:e730789910800c84441072e81399d623440a0b03838867d203e54a5f65058cb3",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-25775": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25775:latest",
+      "image_id": "sha256:485ab084e7e44881a7fc10c0356020603ac560371c8806bbcba8cffb307dfa8c",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-25960": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25960:latest",
+      "image_id": "sha256:396c621f3067dc1f1d4928494d8b6a0b68975d3e88d83ea6d2b43573c64a1b8e",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-26113": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26113:latest",
+      "image_id": "sha256:253ed4e51037bedbfdd63ddfd758497ee0725d4885de05212c52df78fe069256",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-26208": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26208:latest",
+      "image_id": "sha256:b3268fee6c746093c7df3f79be03a358d2b6f6183d0547b99afac28135d5ffd7",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-26291": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26291:latest",
+      "image_id": "sha256:1b5b3c1164c4f2a4210bec437b5416fb6346560c09b49e17ede58d045e8b8231",
+      "entrypoint": null
+    },
+    "matplotlib__matplotlib-26466": {
+      "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-26466:latest",
+      "image_id": "sha256:f800b21c102fae7869144983fc32dc6c344f40871be11524807c3df30046ef37",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-10466": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10466:latest",
+      "image_id": "sha256:c02edca2a92a3353e0780dcd1b1a3ba2349245d7aa4e5fc6bc8f2a5327691452",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-10614": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10614:latest",
+      "image_id": "sha256:455d642453b0c1ace5e25dd27f661d22c52a1d5d698b8344de1b5ebe40c077f8",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-10673": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10673:latest",
+      "image_id": "sha256:4654890cc32945f5021445040ad6f2efd3b651f1c9efe679021d3b3da5375eb0",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-11445": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11445:latest",
+      "image_id": "sha256:fec58c84a7ccc38fdceb65528bfb6fb923f038cb1dc95de1f79c0a85e2dde4f2",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-11510": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-11510:latest",
+      "image_id": "sha256:01bf15e77e5d0f6988c8107bf81a5091900228ca0d160bf677d9b07dd17e1a0f",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-7440": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7440:latest",
+      "image_id": "sha256:7c5c736aa232a1581a602993ff5c2483f9d2a9879fdf9a2518954262085fd6b4",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-7590": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7590:latest",
+      "image_id": "sha256:5c86dab7120b83b3bdb4af86743a3910da328029ed92183477fe9865ea76cb2f",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-7748": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7748:latest",
+      "image_id": "sha256:572d11650dea6831a1c81bb31ed468c49370f607b9af7dd762b16283c47bbd27",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-7889": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7889:latest",
+      "image_id": "sha256:57a4cf422e77ed0fa7993c550ce5f7e36e40b455ca8842baa9974ae0b9aeeed3",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-7985": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7985:latest",
+      "image_id": "sha256:c82a2b449cb7709d069a6bf6a623ca8063ebdbbce3ded5ce6a066d24ac3816c1",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8035": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8035:latest",
+      "image_id": "sha256:8f0c620e13fade585f0be2ed8f9d394319c63f33729e2fe4780360dca7871c19",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8056": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8056:latest",
+      "image_id": "sha256:c5d72616211c546700776a1d7c2aceac6cb602518faa5f9d46b87a2701d71111",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8120": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8120:latest",
+      "image_id": "sha256:37d12c39d5ada5c08bb69dbd5c03199f50af28b848319520dcf45b421776b6b9",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8265": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8265:latest",
+      "image_id": "sha256:31ac9a0a59b7e065eb7c662d9f5f8e4f33c7ba1bdf40913cfbdad93c576a9f4d",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8269": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8269:latest",
+      "image_id": "sha256:463ca25b904e464131cad1b7cb3f9e5f1db830967fd1d9aa1526fd44c7bfc997",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8459": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8459:latest",
+      "image_id": "sha256:c2856c3d9bc3ad3015f6ed63a66621229393d3574bb546e64c1a5bbee7a2e572",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8475": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8475:latest",
+      "image_id": "sha256:36012a43df40098aa0e7027c9ae1f14d4ffde426e09b695bfe0b395f853fa4fa",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8548": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8548:latest",
+      "image_id": "sha256:2a068d5390185b7b54da95f749fab5fc9e3bcfc4c182a4132d6cf57207d6385a",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8551": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8551:latest",
+      "image_id": "sha256:7ef3c26b1f402bcae518faddbdea62e12496a29b8d49b582a752874df1a5cd57",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8595": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8595:latest",
+      "image_id": "sha256:d24f9894d781546578028592ad7630cb40973b69af4705582b5e274afc573628",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8621": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8621:latest",
+      "image_id": "sha256:6920990997f285a23170dfb17f61f14f80ce31f608b9f061d1bdc3a32aec983a",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8638": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8638:latest",
+      "image_id": "sha256:704547bd5fff87b0485309ce562e5df09edb84525569d72e5786c14c6c8a772c",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-8721": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8721:latest",
+      "image_id": "sha256:8f02afdb324767a2e56b7940569ea822cfa58c3c1f0ef9a910162d21cf52c3f5",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9229": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9229:latest",
+      "image_id": "sha256:63840fa7b92aa018cc9d45344872ebb241951a44c05c41fa8e6a038c28ffb6b8",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9258": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9258:latest",
+      "image_id": "sha256:cb12fe0f619c5d84e248afc0b89729a26cc46c7b51ebfd0444a77d9a7471fbb9",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9281": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9281:latest",
+      "image_id": "sha256:08c9e293bbc73d548670319b2d37ef8eef6bf528b995959f361159c505355f2d",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9320": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9320:latest",
+      "image_id": "sha256:0dd7b74de29c5734fbcd2fb9ab5295f610b5b281bd2fdd87e9c3c1d3f272f28a",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9367": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9367:latest",
+      "image_id": "sha256:ce3659548ac712a11d3c45a9c47fe8010de0e3a83efee229dcdd9646069dfec1",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9461": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9461:latest",
+      "image_id": "sha256:5927ba1f035f87117341343035f83150ab5a57fbdbaf49db13a36b809baaa8c7",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9591": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9591:latest",
+      "image_id": "sha256:74df74273298874f532c3386fddad8b90528d256b01eaafe8472eef4da437057",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9602": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9602:latest",
+      "image_id": "sha256:6e74f436abd59301ea0f4c01560fb3dc23a0c7d1c38cc14e24609401e172a3cb",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9658": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9658:latest",
+      "image_id": "sha256:f8847eb2c89ef395c61e91c1f00166b274b2742aee6f310e3a315a10999f1e93",
+      "entrypoint": null
+    },
+    "sphinx-doc__sphinx-9698": {
+      "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9698:latest",
+      "image_id": "sha256:38120cc331db6bb9d962101a6795a515d56c8a4ace9983f17afede39fd926d5b",
+      "entrypoint": null
+    },
+    "sympy__sympy-12489": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12489:latest",
+      "image_id": "sha256:da745b29eda94f68cb55a6648fb5767ea6709c242d7cc1c93caee41256ca02c6",
+      "entrypoint": null
+    },
+    "sympy__sympy-13031": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13031:latest",
+      "image_id": "sha256:067e63442eb90f260defbdd2ecb27bb8389449ba889cc7f98fbb1c7585e37b49",
+      "entrypoint": null
+    },
+    "sympy__sympy-13615": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13615:latest",
+      "image_id": "sha256:b71f0f3e41f7d5f64028c13703a3563c09b6cbd84ee43103e5925ebc52fda263",
+      "entrypoint": null
+    },
+    "sympy__sympy-13757": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13757:latest",
+      "image_id": "sha256:82b4764129702dc1e39c5bdda8af519b9535dbe4cd975bcef234789e2711a47f",
+      "entrypoint": null
+    },
+    "sympy__sympy-13798": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13798:latest",
+      "image_id": "sha256:c4a643ffd7be41525c113d0fb9a1c1e8d655e4cca30def373fbac04188cc91f1",
+      "entrypoint": null
+    },
+    "sympy__sympy-13852": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13852:latest",
+      "image_id": "sha256:88a5fc577b1ba9346dd74198c357fb917b58324e40bf7c8e19135e321a4cd31b",
+      "entrypoint": null
+    },
+    "sympy__sympy-13877": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13877:latest",
+      "image_id": "sha256:e8c37ba67508d19e3f3595de6bdd8f834e518d8fb73c687ce355a894feb41a31",
+      "entrypoint": null
+    },
+    "sympy__sympy-13878": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13878:latest",
+      "image_id": "sha256:d0796de4f7c4749e36e32b043edc2c98b3c6f7127691af37c325944726aa7d0a",
+      "entrypoint": null
+    },
+    "sympy__sympy-13974": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13974:latest",
+      "image_id": "sha256:26a1656436e6c2ff0bd6b4ab1cfc54f083e4cfa255cb0a839bf3ee15eea5ab6c",
+      "entrypoint": null
+    },
+    "sympy__sympy-14248": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14248:latest",
+      "image_id": "sha256:eb3a63364062801d29fbdf423d80ac39157f00ec4f30a0ded10c332ecb1090fd",
+      "entrypoint": null
+    },
+    "sympy__sympy-14711": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-14711:latest",
+      "image_id": "sha256:c5366c33ed254ded2f8b39f7350deada09fc6ff5b1fe252041d10844fab54997",
+      "entrypoint": null
+    },
+    "sympy__sympy-15349": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-15349:latest",
+      "image_id": "sha256:a21f1ef8cc0ba65bb8bd3d01f92aeb92b3169c6b859db8d22cc60fe2f28c3fad",
+      "entrypoint": null
+    },
+    "sympy__sympy-15599": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-15599:latest",
+      "image_id": "sha256:b7e6e69c4defe6eb7fe5c57ff3c946d94f7a2048523de41516d209a9b9d00016",
+      "entrypoint": null
+    },
+    "sympy__sympy-15809": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-15809:latest",
+      "image_id": "sha256:106c6882b193223962fe6bf7ce76b14b3e395c7e0ffc64f5361b6a410a108ab7",
+      "entrypoint": null
+    },
+    "sympy__sympy-16450": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-16450:latest",
+      "image_id": "sha256:3dc2ba041aadc8d34042c89d09d1570f804665c60413b111ceaf50a58dc982a4",
+      "entrypoint": null
+    },
+    "sympy__sympy-16597": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-16597:latest",
+      "image_id": "sha256:80716265dd8eef4052cb15f07ded4cbf2ddcd5957d7d526597be6808c56bb55e",
+      "entrypoint": null
+    },
+    "sympy__sympy-16792": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-16792:latest",
+      "image_id": "sha256:2cb71c3fea9be968b204a39cb1af5d178f32af3cf916b0383f51c65f9c3181ab",
+      "entrypoint": null
+    },
+    "sympy__sympy-17139": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-17139:latest",
+      "image_id": "sha256:9a8111742e0548816d920a27ba259ebde7647f4e46e7522c61647990dd35713c",
+      "entrypoint": null
+    },
+    "sympy__sympy-17318": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-17318:latest",
+      "image_id": "sha256:dac5e27382a309b8dd1e6bc6aa4fe4dc3cb8c8384c6d5d516ea4c18e08fa06fd",
+      "entrypoint": null
+    },
+    "sympy__sympy-17630": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-17630:latest",
+      "image_id": "sha256:9b839af473048e347a0f435e920bfa5206e588b59a5187bef826352ac05ae73a",
+      "entrypoint": null
+    },
+    "sympy__sympy-17655": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest",
+      "image_id": "sha256:2c0112dbc185b0d0da1030ceffdb92b7730208caadb2cfbaac8af6ed9fcbddcf",
+      "entrypoint": null
+    },
+    "sympy__sympy-18199": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18199:latest",
+      "image_id": "sha256:3fbc4ff81609eecb1f26540433cbc24b8f6e5454472545e19180137e51883e3e",
+      "entrypoint": null
+    },
+    "sympy__sympy-18698": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18698:latest",
+      "image_id": "sha256:9b8ce19f9470ecbe3390699d06db56a5bf92b49cd41e687a468156fd5d3e947f",
+      "entrypoint": null
+    },
+    "sympy__sympy-18763": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-18763:latest",
+      "image_id": "sha256:4e7342e9dd20eff70d136658fdf6202216ba9c2b155180f511ac338738cce9cc",
+      "entrypoint": null
+    },
+    "sympy__sympy-19040": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-19040:latest",
+      "image_id": "sha256:2238ea21e03d1548e7f3e5345fb924aba8459c99f8697270f8e04aa3661136b4",
+      "entrypoint": null
+    },
+    "sympy__sympy-19346": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-19346:latest",
+      "image_id": "sha256:d9b5c5a12217199b173e36f50b20c4eaab8af20d086802c0f640f76b3832ed15",
+      "entrypoint": null
+    },
+    "sympy__sympy-19495": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-19495:latest",
+      "image_id": "sha256:d8a5b9f1f21ae86a2141b234c99b960680c67c4088fa44830b43f8ef845ab731",
+      "entrypoint": null
+    },
+    "sympy__sympy-19637": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-19637:latest",
+      "image_id": "sha256:956f0b8b048011ead5ff6d46007527a4cb4e1007e4f74fd1c935df6420730d8f",
+      "entrypoint": null
+    },
+    "sympy__sympy-19783": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-19783:latest",
+      "image_id": "sha256:f479dc5ad70891339f836122f10dcbf3e2fb24c7ffc7cf0eb0a682595e7c1db3",
+      "entrypoint": null
+    },
+    "sympy__sympy-20154": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-20154:latest",
+      "image_id": "sha256:d05bbd76c08f2d5b444f6f304ed6d4621f7e5a20db97f9fd0c602210068b0f80",
+      "entrypoint": null
+    },
+    "sympy__sympy-20438": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-20438:latest",
+      "image_id": "sha256:39b73ea4ac249445471138bcf090361b7c5aee24f9d4e01f273ffc86414573c9",
+      "entrypoint": null
+    },
+    "sympy__sympy-20590": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-20590:latest",
+      "image_id": "sha256:3a282752833ce34730ee0621e22033501c993f45742775ca57f04c9ff27178a0",
+      "entrypoint": null
+    },
+    "sympy__sympy-20801": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-20801:latest",
+      "image_id": "sha256:66efe47a12232b336ded7ef943a03dd42f5d6cbeeb609c46ce5646686b218eda",
+      "entrypoint": null
+    },
+    "sympy__sympy-21847": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-21847:latest",
+      "image_id": "sha256:9a45ffe20cac4243930e8c5b2b065adbc08f476c880d7465ca0fbfb9f98c6456",
+      "entrypoint": null
+    },
+    "sympy__sympy-21930": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-21930:latest",
+      "image_id": "sha256:ac9b1c65d632e5a3d1af240db144ff27ed9a70b5507705d50480ede6899125d1",
+      "entrypoint": null
+    },
+    "sympy__sympy-22080": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-22080:latest",
+      "image_id": "sha256:7d31053ec5586fbcc013e528671f6a1fa0060871be0d1ef31e61709e61a86018",
+      "entrypoint": null
+    },
+    "sympy__sympy-22456": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-22456:latest",
+      "image_id": "sha256:ffa413d994c2217162a352c8bd711b6ece23b0f0a3941b4f5071b52fdcc9bc64",
+      "entrypoint": null
+    },
+    "sympy__sympy-23534": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-23534:latest",
+      "image_id": "sha256:8a18511507a128964f0a001f54354370b84f4598d59b43d8df24163ba560a516",
+      "entrypoint": null
+    },
+    "sympy__sympy-24443": {
+      "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-24443:latest",
+      "image_id": "sha256:0d6610c1dd6f38eb68ee0923a74aebc6103fabc063f5cceec45a4cc0cb8a8cd4",
+      "entrypoint": null
+    }
+  },
+  "missing_images": [],
+  "image_head_audit": "preflight/image_head_audit.json",
+  "snapshot_policy": "Align only exact audited synthetic SWE-bench HEAD to task base without changing working tree; remove non-base Git objects before model requests. Ignore packaging-only executable-bit differences, matching official evaluation core.fileMode=false.",
+  "image_content_audit": "preflight/image_content_audit.json",
+  "nonbinary_content_change_paths": [
+    "setup.py",
+    "tox.ini"
+  ]
+}

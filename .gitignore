@@ -198,3 +198,11 @@ metagpt/ext/sela/results/*
 
 metagpt/ext/aflow/data
 metagpt/ext/aflow/scripts/optimized
+
+# Local provider credentials and generated SWE harness summaries.
+/config/config2.yaml
+/.env.*
+!/.env.example
+/*.metagpt_rerun*.json
+/home/
+/.trae/

@@ -1,0 +1,254 @@
+{
+  "captured_at": "2026-09-22T02:38:03.328180+00:00",
+  "scope": "Read-only diagnosis of pro19 plus pro18 smoke; sampled EvoMAS historical trajectories. No generation or evaluation rerun; no runtime changes.",
+  "pro19": {
+    "selected": 58,
+    "generated": 7,
+    "evaluated": 3,
+    "resolved": 2,
+    "unresolved": 1,
+    "blocked_with_patch": 4,
+    "not_started": 51,
+    "controller_pids_alive": 0
+  },
+  "cases": [
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_flipt-io__flipt-3ef34d1fff012140ba86ab3cafec8f9934b492be",
+      "phase": "blocked_api",
+      "outcome": null,
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/flipt/flipt/case_001",
+      "patch_chars": 20637,
+      "model_error_classes": {
+        "RateLimitError": 1
+      },
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 15,
+      "final_review": "inconclusive",
+      "case_seconds": 948.572,
+      "finish_reason": "review inconclusive; current patch preserved",
+      "unused_of_1500_seconds": 551.428,
+      "eval_report_present": false,
+      "mini_responses_after_last_rate_limit": 15
+    },
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86",
+      "phase": "done",
+      "outcome": "unresolved",
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_001",
+      "patch_chars": 17214,
+      "model_error_classes": {},
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 34,
+      "final_review": "inconclusive",
+      "case_seconds": 1009.692,
+      "finish_reason": "review inconclusive; current patch preserved",
+      "unused_of_1500_seconds": 490.308,
+      "eval_report_present": true,
+      "mini_responses_after_last_rate_limit": null,
+      "eval_tests": {
+        "FAIL_TO_PASS": {
+          "success": 3,
+          "failure": 1
+        },
+        "PASS_TO_PASS": {
+          "success": 4,
+          "failure": 1
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    },
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2",
+      "phase": "blocked_api",
+      "outcome": null,
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_002",
+      "patch_chars": 15814,
+      "model_error_classes": {
+        "RateLimitError": 4
+      },
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 17,
+      "final_review": "approved",
+      "case_seconds": 808.477,
+      "finish_reason": "Reviewer approved submission 1",
+      "unused_of_1500_seconds": 691.523,
+      "eval_report_present": false,
+      "mini_responses_after_last_rate_limit": 17
+    },
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "phase": "done",
+      "outcome": "resolved",
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_001",
+      "patch_chars": 27477,
+      "model_error_classes": {},
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 41,
+      "final_review": "inconclusive",
+      "case_seconds": 930.854,
+      "finish_reason": "review inconclusive; current patch preserved",
+      "unused_of_1500_seconds": 569.146,
+      "eval_report_present": true,
+      "mini_responses_after_last_rate_limit": null
+    },
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_internetarchive__openlibrary-427f1f4eddfc54735ca451779d4f95bf683d1b0e-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+      "phase": "blocked_api",
+      "outcome": null,
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_002",
+      "patch_chars": 3859,
+      "model_error_classes": {
+        "RateLimitError": 2,
+        "BadGatewayError": 1
+      },
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 0,
+      "final_review": "approved",
+      "case_seconds": 963.381,
+      "finish_reason": "Reviewer approved submission 1",
+      "unused_of_1500_seconds": 536.619,
+      "eval_report_present": false,
+      "mini_responses_after_last_rate_limit": 13
+    },
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_protonmail__webclients-2c3559cad02d1090985dba7e8eb5a129144d9811",
+      "phase": "done",
+      "outcome": "resolved",
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_001",
+      "patch_chars": 6714,
+      "model_error_classes": {
+        "BadGatewayError": 1
+      },
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 5,
+      "final_review": "inconclusive",
+      "case_seconds": 938.483,
+      "finish_reason": "review inconclusive; current patch preserved",
+      "unused_of_1500_seconds": 561.517,
+      "eval_report_present": true,
+      "mini_responses_after_last_rate_limit": null
+    },
+    {
+      "batch": "pro19_api_paced_anomaly_rerun",
+      "instance_id": "instance_protonmail__webclients-2f2f6c311c6128fe86976950d3c0c2db07b03921",
+      "phase": "blocked_api",
+      "outcome": null,
+      "artifact_dir": "workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_002",
+      "patch_chars": 11782,
+      "model_error_classes": {
+        "RateLimitError": 3
+      },
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 35,
+      "final_review": "inconclusive",
+      "case_seconds": 1347.439,
+      "finish_reason": "review inconclusive; current patch preserved",
+      "unused_of_1500_seconds": 152.561,
+      "eval_report_present": false,
+      "mini_responses_after_last_rate_limit": 35
+    },
+    {
+      "batch": "pro18_api_paced_smoke",
+      "instance_id": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+      "phase": "done",
+      "outcome": "unresolved",
+      "artifact_dir": "workspace/pro18_api_paced_smoke/ansible/case_001",
+      "patch_chars": 23375,
+      "model_error_classes": {
+        "BadGatewayError": 1
+      },
+      "explicit_hard_quota_marker": false,
+      "mini_responses_after_last_model_error": 54,
+      "final_review": "changes_requested",
+      "case_seconds": 1355.04,
+      "finish_reason": "insufficient editing time for requested changes; patch preserved",
+      "unused_of_1500_seconds": 144.96,
+      "eval_report_present": true,
+      "mini_responses_after_last_rate_limit": null,
+      "eval_tests": {
+        "FAIL_TO_PASS": {
+          "success": 0,
+          "failure": 3
+        },
+        "PASS_TO_PASS": {
+          "success": 17,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      }
+    }
+  ],
+  "source_hashes": {
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/flipt/flipt/case_001/traces/instance_flipt-io__flipt-3ef34d1fff012140ba86ab3cafec8f9934b492be/events.jsonl": "975b10b51d17bf78200b770ba31aa3af550a388902e362afc47a01b2cc70c69f",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/flipt/flipt/case_001/all_preds.jsonl": "ded3b91edfc881b350f3d54caa16c2177ea51b8f02612c3a589b8937d6160d46",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/flipt/flipt/case_001/instance.jsonl": "68b73a35cebbba937846672f10b2ebc9c32d945adaf2410f5d2691d60caa3ed0",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_001/traces/instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86/events.jsonl": "a8c0a6f452a3d0fa90aaf0e6b7ad85f11443c18b78306fc5e17b140d2a2d9dc6",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_001/all_preds.jsonl": "654987e367ec286f445b7ad2b3e53a75147ca0874acfdfe32d0824377c68a252",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_001/instance.jsonl": "164d318e88d8c1ebc41ddff66a2693b74fc3f9e1a5edd0eeb204b17232bb09bc",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_002/traces/instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2/events.jsonl": "fb452c7dc65c0a251346c27e245bac0907e9723223ba4063bcbbd4499d327bbd",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_002/all_preds.jsonl": "f9b34ddae90025128d7703b134a56d0288b4512f4f462d45829d9da0360644b1",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/ansible/case_002/instance.jsonl": "acac67c5fc02ca0a63b3e3c3a38ca34654f6645857500d96e45584d0e8df5d5e",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_001/traces/instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26/events.jsonl": "c9e19fd8c14125e7d9b731427ac218225a45505b380f5f07fb550d46bb19414a",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_001/all_preds.jsonl": "298519234f833f9b6ed98cf4f3d3e7ad3bda0c2b49bb7bf9330fe26d53fb9549",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_001/instance.jsonl": "99b78b0141fe5ac682c9b9eaa235063f9f2d0ff0e2e2738c2d13361ccebc2e6c",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_002/traces/instance_internetarchive__openlibrary-427f1f4eddfc54735ca451779d4f95bf683d1b0e-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4/events.jsonl": "8ed19fa4bd5baa7cb8aa8080320ff48de2b3874d83bd160eb5ed35dcbfd2623f",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_002/all_preds.jsonl": "a2a80632681f87527643580dac79ca08574eb30aaa5074c52f8d132b8d2d2c60",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/openlibrary/case_002/instance.jsonl": "ee1748b88bf8f2ca6ef2d79dcec157357887c2fbb8476f67632061536c671334",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_001/traces/instance_protonmail__webclients-2c3559cad02d1090985dba7e8eb5a129144d9811/events.jsonl": "f59e87550b1dfcf2bd70928a66803bb524c4298b986f4580d42fb52c0166f0f0",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_001/all_preds.jsonl": "98b74fbac32406a03158889dfed429f58d44df5dac978f3336eaf35f520764ff",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_001/instance.jsonl": "c71acee08f4a12501b04963715c96d12b046447ea8b762c19acd6875ac691a47",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_002/traces/instance_protonmail__webclients-2f2f6c311c6128fe86976950d3c0c2db07b03921/events.jsonl": "1c203d1a35f39017982143f2d12d861b6b2c96236b75bce2a58bcc18ad2032d4",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_002/all_preds.jsonl": "a27cbb8844c8ae8139136e19f00999c2f928d961d984d3499657e416650a50fc",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/webclients/case_002/instance.jsonl": "cc87cabbcde03e29bb3fa470844e448067206255a103d2f5f0da11ad7afff402",
+    "MetaGPT/workspace/pro18_api_paced_smoke/ansible/case_001/traces/instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2/events.jsonl": "5389738a1cd3b546255756a248c07c5a669de5ac13505805fe43327eae4a982a",
+    "MetaGPT/workspace/pro18_api_paced_smoke/ansible/case_001/all_preds.jsonl": "41b1be66deacc08d73c99c21f00fdfd46ff6d9e7afdbec2106d61dd417ccd8cb",
+    "MetaGPT/workspace/pro18_api_paced_smoke/ansible/case_001/instance.jsonl": "751d0baab325f3acf6652a38879035bbdc912583362a6411e04615c6aac857dc",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/flipt/progress.json": "e8f2b98573161a2397ee1c12b52db5612aa17b55268fb5a93eebf20da8f4b5c5",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/progress.json": "fae739448564ab5dcb9e5fd3bd3cb135581bff06aa6690df1ed4b835018c08a9",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/progress.json": "6d7d368b3a8dc14834137285b507262f317ff46ea08d45b30a938330aa7e3826",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/progress.json": "1b456ff44ec977ee3c433b3ad1b9a2b348f223f852396581074781e6c348e211",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/flipt/manifest.json": "c9f8581a8eac950e3dd7f0cd9260a1d5476034b44d10d8a4fa2bcecf0c0f115a",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/ansible/manifest.json": "ee38100162a352bc15ddcd9f4a4f45d951999f709a2599dcc9db029ef83efcce",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/openlibrary/manifest.json": "df8a24e8225c786b4ae1d5896367bde8ce781eac278f389e5b578e4ba814b003",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/webclients/manifest.json": "7f3281b9ff32c6cbdc2c64754d064a2d464d4aa12302fab32544789bc93db6b8",
+    "MetaGPT/tests/metagpt/roles/di/run_swe_full_experiment.py": "ac97fb62d23d3db2dc72c9de46a43df0a5c363e21c730718ce6f1a9fa30d3b83",
+    "MetaGPT/metagpt/roles/di/reviewer.py": "eeb8a4d30e5c9f12c8f0582f7d150a26d388fd23868b45446369d919cc8c0b04",
+    "MetaGPT/metagpt/roles/di/swe_protocol.py": "daf1eceae70347a3c0a1e224fbd2d8a246c9c32a825a8fea362c53553d5ebb00",
+    "MetaGPT/metagpt/roles/di/swe_rate_limit.py": "70927ef1bdc21f488b28ae27ce34654b3ad3ce556d42f0c488f719a932b15581",
+    "MetaGPT/workspace/pro15_evomas_full_success_replay/selection_manifest.json": "b330bf1e5f3b89ab6aef6dad5a1f3481e32b2013da6894ded83e1b8ec0c8fa23",
+    "MetaGPT/workspace/pro17_api_anomaly_rerun/selection_manifest.json": "188c82eceef1f5acdaa0343cf5023a7f543f5fc93469033ba45dfe931fbfd3c9",
+    "MetaGPT/workspace/pro19_api_paced_anomaly_rerun/selection_manifest.json": "597c65b6dd2afdb25788eeb84fb2d170948a5558bbf62206066733d23ed3adc1",
+    "EvoMAS/logs/run_pro_20260827_065045/ansible.log": "849c6d84b3c30ef3af61c0df28619a98c4395d3d00173bbbf12c251efe5638e6",
+    "EvoMAS/logs/run_pro_netisol_20260904_023909/flipt.log": "1ac5ac2aab016ea61100bb49cde2fafd808fc5c11f056e9021a7874e19b58f65",
+    "EvoMAS/logs/run_pro_netisol_20260904_023909/openlibrary.log": "79e695783728df410e6c92c3c207ce7fe152f1aef1a0f2a4c16d2f5f2de03133",
+    "EvoMAS/output_pro/chatdev_ansible/output_selected/swe_bench_pro/chatdev_Deepseek-V4-Flash-0731/instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86.txt": "6ed8d74036648b36b4b952bb6716feed05a68db3d3784fc422a4602e16baa641",
+    "EvoMAS/output_pro/chatdev_ansible/output_selected/swe_bench_pro/chatdev_Deepseek-V4-Flash-0731/instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2.txt": "1640eaef12757934a49b3f218c008272df3488c3bc94b76f1a034b981b01308b",
+    "EvoMAS/output_pro_netisol_failed_rerun/chatdev_ansible/output_selected/swe_bench_pro/chatdev_Deepseek-V4-Flash-0731/results.json": "c3f1bd5e8b29e3aec04bd8b02c5dd43de1aa9f17848ed1912d955b82fa4310a8",
+    "EvoMAS/output_pro_netisol_failed_rerun/chatdev_ansible/output_selected/swe_bench_pro/chatdev_Deepseek-V4-Flash-0731/instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "EvoMAS/output_pro_netisol_failed_rerun/chatdev_ansible/output_selected/swe_bench_pro/chatdev_Deepseek-V4-Flash-0731/instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "MetaGPT/logs/run_evaluation/ansible_ansible_001/DeepSeek-V4-Flash-0731/instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86/report.json": "e4e235654e9189938bba725c0ba4e706b9deaef6b5b0ad3f9b68bd9aceb1f819",
+    "MetaGPT/logs/run_evaluation/ansible_ansible_001/DeepSeek-V4-Flash-0731/instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86/test_output.txt": "307acec5ed1d9f5a3b8467030fa726e13049ce70a283f520ead27bb11b11bc18",
+    "MetaGPT/logs/run_evaluation/pro18_api_paced_smoke_ansible_001/DeepSeek-V4-Flash-0731/instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2/report.json": "1deb241952c97dc413130b7677d640477f3e99cb4189b5c48a287a48e80738b3",
+    "MetaGPT/logs/run_evaluation/pro18_api_paced_smoke_ansible_001/DeepSeek-V4-Flash-0731/instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2/test_output.txt": "50aeac92a7e744085556b2eab23cf8363132e6d407185c880072778418733008"
+  }
+}

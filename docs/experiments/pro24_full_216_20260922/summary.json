@@ -1,0 +1,36 @@
+{
+  "planned": 216,
+  "completed": 216,
+  "resolved": 98,
+  "phases": {
+    "done": 216
+  },
+  "outcomes": {
+    "unresolved": 115,
+    "resolved": 98,
+    "empty_patch": 3
+  },
+  "domains": {
+    "ansible": {
+      "planned": 63,
+      "completed": 63,
+      "resolved": 31
+    },
+    "flipt": {
+      "planned": 54,
+      "completed": 54,
+      "resolved": 15
+    },
+    "openlibrary": {
+      "planned": 60,
+      "completed": 60,
+      "resolved": 35
+    },
+    "webclients": {
+      "planned": 39,
+      "completed": 39,
+      "resolved": 17
+    }
+  },
+  "stopped": false
+}

@@ -347,8 +347,7 @@ async def run(instance, swe_result_dir, args):
             from metagpt.roles.di.swe_repository import isolate_history_command
             from metagpt.roles.di.swe_shell import docker_shell_argv
             history_proc = await asyncio.create_subprocess_exec(
-                *docker_shell_argv(cname, workdir, isolate_history_command(
-                    instance['base_commit'], instance.get('image_snapshot_commit')), 120),
+                *docker_shell_argv(cname, workdir, isolate_history_command(instance['base_commit']), 120),
                 stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT)
             history_out, _ = await history_proc.communicate()
             if history_proc.returncode:

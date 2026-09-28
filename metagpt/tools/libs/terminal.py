@@ -154,9 +154,24 @@ class Terminal:
             # '\r' is changed to '\n', resulting in excessive output.
             tmp = b""
             while True:
-                output = tmp + await self.process.stdout.read(1)
-                if not output:
-                    continue
+                chunk = await self.process.stdout.read(1)
+                if not chunk:
+                    # EOF: the shell process died (e.g. an invalid multi-line
+                    # command). The old code did `continue` here, which spun
+                    # forever — read(1) at EOF completes synchronously, so the
+                    # loop also starved the event loop and asyncio timeouts
+                    # upstream (240s cmd timeout, 60-min wall clock) never
+                    # fired. Observed: a pro2 run burned 6h of CPU this way.
+                    if tmp:
+                        line = tmp.decode(errors="ignore")
+                        await observer.async_report(line, "output")
+                        cmd_output.append(line)
+                    raise EOFError(
+                        f"shell process EOF while reading command output "
+                        f"(partial output {sum(len(c) for c in cmd_output)} chars, "
+                        f"cmd[:80]={cmd[:80]!r})"
+                    )
+                output = tmp + chunk
                 *lines, tmp = output.splitlines(True)
                 for line in lines:
                     line = line.decode(errors="ignore")

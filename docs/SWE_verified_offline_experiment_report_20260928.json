@@ -1,0 +1,3947 @@
+{
+  "created_utc": "2026-09-28T01:07:09.089697+00:00",
+  "summary": {
+    "planned": 154,
+    "completed": 154,
+    "resolved": 102,
+    "phases": {
+      "done": 154
+    },
+    "outcomes": {
+      "unresolved": 50,
+      "resolved": 102,
+      "empty_patch": 2
+    },
+    "domains": {
+      "django": {
+        "planned": 59,
+        "completed": 59,
+        "resolved": 38
+      },
+      "matplotlib": {
+        "planned": 23,
+        "completed": 23,
+        "resolved": 19
+      },
+      "sphinx": {
+        "planned": 33,
+        "completed": 33,
+        "resolved": 20
+      },
+      "sympy": {
+        "planned": 39,
+        "completed": 39,
+        "resolved": 25
+      }
+    },
+    "stopped": false
+  },
+  "overall": {
+    "n": 154,
+    "resolved": 102,
+    "empty_patch": 2,
+    "generation_seconds_sum": 123106.037,
+    "generation_seconds_mean": 799.3898506493507,
+    "generation_seconds_median": 783.0965,
+    "usage": {
+      "prompt_tokens": 144844651,
+      "completion_tokens": 6793965,
+      "total_tokens": 151638616,
+      "reasoning_tokens": 5336459,
+      "cached_tokens": 120248320
+    },
+    "usage_events": 7405,
+    "errors": {
+      "TimeoutError": 53,
+      "CancelledError": 43,
+      "BadGatewayError": 26,
+      "RateLimitError": 4,
+      "APITimeoutError": 3
+    },
+    "rate_limit_affected": 4,
+    "rate_limit_affected_unresolved": 3
+  },
+  "domains": {
+    "django": {
+      "n": 59,
+      "resolved": 38,
+      "empty_patch": 0,
+      "generation_seconds_sum": 51299.57,
+      "generation_seconds_mean": 869.4842372881355,
+      "generation_seconds_median": 873.815,
+      "usage": {
+        "prompt_tokens": 57758196,
+        "completion_tokens": 3018718,
+        "total_tokens": 60776914,
+        "reasoning_tokens": 2428634,
+        "cached_tokens": 47734016
+      },
+      "usage_events": 2889,
+      "errors": {
+        "TimeoutError": 30,
+        "CancelledError": 23,
+        "BadGatewayError": 6,
+        "APITimeoutError": 3
+      },
+      "rate_limit_affected": 0,
+      "rate_limit_affected_unresolved": 0
+    },
+    "matplotlib": {
+      "n": 23,
+      "resolved": 19,
+      "empty_patch": 0,
+      "generation_seconds_sum": 17001.488,
+      "generation_seconds_mean": 739.1951304347826,
+      "generation_seconds_median": 694.972,
+      "usage": {
+        "prompt_tokens": 14887279,
+        "completion_tokens": 763632,
+        "total_tokens": 15650911,
+        "reasoning_tokens": 579118,
+        "cached_tokens": 11840256
+      },
+      "usage_events": 885,
+      "errors": {
+        "TimeoutError": 8,
+        "CancelledError": 8,
+        "BadGatewayError": 5,
+        "RateLimitError": 1
+      },
+      "rate_limit_affected": 1,
+      "rate_limit_affected_unresolved": 0
+    },
+    "sphinx": {
+      "n": 33,
+      "resolved": 20,
+      "empty_patch": 2,
+      "generation_seconds_sum": 25087.753,
+      "generation_seconds_mean": 760.2349393939394,
+      "generation_seconds_median": 674.494,
+      "usage": {
+        "prompt_tokens": 39324128,
+        "completion_tokens": 1371319,
+        "total_tokens": 40695447,
+        "reasoning_tokens": 1059868,
+        "cached_tokens": 33684992
+      },
+      "usage_events": 1761,
+      "errors": {
+        "BadGatewayError": 8,
+        "RateLimitError": 1,
+        "TimeoutError": 5,
+        "CancelledError": 4
+      },
+      "rate_limit_affected": 1,
+      "rate_limit_affected_unresolved": 1
+    },
+    "sympy": {
+      "n": 39,
+      "resolved": 25,
+      "empty_patch": 0,
+      "generation_seconds_sum": 29717.226000000002,
+      "generation_seconds_mean": 761.9801538461538,
+      "generation_seconds_median": 782.899,
+      "usage": {
+        "prompt_tokens": 32875048,
+        "completion_tokens": 1640296,
+        "total_tokens": 34515344,
+        "reasoning_tokens": 1268839,
+        "cached_tokens": 26989056
+      },
+      "usage_events": 1870,
+      "errors": {
+        "BadGatewayError": 7,
+        "TimeoutError": 10,
+        "CancelledError": 8,
+        "RateLimitError": 2
+      },
+      "rate_limit_affected": 2,
+      "rate_limit_affected_unresolved": 2
+    }
+  },
+  "roles": {
+    "Mike": {
+      "prompt_tokens": 1079879,
+      "completion_tokens": 961220,
+      "total_tokens": 2041099,
+      "reasoning_tokens": 830059,
+      "cached_tokens": 45056
+    },
+    "Alex": {
+      "prompt_tokens": 138342932,
+      "completion_tokens": 3234262,
+      "total_tokens": 141577194,
+      "reasoning_tokens": 2158414,
+      "cached_tokens": 118728704
+    },
+    "Reviewer": {
+      "prompt_tokens": 5421840,
+      "completion_tokens": 2598483,
+      "total_tokens": 8020323,
+      "reasoning_tokens": 2347986,
+      "cached_tokens": 1474560
+    }
+  },
+  "segments": [
+    {
+      "started": "2026-09-24T01:35:20.429305+00:00",
+      "finished": "2026-09-24T17:41:55.507304+00:00",
+      "wall_seconds": 57995.0780513091,
+      "returncode": 1
+    },
+    {
+      "started": "2026-09-25T01:27:38.267785+00:00",
+      "finished": "2026-09-25T03:26:25.989028+00:00",
+      "wall_seconds": 7127.721214428078,
+      "returncode": 0
+    }
+  ],
+  "time": {
+    "active_wall_seconds": 65122.79926573718,
+    "total_span_seconds": 93065.559723,
+    "pause_seconds": 27942.76045726282
+  },
+  "isolation": {
+    "generation_none": 154,
+    "history_isolated": 154,
+    "evaluation_none": 152,
+    "evaluation_skipped_empty": 2,
+    "resolved_nonempty_f2p_validated": 102
+  },
+  "last_reviews": {
+    "approved": {
+      "n": 17,
+      "resolved": 14
+    },
+    "inconclusive": {
+      "n": 125,
+      "resolved": 84
+    },
+    "changes_requested": {
+      "n": 12,
+      "resolved": 4
+    }
+  },
+  "cases": [
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_001",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1456.088,
+      "usage": {
+        "prompt_tokens": 1298632,
+        "completion_tokens": 80750,
+        "total_tokens": 1379382,
+        "reasoning_tokens": 74232,
+        "cached_tokens": 1091840
+      },
+      "usage_events": 40,
+      "errors": {
+        "TimeoutError": 2,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_001",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 518.783,
+      "usage": {
+        "prompt_tokens": 385602,
+        "completion_tokens": 19228,
+        "total_tokens": 404830,
+        "reasoning_tokens": 11366,
+        "cached_tokens": 297472
+      },
+      "usage_events": 34,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_001",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 528.22,
+      "usage": {
+        "prompt_tokens": 660496,
+        "completion_tokens": 18163,
+        "total_tokens": 678659,
+        "reasoning_tokens": 10108,
+        "cached_tokens": 506624
+      },
+      "usage_events": 47,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_001",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 802.378,
+      "usage": {
+        "prompt_tokens": 556491,
+        "completion_tokens": 34933,
+        "total_tokens": 591424,
+        "reasoning_tokens": 26293,
+        "cached_tokens": 415232
+      },
+      "usage_events": 34,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_002",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 783.294,
+      "usage": {
+        "prompt_tokens": 954069,
+        "completion_tokens": 31095,
+        "total_tokens": 985164,
+        "reasoning_tokens": 20728,
+        "cached_tokens": 791296
+      },
+      "usage_events": 57,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_002",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 1014.705,
+      "usage": {
+        "prompt_tokens": 1719035,
+        "completion_tokens": 52565,
+        "total_tokens": 1771600,
+        "reasoning_tokens": 41754,
+        "cached_tokens": 1541120
+      },
+      "usage_events": 60,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_002",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 162.337,
+      "usage": {
+        "prompt_tokens": 78602,
+        "completion_tokens": 3822,
+        "total_tokens": 82424,
+        "reasoning_tokens": 1548,
+        "cached_tokens": 37376
+      },
+      "usage_events": 12,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_003",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 766.035,
+      "usage": {
+        "prompt_tokens": 267516,
+        "completion_tokens": 43283,
+        "total_tokens": 310799,
+        "reasoning_tokens": 36608,
+        "cached_tokens": 162048
+      },
+      "usage_events": 27,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_003",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 1176.457,
+      "usage": {
+        "prompt_tokens": 1473605,
+        "completion_tokens": 64832,
+        "total_tokens": 1538437,
+        "reasoning_tokens": 56253,
+        "cached_tokens": 1227520
+      },
+      "usage_events": 51,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_002",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1469.528,
+      "usage": {
+        "prompt_tokens": 872889,
+        "completion_tokens": 49630,
+        "total_tokens": 922519,
+        "reasoning_tokens": 41979,
+        "cached_tokens": 699392
+      },
+      "usage_events": 39,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1,
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_003",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 813.156,
+      "usage": {
+        "prompt_tokens": 1211350,
+        "completion_tokens": 22150,
+        "total_tokens": 1233500,
+        "reasoning_tokens": 15185,
+        "cached_tokens": 1087488
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_004",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 432.346,
+      "usage": {
+        "prompt_tokens": 371667,
+        "completion_tokens": 19476,
+        "total_tokens": 391143,
+        "reasoning_tokens": 15516,
+        "cached_tokens": 280832
+      },
+      "usage_events": 22,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_005",
+      "domain": "matplotlib",
+      "outcome": "unresolved",
+      "generation_seconds": 1250.65,
+      "usage": {
+        "prompt_tokens": 933071,
+        "completion_tokens": 59159,
+        "total_tokens": 992230,
+        "reasoning_tokens": 50663,
+        "cached_tokens": 757504
+      },
+      "usage_events": 50,
+      "errors": {
+        "BadGatewayError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_004",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 512.259,
+      "usage": {
+        "prompt_tokens": 180921,
+        "completion_tokens": 24715,
+        "total_tokens": 205636,
+        "reasoning_tokens": 20479,
+        "cached_tokens": 129280
+      },
+      "usage_events": 23,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_004",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 1093.198,
+      "usage": {
+        "prompt_tokens": 1165327,
+        "completion_tokens": 55631,
+        "total_tokens": 1220958,
+        "reasoning_tokens": 45245,
+        "cached_tokens": 981248
+      },
+      "usage_events": 65,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_003",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1360.36,
+      "usage": {
+        "prompt_tokens": 2056285,
+        "completion_tokens": 78689,
+        "total_tokens": 2134974,
+        "reasoning_tokens": 58884,
+        "cached_tokens": 1776896
+      },
+      "usage_events": 70,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_005",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 1006.648,
+      "usage": {
+        "prompt_tokens": 1385975,
+        "completion_tokens": 43619,
+        "total_tokens": 1429594,
+        "reasoning_tokens": 32618,
+        "cached_tokens": 1167104
+      },
+      "usage_events": 63,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_006",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 248.896,
+      "usage": {
+        "prompt_tokens": 86270,
+        "completion_tokens": 8495,
+        "total_tokens": 94765,
+        "reasoning_tokens": 5684,
+        "cached_tokens": 49152
+      },
+      "usage_events": 15,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_005",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 394.369,
+      "usage": {
+        "prompt_tokens": 260768,
+        "completion_tokens": 11952,
+        "total_tokens": 272720,
+        "reasoning_tokens": 6478,
+        "cached_tokens": 173568
+      },
+      "usage_events": 32,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_006",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 1422.608,
+      "usage": {
+        "prompt_tokens": 1579837,
+        "completion_tokens": 56648,
+        "total_tokens": 1636485,
+        "reasoning_tokens": 41564,
+        "cached_tokens": 1344256
+      },
+      "usage_events": 70,
+      "errors": {
+        "BadGatewayError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_007",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 664.92,
+      "usage": {
+        "prompt_tokens": 341204,
+        "completion_tokens": 21466,
+        "total_tokens": 362670,
+        "reasoning_tokens": 14304,
+        "cached_tokens": 234752
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_006",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 1150.999,
+      "usage": {
+        "prompt_tokens": 809571,
+        "completion_tokens": 41938,
+        "total_tokens": 851509,
+        "reasoning_tokens": 31625,
+        "cached_tokens": 603648
+      },
+      "usage_events": 54,
+      "errors": {
+        "BadGatewayError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_004",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1231.172,
+      "usage": {
+        "prompt_tokens": 968665,
+        "completion_tokens": 45948,
+        "total_tokens": 1014613,
+        "reasoning_tokens": 32330,
+        "cached_tokens": 743168
+      },
+      "usage_events": 65,
+      "errors": {
+        "BadGatewayError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_008",
+      "domain": "matplotlib",
+      "outcome": "unresolved",
+      "generation_seconds": 524.239,
+      "usage": {
+        "prompt_tokens": 194942,
+        "completion_tokens": 18759,
+        "total_tokens": 213701,
+        "reasoning_tokens": 15544,
+        "cached_tokens": 137216
+      },
+      "usage_events": 21,
+      "errors": {
+        "TimeoutError": 1,
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_007",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 845.799,
+      "usage": {
+        "prompt_tokens": 894450,
+        "completion_tokens": 35722,
+        "total_tokens": 930172,
+        "reasoning_tokens": 25240,
+        "cached_tokens": 735744
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_007",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 1244.998,
+      "usage": {
+        "prompt_tokens": 1834744,
+        "completion_tokens": 61828,
+        "total_tokens": 1896572,
+        "reasoning_tokens": 47505,
+        "cached_tokens": 1530368
+      },
+      "usage_events": 82,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_009",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 590.203,
+      "usage": {
+        "prompt_tokens": 243097,
+        "completion_tokens": 35878,
+        "total_tokens": 278975,
+        "reasoning_tokens": 29523,
+        "cached_tokens": 143360
+      },
+      "usage_events": 30,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_005",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1485.056,
+      "usage": {
+        "prompt_tokens": 2594769,
+        "completion_tokens": 71662,
+        "total_tokens": 2666431,
+        "reasoning_tokens": 59479,
+        "cached_tokens": 2275072
+      },
+      "usage_events": 80,
+      "errors": {
+        "CancelledError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_008",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.4,
+      "usage": {
+        "prompt_tokens": 1044147,
+        "completion_tokens": 29853,
+        "total_tokens": 1074000,
+        "reasoning_tokens": 17534,
+        "cached_tokens": 911616
+      },
+      "usage_events": 50,
+      "errors": {
+        "BadGatewayError": 2,
+        "TimeoutError": 1,
+        "CancelledError": 1,
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_010",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 331.8,
+      "usage": {
+        "prompt_tokens": 173924,
+        "completion_tokens": 11550,
+        "total_tokens": 185474,
+        "reasoning_tokens": 6702,
+        "cached_tokens": 113152
+      },
+      "usage_events": 24,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_008",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 1374.639,
+      "usage": {
+        "prompt_tokens": 1499298,
+        "completion_tokens": 61525,
+        "total_tokens": 1560823,
+        "reasoning_tokens": 49889,
+        "cached_tokens": 1266176
+      },
+      "usage_events": 69,
+      "errors": {
+        "BadGatewayError": 3,
+        "RateLimitError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_011",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 909.977,
+      "usage": {
+        "prompt_tokens": 297266,
+        "completion_tokens": 19279,
+        "total_tokens": 316545,
+        "reasoning_tokens": 10813,
+        "cached_tokens": 209152
+      },
+      "usage_events": 32,
+      "errors": {
+        "BadGatewayError": 3,
+        "RateLimitError": 1,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_006",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1349.463,
+      "usage": {
+        "prompt_tokens": 1189049,
+        "completion_tokens": 81791,
+        "total_tokens": 1270840,
+        "reasoning_tokens": 72128,
+        "cached_tokens": 983808
+      },
+      "usage_events": 49,
+      "errors": {
+        "TimeoutError": 3,
+        "BadGatewayError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_009",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 877.014,
+      "usage": {
+        "prompt_tokens": 1075465,
+        "completion_tokens": 60031,
+        "total_tokens": 1135496,
+        "reasoning_tokens": 47673,
+        "cached_tokens": 858112
+      },
+      "usage_events": 54,
+      "errors": {
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_012",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 1445.114,
+      "usage": {
+        "prompt_tokens": 2007793,
+        "completion_tokens": 65158,
+        "total_tokens": 2072951,
+        "reasoning_tokens": 51742,
+        "cached_tokens": 1745408
+      },
+      "usage_events": 87,
+      "errors": {
+        "CancelledError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_009",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 483.639,
+      "usage": {
+        "prompt_tokens": 316087,
+        "completion_tokens": 40080,
+        "total_tokens": 356167,
+        "reasoning_tokens": 32154,
+        "cached_tokens": 212736
+      },
+      "usage_events": 31,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_007",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 492.491,
+      "usage": {
+        "prompt_tokens": 153674,
+        "completion_tokens": 40717,
+        "total_tokens": 194391,
+        "reasoning_tokens": 35666,
+        "cached_tokens": 81152
+      },
+      "usage_events": 26,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_010",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 1343.06,
+      "usage": {
+        "prompt_tokens": 3020368,
+        "completion_tokens": 74876,
+        "total_tokens": 3095244,
+        "reasoning_tokens": 56729,
+        "cached_tokens": 2737920
+      },
+      "usage_events": 87,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_010",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.035,
+      "usage": {
+        "prompt_tokens": 2660869,
+        "completion_tokens": 80848,
+        "total_tokens": 2741717,
+        "reasoning_tokens": 60572,
+        "cached_tokens": 2381568
+      },
+      "usage_events": 85,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_008",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1171.045,
+      "usage": {
+        "prompt_tokens": 2502398,
+        "completion_tokens": 62641,
+        "total_tokens": 2565039,
+        "reasoning_tokens": 49989,
+        "cached_tokens": 2225920
+      },
+      "usage_events": 74,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_013",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 263.082,
+      "usage": {
+        "prompt_tokens": 131388,
+        "completion_tokens": 7496,
+        "total_tokens": 138884,
+        "reasoning_tokens": 4180,
+        "cached_tokens": 92928
+      },
+      "usage_events": 21,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_014",
+      "domain": "matplotlib",
+      "outcome": "unresolved",
+      "generation_seconds": 760.439,
+      "usage": {
+        "prompt_tokens": 462340,
+        "completion_tokens": 41219,
+        "total_tokens": 503559,
+        "reasoning_tokens": 31680,
+        "cached_tokens": 338944
+      },
+      "usage_events": 38,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_011",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 298.607,
+      "usage": {
+        "prompt_tokens": 167270,
+        "completion_tokens": 12567,
+        "total_tokens": 179837,
+        "reasoning_tokens": 8046,
+        "cached_tokens": 96256
+      },
+      "usage_events": 25,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_011",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 883.138,
+      "usage": {
+        "prompt_tokens": 1065787,
+        "completion_tokens": 46015,
+        "total_tokens": 1111802,
+        "reasoning_tokens": 35420,
+        "cached_tokens": 834560
+      },
+      "usage_events": 57,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_009",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1101.481,
+      "usage": {
+        "prompt_tokens": 896669,
+        "completion_tokens": 56649,
+        "total_tokens": 953318,
+        "reasoning_tokens": 46337,
+        "cached_tokens": 732672
+      },
+      "usage_events": 60,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_012",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 994.805,
+      "usage": {
+        "prompt_tokens": 465641,
+        "completion_tokens": 72937,
+        "total_tokens": 538578,
+        "reasoning_tokens": 63081,
+        "cached_tokens": 312064
+      },
+      "usage_events": 49,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_015",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 513.507,
+      "usage": {
+        "prompt_tokens": 418633,
+        "completion_tokens": 27328,
+        "total_tokens": 445961,
+        "reasoning_tokens": 16194,
+        "cached_tokens": 274176
+      },
+      "usage_events": 30,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 12,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_012",
+      "domain": "sphinx",
+      "outcome": "empty_patch",
+      "generation_seconds": 1320.494,
+      "usage": {
+        "prompt_tokens": 2351974,
+        "completion_tokens": 60917,
+        "total_tokens": 2412891,
+        "reasoning_tokens": 49303,
+        "cached_tokens": 2094592
+      },
+      "usage_events": 80,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": null,
+      "parsed_test_results": null,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_016",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 905.866,
+      "usage": {
+        "prompt_tokens": 1188647,
+        "completion_tokens": 45494,
+        "total_tokens": 1234141,
+        "reasoning_tokens": 33265,
+        "cached_tokens": 1004800
+      },
+      "usage_events": 55,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_013",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 912.274,
+      "usage": {
+        "prompt_tokens": 494569,
+        "completion_tokens": 75866,
+        "total_tokens": 570435,
+        "reasoning_tokens": 65861,
+        "cached_tokens": 353792
+      },
+      "usage_events": 36,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_010",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 873.815,
+      "usage": {
+        "prompt_tokens": 880110,
+        "completion_tokens": 41814,
+        "total_tokens": 921924,
+        "reasoning_tokens": 27112,
+        "cached_tokens": 701184
+      },
+      "usage_events": 54,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_017",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 1334.627,
+      "usage": {
+        "prompt_tokens": 1338076,
+        "completion_tokens": 74804,
+        "total_tokens": 1412880,
+        "reasoning_tokens": 62990,
+        "cached_tokens": 1118208
+      },
+      "usage_events": 63,
+      "errors": {
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_011",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1431.296,
+      "usage": {
+        "prompt_tokens": 1539000,
+        "completion_tokens": 93509,
+        "total_tokens": 1632509,
+        "reasoning_tokens": 80631,
+        "cached_tokens": 1261568
+      },
+      "usage_events": 67,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_014",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 451.386,
+      "usage": {
+        "prompt_tokens": 201336,
+        "completion_tokens": 20450,
+        "total_tokens": 221786,
+        "reasoning_tokens": 14932,
+        "cached_tokens": 131840
+      },
+      "usage_events": 31,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_013",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 674.494,
+      "usage": {
+        "prompt_tokens": 711700,
+        "completion_tokens": 29004,
+        "total_tokens": 740704,
+        "reasoning_tokens": 20672,
+        "cached_tokens": 564224
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_015",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 623.877,
+      "usage": {
+        "prompt_tokens": 429644,
+        "completion_tokens": 40103,
+        "total_tokens": 469747,
+        "reasoning_tokens": 32238,
+        "cached_tokens": 335104
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_014",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 1324.767,
+      "usage": {
+        "prompt_tokens": 1682653,
+        "completion_tokens": 100288,
+        "total_tokens": 1782941,
+        "reasoning_tokens": 87036,
+        "cached_tokens": 1387264
+      },
+      "usage_events": 70,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_018",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 1055.385,
+      "usage": {
+        "prompt_tokens": 1302287,
+        "completion_tokens": 44613,
+        "total_tokens": 1346900,
+        "reasoning_tokens": 31190,
+        "cached_tokens": 1085184
+      },
+      "usage_events": 61,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 7,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_016",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 1212.492,
+      "usage": {
+        "prompt_tokens": 679784,
+        "completion_tokens": 56306,
+        "total_tokens": 736090,
+        "reasoning_tokens": 44668,
+        "cached_tokens": 502016
+      },
+      "usage_events": 58,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_012",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1264.352,
+      "usage": {
+        "prompt_tokens": 1597859,
+        "completion_tokens": 71241,
+        "total_tokens": 1669100,
+        "reasoning_tokens": 58315,
+        "cached_tokens": 1337088
+      },
+      "usage_events": 60,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_015",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 367.31,
+      "usage": {
+        "prompt_tokens": 278727,
+        "completion_tokens": 19303,
+        "total_tokens": 298030,
+        "reasoning_tokens": 13241,
+        "cached_tokens": 179456
+      },
+      "usage_events": 31,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_019",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 1147.526,
+      "usage": {
+        "prompt_tokens": 1314953,
+        "completion_tokens": 49296,
+        "total_tokens": 1364249,
+        "reasoning_tokens": 35589,
+        "cached_tokens": 1049856
+      },
+      "usage_events": 56,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_016",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 751.39,
+      "usage": {
+        "prompt_tokens": 1056839,
+        "completion_tokens": 25313,
+        "total_tokens": 1082152,
+        "reasoning_tokens": 17297,
+        "cached_tokens": 889344
+      },
+      "usage_events": 53,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_017",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 782.899,
+      "usage": {
+        "prompt_tokens": 920637,
+        "completion_tokens": 25661,
+        "total_tokens": 946298,
+        "reasoning_tokens": 16102,
+        "cached_tokens": 764672
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_013",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 733.045,
+      "usage": {
+        "prompt_tokens": 645055,
+        "completion_tokens": 36742,
+        "total_tokens": 681797,
+        "reasoning_tokens": 27595,
+        "cached_tokens": 509184
+      },
+      "usage_events": 43,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_017",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 458.957,
+      "usage": {
+        "prompt_tokens": 538619,
+        "completion_tokens": 14672,
+        "total_tokens": 553291,
+        "reasoning_tokens": 8241,
+        "cached_tokens": 387584
+      },
+      "usage_events": 40,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_018",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 455.576,
+      "usage": {
+        "prompt_tokens": 228996,
+        "completion_tokens": 17060,
+        "total_tokens": 246056,
+        "reasoning_tokens": 11397,
+        "cached_tokens": 142848
+      },
+      "usage_events": 30,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_020",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 694.972,
+      "usage": {
+        "prompt_tokens": 462660,
+        "completion_tokens": 46064,
+        "total_tokens": 508724,
+        "reasoning_tokens": 38213,
+        "cached_tokens": 290560
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_014",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1441.219,
+      "usage": {
+        "prompt_tokens": 2261570,
+        "completion_tokens": 64747,
+        "total_tokens": 2326317,
+        "reasoning_tokens": 49935,
+        "cached_tokens": 1996544
+      },
+      "usage_events": 76,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_018",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 1347.203,
+      "usage": {
+        "prompt_tokens": 2494265,
+        "completion_tokens": 61909,
+        "total_tokens": 2556174,
+        "reasoning_tokens": 46660,
+        "cached_tokens": 2158848
+      },
+      "usage_events": 73,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_019",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 347.579,
+      "usage": {
+        "prompt_tokens": 253954,
+        "completion_tokens": 19905,
+        "total_tokens": 273859,
+        "reasoning_tokens": 14354,
+        "cached_tokens": 164096
+      },
+      "usage_events": 26,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_021",
+      "domain": "matplotlib",
+      "outcome": "unresolved",
+      "generation_seconds": 1341.166,
+      "usage": {
+        "prompt_tokens": 2231047,
+        "completion_tokens": 53371,
+        "total_tokens": 2284418,
+        "reasoning_tokens": 38859,
+        "cached_tokens": 1992448
+      },
+      "usage_events": 74,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_020",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 775.322,
+      "usage": {
+        "prompt_tokens": 743941,
+        "completion_tokens": 49654,
+        "total_tokens": 793595,
+        "reasoning_tokens": 39268,
+        "cached_tokens": 596224
+      },
+      "usage_events": 43,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_015",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1368.161,
+      "usage": {
+        "prompt_tokens": 1575460,
+        "completion_tokens": 80995,
+        "total_tokens": 1656455,
+        "reasoning_tokens": 68219,
+        "cached_tokens": 1314048
+      },
+      "usage_events": 59,
+      "errors": {
+        "TimeoutError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_019",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 1093.423,
+      "usage": {
+        "prompt_tokens": 1023519,
+        "completion_tokens": 48825,
+        "total_tokens": 1072344,
+        "reasoning_tokens": 39415,
+        "cached_tokens": 839680
+      },
+      "usage_events": 64,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_021",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 922.802,
+      "usage": {
+        "prompt_tokens": 739048,
+        "completion_tokens": 33612,
+        "total_tokens": 772660,
+        "reasoning_tokens": 23199,
+        "cached_tokens": 588032
+      },
+      "usage_events": 59,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_022",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 324.911,
+      "usage": {
+        "prompt_tokens": 163463,
+        "completion_tokens": 11079,
+        "total_tokens": 174542,
+        "reasoning_tokens": 7011,
+        "cached_tokens": 88576
+      },
+      "usage_events": 22,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "matplotlib/case_023",
+      "domain": "matplotlib",
+      "outcome": "resolved",
+      "generation_seconds": 531.112,
+      "usage": {
+        "prompt_tokens": 321942,
+        "completion_tokens": 21610,
+        "total_tokens": 343552,
+        "reasoning_tokens": 15007,
+        "cached_tokens": 219392
+      },
+      "usage_events": 33,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_016",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 502.089,
+      "usage": {
+        "prompt_tokens": 271422,
+        "completion_tokens": 20091,
+        "total_tokens": 291513,
+        "reasoning_tokens": 16204,
+        "cached_tokens": 190464
+      },
+      "usage_events": 25,
+      "errors": {
+        "APITimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_022",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 566.038,
+      "usage": {
+        "prompt_tokens": 324855,
+        "completion_tokens": 23831,
+        "total_tokens": 348686,
+        "reasoning_tokens": 16326,
+        "cached_tokens": 235520
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_020",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 491.326,
+      "usage": {
+        "prompt_tokens": 302194,
+        "completion_tokens": 17360,
+        "total_tokens": 319554,
+        "reasoning_tokens": 10963,
+        "cached_tokens": 193024
+      },
+      "usage_events": 37,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_017",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 691.123,
+      "usage": {
+        "prompt_tokens": 163295,
+        "completion_tokens": 27553,
+        "total_tokens": 190848,
+        "reasoning_tokens": 22678,
+        "cached_tokens": 99840
+      },
+      "usage_events": 22,
+      "errors": {
+        "BadGatewayError": 2,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "folder": "sphinx/case_021",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 568.138,
+      "usage": {
+        "prompt_tokens": 213624,
+        "completion_tokens": 26179,
+        "total_tokens": 239803,
+        "reasoning_tokens": 20850,
+        "cached_tokens": 131072
+      },
+      "usage_events": 30,
+      "errors": {
+        "BadGatewayError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_023",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 1111.064,
+      "usage": {
+        "prompt_tokens": 1694297,
+        "completion_tokens": 47084,
+        "total_tokens": 1741381,
+        "reasoning_tokens": 35446,
+        "cached_tokens": 1488384
+      },
+      "usage_events": 70,
+      "errors": {
+        "BadGatewayError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_018",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1048.883,
+      "usage": {
+        "prompt_tokens": 1770703,
+        "completion_tokens": 69790,
+        "total_tokens": 1840493,
+        "reasoning_tokens": 61905,
+        "cached_tokens": 1563136
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_024",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 467.918,
+      "usage": {
+        "prompt_tokens": 227491,
+        "completion_tokens": 38712,
+        "total_tokens": 266203,
+        "reasoning_tokens": 31479,
+        "cached_tokens": 141312
+      },
+      "usage_events": 34,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_019",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 953.4,
+      "usage": {
+        "prompt_tokens": 139475,
+        "completion_tokens": 25588,
+        "total_tokens": 165063,
+        "reasoning_tokens": 20436,
+        "cached_tokens": 79872
+      },
+      "usage_events": 25,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_025",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 1485.015,
+      "usage": {
+        "prompt_tokens": 2662883,
+        "completion_tokens": 94445,
+        "total_tokens": 2757328,
+        "reasoning_tokens": 75714,
+        "cached_tokens": 2282240
+      },
+      "usage_events": 81,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_020",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 312.342,
+      "usage": {
+        "prompt_tokens": 233231,
+        "completion_tokens": 20414,
+        "total_tokens": 253645,
+        "reasoning_tokens": 15369,
+        "cached_tokens": 145408
+      },
+      "usage_events": 29,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_021",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1384.001,
+      "usage": {
+        "prompt_tokens": 1996807,
+        "completion_tokens": 100033,
+        "total_tokens": 2096840,
+        "reasoning_tokens": 82619,
+        "cached_tokens": 1680896
+      },
+      "usage_events": 89,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_026",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 449.614,
+      "usage": {
+        "prompt_tokens": 385995,
+        "completion_tokens": 23261,
+        "total_tokens": 409256,
+        "reasoning_tokens": 15152,
+        "cached_tokens": 279040
+      },
+      "usage_events": 40,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_027",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 774.102,
+      "usage": {
+        "prompt_tokens": 434319,
+        "completion_tokens": 48256,
+        "total_tokens": 482575,
+        "reasoning_tokens": 42102,
+        "cached_tokens": 309760
+      },
+      "usage_events": 36,
+      "errors": {
+        "TimeoutError": 2,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_022",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1190.477,
+      "usage": {
+        "prompt_tokens": 1695634,
+        "completion_tokens": 65906,
+        "total_tokens": 1761540,
+        "reasoning_tokens": 52076,
+        "cached_tokens": 1451264
+      },
+      "usage_events": 77,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_028",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 361.919,
+      "usage": {
+        "prompt_tokens": 273649,
+        "completion_tokens": 24018,
+        "total_tokens": 297667,
+        "reasoning_tokens": 16481,
+        "cached_tokens": 166912
+      },
+      "usage_events": 36,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_029",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 802.718,
+      "usage": {
+        "prompt_tokens": 728337,
+        "completion_tokens": 55061,
+        "total_tokens": 783398,
+        "reasoning_tokens": 45000,
+        "cached_tokens": 581632
+      },
+      "usage_events": 50,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_023",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1027.903,
+      "usage": {
+        "prompt_tokens": 1307840,
+        "completion_tokens": 63393,
+        "total_tokens": 1371233,
+        "reasoning_tokens": 53284,
+        "cached_tokens": 1122304
+      },
+      "usage_events": 57,
+      "errors": {
+        "CancelledError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_030",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 341.937,
+      "usage": {
+        "prompt_tokens": 309250,
+        "completion_tokens": 26305,
+        "total_tokens": 335555,
+        "reasoning_tokens": 19599,
+        "cached_tokens": 220160
+      },
+      "usage_events": 33,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_031",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 828.809,
+      "usage": {
+        "prompt_tokens": 1069710,
+        "completion_tokens": 46395,
+        "total_tokens": 1116105,
+        "reasoning_tokens": 34329,
+        "cached_tokens": 825600
+      },
+      "usage_events": 62,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_024",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 789.602,
+      "usage": {
+        "prompt_tokens": 732237,
+        "completion_tokens": 50629,
+        "total_tokens": 782866,
+        "reasoning_tokens": 41603,
+        "cached_tokens": 599808
+      },
+      "usage_events": 45,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_032",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 270.896,
+      "usage": {
+        "prompt_tokens": 171293,
+        "completion_tokens": 12151,
+        "total_tokens": 183444,
+        "reasoning_tokens": 6654,
+        "cached_tokens": 97792
+      },
+      "usage_events": 32,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_033",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 984.095,
+      "usage": {
+        "prompt_tokens": 1316759,
+        "completion_tokens": 67314,
+        "total_tokens": 1384073,
+        "reasoning_tokens": 55564,
+        "cached_tokens": 1129472
+      },
+      "usage_events": 73,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_025",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 450.034,
+      "usage": {
+        "prompt_tokens": 418927,
+        "completion_tokens": 30131,
+        "total_tokens": 449058,
+        "reasoning_tokens": 20716,
+        "cached_tokens": 301312
+      },
+      "usage_events": 36,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_026",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 429.763,
+      "usage": {
+        "prompt_tokens": 516537,
+        "completion_tokens": 25025,
+        "total_tokens": 541562,
+        "reasoning_tokens": 17324,
+        "cached_tokens": 386048
+      },
+      "usage_events": 45,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_034",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 254.671,
+      "usage": {
+        "prompt_tokens": 200945,
+        "completion_tokens": 16125,
+        "total_tokens": 217070,
+        "reasoning_tokens": 7682,
+        "cached_tokens": 108288
+      },
+      "usage_events": 26,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_027",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 469.971,
+      "usage": {
+        "prompt_tokens": 244337,
+        "completion_tokens": 35351,
+        "total_tokens": 279688,
+        "reasoning_tokens": 29346,
+        "cached_tokens": 146944
+      },
+      "usage_events": 36,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_035",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 303.911,
+      "usage": {
+        "prompt_tokens": 155607,
+        "completion_tokens": 20212,
+        "total_tokens": 175819,
+        "reasoning_tokens": 14869,
+        "cached_tokens": 90624
+      },
+      "usage_events": 27,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_028",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 659.525,
+      "usage": {
+        "prompt_tokens": 1322256,
+        "completion_tokens": 41900,
+        "total_tokens": 1364156,
+        "reasoning_tokens": 28712,
+        "cached_tokens": 1140736
+      },
+      "usage_events": 61,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_036",
+      "domain": "sympy",
+      "outcome": "unresolved",
+      "generation_seconds": 1048.428,
+      "usage": {
+        "prompt_tokens": 3262767,
+        "completion_tokens": 65634,
+        "total_tokens": 3328401,
+        "reasoning_tokens": 48048,
+        "cached_tokens": 2994944
+      },
+      "usage_events": 87,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_029",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 251.745,
+      "usage": {
+        "prompt_tokens": 189308,
+        "completion_tokens": 10691,
+        "total_tokens": 199999,
+        "reasoning_tokens": 5214,
+        "cached_tokens": 96768
+      },
+      "usage_events": 28,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_030",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 213.807,
+      "usage": {
+        "prompt_tokens": 130358,
+        "completion_tokens": 9712,
+        "total_tokens": 140070,
+        "reasoning_tokens": 4988,
+        "cached_tokens": 71680
+      },
+      "usage_events": 26,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_037",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 1331.765,
+      "usage": {
+        "prompt_tokens": 2407608,
+        "completion_tokens": 89257,
+        "total_tokens": 2496865,
+        "reasoning_tokens": 76572,
+        "cached_tokens": 2096896
+      },
+      "usage_events": 88,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_031",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 350.49,
+      "usage": {
+        "prompt_tokens": 477106,
+        "completion_tokens": 15052,
+        "total_tokens": 492158,
+        "reasoning_tokens": 7708,
+        "cached_tokens": 371712
+      },
+      "usage_events": 44,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_032",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 768.698,
+      "usage": {
+        "prompt_tokens": 478910,
+        "completion_tokens": 53984,
+        "total_tokens": 532894,
+        "reasoning_tokens": 44858,
+        "cached_tokens": 341760
+      },
+      "usage_events": 46,
+      "errors": {
+        "CancelledError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_038",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 479.042,
+      "usage": {
+        "prompt_tokens": 220467,
+        "completion_tokens": 45995,
+        "total_tokens": 266462,
+        "reasoning_tokens": 40250,
+        "cached_tokens": 136960
+      },
+      "usage_events": 29,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_033",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1242.881,
+      "usage": {
+        "prompt_tokens": 996515,
+        "completion_tokens": 54215,
+        "total_tokens": 1050730,
+        "reasoning_tokens": 44122,
+        "cached_tokens": 842752
+      },
+      "usage_events": 53,
+      "errors": {
+        "APITimeoutError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 7,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sympy/case_039",
+      "domain": "sympy",
+      "outcome": "resolved",
+      "generation_seconds": 574.292,
+      "usage": {
+        "prompt_tokens": 620624,
+        "completion_tokens": 46961,
+        "total_tokens": 667585,
+        "reasoning_tokens": 35555,
+        "cached_tokens": 498432
+      },
+      "usage_events": 45,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_034",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 977.536,
+      "usage": {
+        "prompt_tokens": 1195711,
+        "completion_tokens": 79316,
+        "total_tokens": 1275027,
+        "reasoning_tokens": 63868,
+        "cached_tokens": 970240
+      },
+      "usage_events": 77,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_035",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1059.05,
+      "usage": {
+        "prompt_tokens": 1109538,
+        "completion_tokens": 73031,
+        "total_tokens": 1182569,
+        "reasoning_tokens": 64799,
+        "cached_tokens": 911616
+      },
+      "usage_events": 40,
+      "errors": {
+        "APITimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_036",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 950.783,
+      "usage": {
+        "prompt_tokens": 1651127,
+        "completion_tokens": 67348,
+        "total_tokens": 1718475,
+        "reasoning_tokens": 52233,
+        "cached_tokens": 1419008
+      },
+      "usage_events": 66,
+      "errors": {
+        "TimeoutError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_037",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 794.573,
+      "usage": {
+        "prompt_tokens": 1105274,
+        "completion_tokens": 38965,
+        "total_tokens": 1144239,
+        "reasoning_tokens": 25246,
+        "cached_tokens": 899584
+      },
+      "usage_events": 45,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_038",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 593.831,
+      "usage": {
+        "prompt_tokens": 588452,
+        "completion_tokens": 49502,
+        "total_tokens": 637954,
+        "reasoning_tokens": 39037,
+        "cached_tokens": 453632
+      },
+      "usage_events": 46,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_039",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 911.282,
+      "usage": {
+        "prompt_tokens": 976917,
+        "completion_tokens": 56369,
+        "total_tokens": 1033286,
+        "reasoning_tokens": 45474,
+        "cached_tokens": 800256
+      },
+      "usage_events": 50,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_040",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 327.983,
+      "usage": {
+        "prompt_tokens": 165303,
+        "completion_tokens": 29609,
+        "total_tokens": 194912,
+        "reasoning_tokens": 24144,
+        "cached_tokens": 102656
+      },
+      "usage_events": 28,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_041",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 199.072,
+      "usage": {
+        "prompt_tokens": 95294,
+        "completion_tokens": 18975,
+        "total_tokens": 114269,
+        "reasoning_tokens": 15181,
+        "cached_tokens": 57600
+      },
+      "usage_events": 15,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_042",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 205.225,
+      "usage": {
+        "prompt_tokens": 277458,
+        "completion_tokens": 12929,
+        "total_tokens": 290387,
+        "reasoning_tokens": 6289,
+        "cached_tokens": 178432
+      },
+      "usage_events": 28,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_043",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 657.055,
+      "usage": {
+        "prompt_tokens": 455648,
+        "completion_tokens": 34798,
+        "total_tokens": 490446,
+        "reasoning_tokens": 26016,
+        "cached_tokens": 322304
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_044",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1040.015,
+      "usage": {
+        "prompt_tokens": 1098797,
+        "completion_tokens": 67934,
+        "total_tokens": 1166731,
+        "reasoning_tokens": 52517,
+        "cached_tokens": 810496
+      },
+      "usage_events": 76,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_045",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 803.122,
+      "usage": {
+        "prompt_tokens": 362473,
+        "completion_tokens": 44265,
+        "total_tokens": 406738,
+        "reasoning_tokens": 37421,
+        "cached_tokens": 250368
+      },
+      "usage_events": 40,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_046",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 818.927,
+      "usage": {
+        "prompt_tokens": 739599,
+        "completion_tokens": 40229,
+        "total_tokens": 779828,
+        "reasoning_tokens": 30608,
+        "cached_tokens": 589312
+      },
+      "usage_events": 54,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_047",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1041.752,
+      "usage": {
+        "prompt_tokens": 1897845,
+        "completion_tokens": 49406,
+        "total_tokens": 1947251,
+        "reasoning_tokens": 31275,
+        "cached_tokens": 1698560
+      },
+      "usage_events": 75,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_048",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1416.669,
+      "usage": {
+        "prompt_tokens": 1712904,
+        "completion_tokens": 80909,
+        "total_tokens": 1793813,
+        "reasoning_tokens": 66031,
+        "cached_tokens": 1484288
+      },
+      "usage_events": 63,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_049",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1464.079,
+      "usage": {
+        "prompt_tokens": 1823388,
+        "completion_tokens": 72513,
+        "total_tokens": 1895901,
+        "reasoning_tokens": 59680,
+        "cached_tokens": 1521664
+      },
+      "usage_events": 65,
+      "errors": {
+        "TimeoutError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_050",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1353.23,
+      "usage": {
+        "prompt_tokens": 2005834,
+        "completion_tokens": 79709,
+        "total_tokens": 2085543,
+        "reasoning_tokens": 66945,
+        "cached_tokens": 1765888
+      },
+      "usage_events": 65,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_051",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 522.899,
+      "usage": {
+        "prompt_tokens": 280502,
+        "completion_tokens": 36016,
+        "total_tokens": 316518,
+        "reasoning_tokens": 29935,
+        "cached_tokens": 164096
+      },
+      "usage_events": 36,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_052",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 176.963,
+      "usage": {
+        "prompt_tokens": 107233,
+        "completion_tokens": 12038,
+        "total_tokens": 119271,
+        "reasoning_tokens": 7996,
+        "cached_tokens": 43776
+      },
+      "usage_events": 20,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_053",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 739.617,
+      "usage": {
+        "prompt_tokens": 493771,
+        "completion_tokens": 63172,
+        "total_tokens": 556943,
+        "reasoning_tokens": 54025,
+        "cached_tokens": 360704
+      },
+      "usage_events": 37,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_054",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 1101.101,
+      "usage": {
+        "prompt_tokens": 2094738,
+        "completion_tokens": 51951,
+        "total_tokens": 2146689,
+        "reasoning_tokens": 38038,
+        "cached_tokens": 1882880
+      },
+      "usage_events": 66,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_055",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 385.092,
+      "usage": {
+        "prompt_tokens": 313115,
+        "completion_tokens": 30244,
+        "total_tokens": 343359,
+        "reasoning_tokens": 23606,
+        "cached_tokens": 208640
+      },
+      "usage_events": 35,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_056",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 664.075,
+      "usage": {
+        "prompt_tokens": 747989,
+        "completion_tokens": 50164,
+        "total_tokens": 798153,
+        "reasoning_tokens": 42952,
+        "cached_tokens": 577536
+      },
+      "usage_events": 41,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_057",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 420.202,
+      "usage": {
+        "prompt_tokens": 196371,
+        "completion_tokens": 36216,
+        "total_tokens": 232587,
+        "reasoning_tokens": 30843,
+        "cached_tokens": 120064
+      },
+      "usage_events": 32,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_058",
+      "domain": "django",
+      "outcome": "unresolved",
+      "generation_seconds": 1257.078,
+      "usage": {
+        "prompt_tokens": 1913110,
+        "completion_tokens": 123677,
+        "total_tokens": 2036787,
+        "reasoning_tokens": 106146,
+        "cached_tokens": 1631744
+      },
+      "usage_events": 62,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "django/case_059",
+      "domain": "django",
+      "outcome": "resolved",
+      "generation_seconds": 453.053,
+      "usage": {
+        "prompt_tokens": 232823,
+        "completion_tokens": 42450,
+        "total_tokens": 275273,
+        "reasoning_tokens": 36336,
+        "cached_tokens": 146432
+      },
+      "usage_events": 31,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_022",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 1022.429,
+      "usage": {
+        "prompt_tokens": 3227633,
+        "completion_tokens": 59171,
+        "total_tokens": 3286804,
+        "reasoning_tokens": 45006,
+        "cached_tokens": 2993664
+      },
+      "usage_events": 88,
+      "errors": {
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_023",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 371.626,
+      "usage": {
+        "prompt_tokens": 341884,
+        "completion_tokens": 29151,
+        "total_tokens": 371035,
+        "reasoning_tokens": 22978,
+        "cached_tokens": 221440
+      },
+      "usage_events": 36,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_024",
+      "domain": "sphinx",
+      "outcome": "empty_patch",
+      "generation_seconds": 827.13,
+      "usage": {
+        "prompt_tokens": 3884730,
+        "completion_tokens": 64583,
+        "total_tokens": 3949313,
+        "reasoning_tokens": 52055,
+        "cached_tokens": 3658240
+      },
+      "usage_events": 83,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": null,
+      "parsed_test_results": null,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_025",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 655.852,
+      "usage": {
+        "prompt_tokens": 1425608,
+        "completion_tokens": 48377,
+        "total_tokens": 1473985,
+        "reasoning_tokens": 36111,
+        "cached_tokens": 1219072
+      },
+      "usage_events": 67,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_026",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 375.262,
+      "usage": {
+        "prompt_tokens": 433529,
+        "completion_tokens": 30282,
+        "total_tokens": 463811,
+        "reasoning_tokens": 21842,
+        "cached_tokens": 293120
+      },
+      "usage_events": 46,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_027",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 246.947,
+      "usage": {
+        "prompt_tokens": 300812,
+        "completion_tokens": 23564,
+        "total_tokens": 324376,
+        "reasoning_tokens": 19826,
+        "cached_tokens": 227584
+      },
+      "usage_events": 24,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_028",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 88.39,
+      "usage": {
+        "prompt_tokens": 52681,
+        "completion_tokens": 8381,
+        "total_tokens": 61062,
+        "reasoning_tokens": 5433,
+        "cached_tokens": 26624
+      },
+      "usage_events": 12,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_029",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 844.709,
+      "usage": {
+        "prompt_tokens": 2330063,
+        "completion_tokens": 63717,
+        "total_tokens": 2393780,
+        "reasoning_tokens": 47798,
+        "cached_tokens": 2034432
+      },
+      "usage_events": 89,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_030",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 273.361,
+      "usage": {
+        "prompt_tokens": 513331,
+        "completion_tokens": 17833,
+        "total_tokens": 531164,
+        "reasoning_tokens": 12783,
+        "cached_tokens": 437504
+      },
+      "usage_events": 35,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_031",
+      "domain": "sphinx",
+      "outcome": "unresolved",
+      "generation_seconds": 456.822,
+      "usage": {
+        "prompt_tokens": 954467,
+        "completion_tokens": 37254,
+        "total_tokens": 991721,
+        "reasoning_tokens": 27134,
+        "cached_tokens": 808192
+      },
+      "usage_events": 52,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_032",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 515.203,
+      "usage": {
+        "prompt_tokens": 1000993,
+        "completion_tokens": 48610,
+        "total_tokens": 1049603,
+        "reasoning_tokens": 42307,
+        "cached_tokens": 884992
+      },
+      "usage_events": 44,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "malformed_trace_lines": [],
+      "folder": "sphinx/case_033",
+      "domain": "sphinx",
+      "outcome": "resolved",
+      "generation_seconds": 243.475,
+      "usage": {
+        "prompt_tokens": 89884,
+        "completion_tokens": 28470,
+        "total_tokens": 118354,
+        "reasoning_tokens": 25669,
+        "cached_tokens": 53760
+      },
+      "usage_events": 18,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    }
+  ],
+  "method": {
+    "usage": "Sum model_usage only from per-case merged events.jsonl; no raw-worker or role-response double counting. Reasoning and cache tokens are subsets.",
+    "excluded": "Initial setup-only failed launch and preflight API/evaluation probes; no prior predictions reused.",
+    "missing_telemetry": "sphinx/case_021 lines 23-26 are malformed; skipped without changing originals. Interrupted requests can lack usage. Totals are reported usage, not a complete billing statement.",
+    "evaluation": "Each nonempty case checked against current-run detailed official report and logged network isolation."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "planned": 154,
+  "completed": 154,
+  "resolved": 102,
+  "phases": {
+    "done": 154
+  },
+  "outcomes": {
+    "unresolved": 50,
+    "resolved": 102,
+    "empty_patch": 2
+  },
+  "domains": {
+    "django": {
+      "planned": 59,
+      "completed": 59,
+      "resolved": 38
+    },
+    "matplotlib": {
+      "planned": 23,
+      "completed": 23,
+      "resolved": 19
+    },
+    "sphinx": {
+      "planned": 33,
+      "completed": 33,
+      "resolved": 20
+    },
+    "sympy": {
+      "planned": 39,
+      "completed": 39,
+      "resolved": 25
+    }
+  },
+  "stopped": false
+}

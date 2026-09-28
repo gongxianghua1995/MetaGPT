@@ -1,0 +1,5268 @@
+{
+  "created_utc": "2026-09-24T01:14:47.808732+00:00",
+  "summary": {
+    "planned": 216,
+    "completed": 216,
+    "resolved": 98,
+    "phases": {
+      "done": 216
+    },
+    "outcomes": {
+      "unresolved": 115,
+      "resolved": 98,
+      "empty_patch": 3
+    },
+    "domains": {
+      "ansible": {
+        "planned": 63,
+        "completed": 63,
+        "resolved": 31
+      },
+      "flipt": {
+        "planned": 54,
+        "completed": 54,
+        "resolved": 15
+      },
+      "openlibrary": {
+        "planned": 60,
+        "completed": 60,
+        "resolved": 35
+      },
+      "webclients": {
+        "planned": 39,
+        "completed": 39,
+        "resolved": 17
+      }
+    },
+    "stopped": false
+  },
+  "overall": {
+    "n": 216,
+    "resolved": 98,
+    "empty_patch": 3,
+    "generation_seconds_sum": 246519.891,
+    "generation_seconds_mean": 1141.2957916666667,
+    "generation_seconds_median": 1258.5065,
+    "usage": {
+      "prompt_tokens": 220635185,
+      "completion_tokens": 8380751,
+      "total_tokens": 229015936,
+      "reasoning_tokens": 5871376,
+      "cached_tokens": 179343104
+    },
+    "usage_events": 10277,
+    "errors": {
+      "RateLimitError": 625,
+      "TimeoutError": 90,
+      "CancelledError": 55,
+      "APITimeoutError": 4,
+      "BadGatewayError": 5
+    },
+    "rate_limit_affected": 68,
+    "rate_limit_affected_unresolved": 41
+  },
+  "domains": {
+    "ansible": {
+      "n": 63,
+      "resolved": 31,
+      "empty_patch": 0,
+      "generation_seconds_sum": 72813.92,
+      "generation_seconds_mean": 1155.7765079365079,
+      "generation_seconds_median": 1246.83,
+      "usage": {
+        "prompt_tokens": 72396863,
+        "completion_tokens": 3036214,
+        "total_tokens": 75433077,
+        "reasoning_tokens": 2218309,
+        "cached_tokens": 59266304
+      },
+      "usage_events": 3027,
+      "errors": {
+        "RateLimitError": 156,
+        "TimeoutError": 28,
+        "CancelledError": 20,
+        "BadGatewayError": 2,
+        "APITimeoutError": 2
+      },
+      "rate_limit_affected": 19,
+      "rate_limit_affected_unresolved": 11
+    },
+    "flipt": {
+      "n": 54,
+      "resolved": 15,
+      "empty_patch": 1,
+      "generation_seconds_sum": 64791.817,
+      "generation_seconds_mean": 1199.848462962963,
+      "generation_seconds_median": 1323.8564999999999,
+      "usage": {
+        "prompt_tokens": 55120801,
+        "completion_tokens": 1823504,
+        "total_tokens": 56944305,
+        "reasoning_tokens": 1230489,
+        "cached_tokens": 44925184
+      },
+      "usage_events": 2694,
+      "errors": {
+        "TimeoutError": 23,
+        "RateLimitError": 170,
+        "CancelledError": 15,
+        "APITimeoutError": 2,
+        "BadGatewayError": 1
+      },
+      "rate_limit_affected": 19,
+      "rate_limit_affected_unresolved": 14
+    },
+    "openlibrary": {
+      "n": 60,
+      "resolved": 35,
+      "empty_patch": 1,
+      "generation_seconds_sum": 60293.863,
+      "generation_seconds_mean": 1004.8977166666666,
+      "generation_seconds_median": 1072.069,
+      "usage": {
+        "prompt_tokens": 54761064,
+        "completion_tokens": 2271630,
+        "total_tokens": 57032694,
+        "reasoning_tokens": 1592328,
+        "cached_tokens": 44015360
+      },
+      "usage_events": 2616,
+      "errors": {
+        "RateLimitError": 166,
+        "TimeoutError": 18,
+        "CancelledError": 13,
+        "BadGatewayError": 1
+      },
+      "rate_limit_affected": 17,
+      "rate_limit_affected_unresolved": 11
+    },
+    "webclients": {
+      "n": 39,
+      "resolved": 17,
+      "empty_patch": 1,
+      "generation_seconds_sum": 48620.291,
+      "generation_seconds_mean": 1246.6741282051282,
+      "generation_seconds_median": 1320.398,
+      "usage": {
+        "prompt_tokens": 38356457,
+        "completion_tokens": 1249403,
+        "total_tokens": 39605860,
+        "reasoning_tokens": 830250,
+        "cached_tokens": 31136256
+      },
+      "usage_events": 1940,
+      "errors": {
+        "TimeoutError": 21,
+        "RateLimitError": 133,
+        "CancelledError": 7,
+        "BadGatewayError": 1
+      },
+      "rate_limit_affected": 13,
+      "rate_limit_affected_unresolved": 5
+    }
+  },
+  "roles": {
+    "Mike": {
+      "prompt_tokens": 1415269,
+      "completion_tokens": 698065,
+      "total_tokens": 2113334,
+      "reasoning_tokens": 500995,
+      "cached_tokens": 34816
+    },
+    "Alex": {
+      "prompt_tokens": 208110408,
+      "completion_tokens": 4967907,
+      "total_tokens": 213078315,
+      "reasoning_tokens": 2998111,
+      "cached_tokens": 175895552
+    },
+    "Reviewer": {
+      "prompt_tokens": 11109508,
+      "completion_tokens": 2714779,
+      "total_tokens": 13824287,
+      "reasoning_tokens": 2372270,
+      "cached_tokens": 3412736
+    }
+  },
+  "segments": [
+    {
+      "started": "2026-09-22T07:44:24.216070+00:00",
+      "finished": "2026-09-22T10:05:39.704339+00:00",
+      "wall_seconds": 8475.488397504203,
+      "returncode": 0
+    },
+    {
+      "started": "2026-09-22T10:50:25.193732+00:00",
+      "finished": "2026-09-22T20:36:48.592682+00:00",
+      "wall_seconds": 35183.39897202095,
+      "returncode": 0
+    },
+    {
+      "started": "2026-09-23T06:36:29.150840+00:00",
+      "finished": "2026-09-23T16:04:49.925386+00:00",
+      "wall_seconds": 34100.774571219925,
+      "returncode": 0
+    }
+  ],
+  "time": {
+    "active_wall_seconds": 77759.66194074508,
+    "total_span_seconds": 116425.709316,
+    "pause_seconds": 38666.047375254915
+  },
+  "isolation": {
+    "generation_none": 216,
+    "history_isolated": 216,
+    "evaluation_none": 213,
+    "evaluation_skipped_empty": 3,
+    "resolved_nonempty_f2p_validated": 98
+  },
+  "last_reviews": {
+    "changes_requested": {
+      "n": 17,
+      "resolved": 5
+    },
+    "approved": {
+      "n": 17,
+      "resolved": 10
+    },
+    "inconclusive": {
+      "n": 182,
+      "resolved": 83
+    }
+  },
+  "cases": [
+    {
+      "folder": "ansible/case_001",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.051,
+      "usage": {
+        "prompt_tokens": 396676,
+        "completion_tokens": 19024,
+        "total_tokens": 415700,
+        "reasoning_tokens": 12202,
+        "cached_tokens": 290816
+      },
+      "usage_events": 22,
+      "errors": {
+        "RateLimitError": 25,
+        "TimeoutError": 2,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_001",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.378,
+      "usage": {
+        "prompt_tokens": 126738,
+        "completion_tokens": 8634,
+        "total_tokens": 135372,
+        "reasoning_tokens": 5778,
+        "cached_tokens": 80384
+      },
+      "usage_events": 14,
+      "errors": {
+        "RateLimitError": 27,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_001",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.289,
+      "usage": {
+        "prompt_tokens": 241634,
+        "completion_tokens": 10201,
+        "total_tokens": 251835,
+        "reasoning_tokens": 6956,
+        "cached_tokens": 168960
+      },
+      "usage_events": 19,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 22,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_001",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1320.398,
+      "usage": {
+        "prompt_tokens": 149852,
+        "completion_tokens": 6035,
+        "total_tokens": 155887,
+        "reasoning_tokens": 2772,
+        "cached_tokens": 99072
+      },
+      "usage_events": 17,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 26,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_002",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 987.914,
+      "usage": {
+        "prompt_tokens": 362827,
+        "completion_tokens": 15872,
+        "total_tokens": 378699,
+        "reasoning_tokens": 11451,
+        "cached_tokens": 273408
+      },
+      "usage_events": 22,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 17
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "flipt/case_002",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1388.906,
+      "usage": {
+        "prompt_tokens": 646459,
+        "completion_tokens": 23308,
+        "total_tokens": 669767,
+        "reasoning_tokens": 15071,
+        "cached_tokens": 483328
+      },
+      "usage_events": 43,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 16
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_002",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1460.962,
+      "usage": {
+        "prompt_tokens": 520346,
+        "completion_tokens": 25554,
+        "total_tokens": 545900,
+        "reasoning_tokens": 17203,
+        "cached_tokens": 368384
+      },
+      "usage_events": 32,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 18
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_002",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1249.109,
+      "usage": {
+        "prompt_tokens": 600853,
+        "completion_tokens": 32976,
+        "total_tokens": 633829,
+        "reasoning_tokens": 24439,
+        "cached_tokens": 422400
+      },
+      "usage_events": 36,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 9
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_003",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1395.41,
+      "usage": {
+        "prompt_tokens": 1024819,
+        "completion_tokens": 54548,
+        "total_tokens": 1079367,
+        "reasoning_tokens": 45078,
+        "cached_tokens": 835840
+      },
+      "usage_events": 45,
+      "errors": {
+        "CancelledError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_003",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 971.197,
+      "usage": {
+        "prompt_tokens": 543219,
+        "completion_tokens": 45475,
+        "total_tokens": 588694,
+        "reasoning_tokens": 34411,
+        "cached_tokens": 396032
+      },
+      "usage_events": 41,
+      "errors": {
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_003",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 990.8,
+      "usage": {
+        "prompt_tokens": 500350,
+        "completion_tokens": 21831,
+        "total_tokens": 522181,
+        "reasoning_tokens": 13597,
+        "cached_tokens": 325888
+      },
+      "usage_events": 38,
+      "errors": {
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_003",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 960.66,
+      "usage": {
+        "prompt_tokens": 528164,
+        "completion_tokens": 31841,
+        "total_tokens": 560005,
+        "reasoning_tokens": 23720,
+        "cached_tokens": 397056
+      },
+      "usage_events": 38,
+      "errors": {
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_004",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1128.42,
+      "usage": {
+        "prompt_tokens": 791170,
+        "completion_tokens": 61993,
+        "total_tokens": 853163,
+        "reasoning_tokens": 48791,
+        "cached_tokens": 556800
+      },
+      "usage_events": 41,
+      "errors": {
+        "RateLimitError": 1,
+        "TimeoutError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_004",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 868.912,
+      "usage": {
+        "prompt_tokens": 717810,
+        "completion_tokens": 19182,
+        "total_tokens": 736992,
+        "reasoning_tokens": 7596,
+        "cached_tokens": 578816
+      },
+      "usage_events": 43,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_004",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 859.768,
+      "usage": {
+        "prompt_tokens": 343439,
+        "completion_tokens": 26020,
+        "total_tokens": 369459,
+        "reasoning_tokens": 18031,
+        "cached_tokens": 193280
+      },
+      "usage_events": 39,
+      "errors": {
+        "RateLimitError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_004",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1300.2,
+      "usage": {
+        "prompt_tokens": 730752,
+        "completion_tokens": 27025,
+        "total_tokens": 757777,
+        "reasoning_tokens": 16084,
+        "cached_tokens": 558848
+      },
+      "usage_events": 46,
+      "errors": {
+        "TimeoutError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 10,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_005",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1126.975,
+      "usage": {
+        "prompt_tokens": 882129,
+        "completion_tokens": 43911,
+        "total_tokens": 926040,
+        "reasoning_tokens": 26989,
+        "cached_tokens": 682496
+      },
+      "usage_events": 40,
+      "errors": {
+        "RateLimitError": 3,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 5,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_005",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 662.039,
+      "usage": {
+        "prompt_tokens": 240292,
+        "completion_tokens": 26599,
+        "total_tokens": 266891,
+        "reasoning_tokens": 21120,
+        "cached_tokens": 140288
+      },
+      "usage_events": 20,
+      "errors": {
+        "APITimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_005",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 183.684,
+      "usage": {
+        "prompt_tokens": 59007,
+        "completion_tokens": 6223,
+        "total_tokens": 65230,
+        "reasoning_tokens": 3270,
+        "cached_tokens": 26624
+      },
+      "usage_events": 11,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 10,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_006",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.04,
+      "usage": {
+        "prompt_tokens": 1595072,
+        "completion_tokens": 53835,
+        "total_tokens": 1648907,
+        "reasoning_tokens": 39018,
+        "cached_tokens": 1328896
+      },
+      "usage_events": 54,
+      "errors": {
+        "RateLimitError": 5,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_005",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1369.087,
+      "usage": {
+        "prompt_tokens": 585829,
+        "completion_tokens": 18147,
+        "total_tokens": 603976,
+        "reasoning_tokens": 10108,
+        "cached_tokens": 432640
+      },
+      "usage_events": 39,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 8,
+        "CancelledError": 1,
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 9,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_006",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1153.257,
+      "usage": {
+        "prompt_tokens": 345537,
+        "completion_tokens": 18350,
+        "total_tokens": 363887,
+        "reasoning_tokens": 11900,
+        "cached_tokens": 236032
+      },
+      "usage_events": 34,
+      "errors": {
+        "RateLimitError": 5,
+        "TimeoutError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_006",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1101.934,
+      "usage": {
+        "prompt_tokens": 443230,
+        "completion_tokens": 22921,
+        "total_tokens": 466151,
+        "reasoning_tokens": 14372,
+        "cached_tokens": 294144
+      },
+      "usage_events": 36,
+      "errors": {
+        "RateLimitError": 12,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 11,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_007",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1387.05,
+      "usage": {
+        "prompt_tokens": 1405084,
+        "completion_tokens": 58332,
+        "total_tokens": 1463416,
+        "reasoning_tokens": 46009,
+        "cached_tokens": 1110272
+      },
+      "usage_events": 52,
+      "errors": {
+        "RateLimitError": 4,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_007",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 955.819,
+      "usage": {
+        "prompt_tokens": 578346,
+        "completion_tokens": 16768,
+        "total_tokens": 595114,
+        "reasoning_tokens": 11314,
+        "cached_tokens": 488448
+      },
+      "usage_events": 33,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "webclients/case_006",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1359.522,
+      "usage": {
+        "prompt_tokens": 1813298,
+        "completion_tokens": 42312,
+        "total_tokens": 1855610,
+        "reasoning_tokens": 26933,
+        "cached_tokens": 1562624
+      },
+      "usage_events": 66,
+      "errors": {
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_007",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1207.848,
+      "usage": {
+        "prompt_tokens": 1967756,
+        "completion_tokens": 37084,
+        "total_tokens": 2004840,
+        "reasoning_tokens": 23636,
+        "cached_tokens": 1734912
+      },
+      "usage_events": 78,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_008",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1439.052,
+      "usage": {
+        "prompt_tokens": 2077993,
+        "completion_tokens": 66725,
+        "total_tokens": 2144718,
+        "reasoning_tokens": 49470,
+        "cached_tokens": 1811968
+      },
+      "usage_events": 67,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_009",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1451.764,
+      "usage": {
+        "prompt_tokens": 1738858,
+        "completion_tokens": 66166,
+        "total_tokens": 1805024,
+        "reasoning_tokens": 50911,
+        "cached_tokens": 1433600
+      },
+      "usage_events": 73,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_010",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1087.902,
+      "usage": {
+        "prompt_tokens": 782467,
+        "completion_tokens": 48211,
+        "total_tokens": 830678,
+        "reasoning_tokens": 34498,
+        "cached_tokens": 628736
+      },
+      "usage_events": 48,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_011",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 983.899,
+      "usage": {
+        "prompt_tokens": 890082,
+        "completion_tokens": 34934,
+        "total_tokens": 925016,
+        "reasoning_tokens": 17194,
+        "cached_tokens": 695040
+      },
+      "usage_events": 47,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_012",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1159.001,
+      "usage": {
+        "prompt_tokens": 928923,
+        "completion_tokens": 65493,
+        "total_tokens": 994416,
+        "reasoning_tokens": 48849,
+        "cached_tokens": 720640
+      },
+      "usage_events": 42,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_013",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1109.584,
+      "usage": {
+        "prompt_tokens": 929504,
+        "completion_tokens": 37261,
+        "total_tokens": 966765,
+        "reasoning_tokens": 26335,
+        "cached_tokens": 752128
+      },
+      "usage_events": 49,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_014",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 593.139,
+      "usage": {
+        "prompt_tokens": 274536,
+        "completion_tokens": 31414,
+        "total_tokens": 305950,
+        "reasoning_tokens": 23870,
+        "cached_tokens": 164096
+      },
+      "usage_events": 30,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_015",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1377.05,
+      "usage": {
+        "prompt_tokens": 1437269,
+        "completion_tokens": 40898,
+        "total_tokens": 1478167,
+        "reasoning_tokens": 20901,
+        "cached_tokens": 1201664
+      },
+      "usage_events": 63,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_016",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1451.047,
+      "usage": {
+        "prompt_tokens": 1561213,
+        "completion_tokens": 52859,
+        "total_tokens": 1614072,
+        "reasoning_tokens": 40516,
+        "cached_tokens": 1283840
+      },
+      "usage_events": 61,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 10,
+      "last_review": "approved"
+    },
+    {
+      "folder": "ansible/case_017",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1335.225,
+      "usage": {
+        "prompt_tokens": 770773,
+        "completion_tokens": 56400,
+        "total_tokens": 827173,
+        "reasoning_tokens": 42043,
+        "cached_tokens": 590848
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_018",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1418.264,
+      "usage": {
+        "prompt_tokens": 1515765,
+        "completion_tokens": 63324,
+        "total_tokens": 1579089,
+        "reasoning_tokens": 44146,
+        "cached_tokens": 1253632
+      },
+      "usage_events": 54,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_019",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1206.02,
+      "usage": {
+        "prompt_tokens": 1366392,
+        "completion_tokens": 48022,
+        "total_tokens": 1414414,
+        "reasoning_tokens": 32690,
+        "cached_tokens": 1114624
+      },
+      "usage_events": 54,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_020",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1034.113,
+      "usage": {
+        "prompt_tokens": 791819,
+        "completion_tokens": 54882,
+        "total_tokens": 846701,
+        "reasoning_tokens": 41597,
+        "cached_tokens": 584448
+      },
+      "usage_events": 53,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_021",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 296.012,
+      "usage": {
+        "prompt_tokens": 101440,
+        "completion_tokens": 5221,
+        "total_tokens": 106661,
+        "reasoning_tokens": 1906,
+        "cached_tokens": 59904
+      },
+      "usage_events": 17,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "folder": "ansible/case_022",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1378.56,
+      "usage": {
+        "prompt_tokens": 1571980,
+        "completion_tokens": 61327,
+        "total_tokens": 1633307,
+        "reasoning_tokens": 48870,
+        "cached_tokens": 1321216
+      },
+      "usage_events": 64,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_023",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 660.952,
+      "usage": {
+        "prompt_tokens": 569311,
+        "completion_tokens": 28508,
+        "total_tokens": 597819,
+        "reasoning_tokens": 18692,
+        "cached_tokens": 421632
+      },
+      "usage_events": 37,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 5,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_024",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 690.256,
+      "usage": {
+        "prompt_tokens": 530595,
+        "completion_tokens": 50139,
+        "total_tokens": 580734,
+        "reasoning_tokens": 40307,
+        "cached_tokens": 342016
+      },
+      "usage_events": 33,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_025",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1246.83,
+      "usage": {
+        "prompt_tokens": 1518994,
+        "completion_tokens": 88870,
+        "total_tokens": 1607864,
+        "reasoning_tokens": 74776,
+        "cached_tokens": 1287936
+      },
+      "usage_events": 60,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_026",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1444.858,
+      "usage": {
+        "prompt_tokens": 2182529,
+        "completion_tokens": 59256,
+        "total_tokens": 2241785,
+        "reasoning_tokens": 41537,
+        "cached_tokens": 1854976
+      },
+      "usage_events": 74,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_027",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1232.078,
+      "usage": {
+        "prompt_tokens": 1834155,
+        "completion_tokens": 59653,
+        "total_tokens": 1893808,
+        "reasoning_tokens": 46532,
+        "cached_tokens": 1615104
+      },
+      "usage_events": 65,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_028",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 644.857,
+      "usage": {
+        "prompt_tokens": 502025,
+        "completion_tokens": 25371,
+        "total_tokens": 527396,
+        "reasoning_tokens": 15937,
+        "cached_tokens": 366336
+      },
+      "usage_events": 38,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_029",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1465.473,
+      "usage": {
+        "prompt_tokens": 3043048,
+        "completion_tokens": 79009,
+        "total_tokens": 3122057,
+        "reasoning_tokens": 59400,
+        "cached_tokens": 2631424
+      },
+      "usage_events": 77,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 8,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "ansible/case_030",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1212.045,
+      "usage": {
+        "prompt_tokens": 1840619,
+        "completion_tokens": 58546,
+        "total_tokens": 1899165,
+        "reasoning_tokens": 42114,
+        "cached_tokens": 1586176
+      },
+      "usage_events": 61,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_031",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1382.58,
+      "usage": {
+        "prompt_tokens": 2184337,
+        "completion_tokens": 62090,
+        "total_tokens": 2246427,
+        "reasoning_tokens": 45158,
+        "cached_tokens": 1920512
+      },
+      "usage_events": 77,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_032",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1397.351,
+      "usage": {
+        "prompt_tokens": 2642294,
+        "completion_tokens": 51739,
+        "total_tokens": 2694033,
+        "reasoning_tokens": 31386,
+        "cached_tokens": 2352896
+      },
+      "usage_events": 84,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_033",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1485.036,
+      "usage": {
+        "prompt_tokens": 2766028,
+        "completion_tokens": 73889,
+        "total_tokens": 2839917,
+        "reasoning_tokens": 55819,
+        "cached_tokens": 2446336
+      },
+      "usage_events": 67,
+      "errors": {
+        "TimeoutError": 2,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_034",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1320.478,
+      "usage": {
+        "prompt_tokens": 2659736,
+        "completion_tokens": 43310,
+        "total_tokens": 2703046,
+        "reasoning_tokens": 29054,
+        "cached_tokens": 2404096
+      },
+      "usage_events": 80,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 17,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_035",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 693.122,
+      "usage": {
+        "prompt_tokens": 296560,
+        "completion_tokens": 24747,
+        "total_tokens": 321307,
+        "reasoning_tokens": 17669,
+        "cached_tokens": 220928
+      },
+      "usage_events": 22,
+      "errors": {
+        "RateLimitError": 10
+      },
+      "terminal_api_error": true,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_036",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 864.908,
+      "usage": {
+        "prompt_tokens": 427628,
+        "completion_tokens": 31213,
+        "total_tokens": 458841,
+        "reasoning_tokens": 22131,
+        "cached_tokens": 301056
+      },
+      "usage_events": 35,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_037",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 408.313,
+      "usage": {
+        "prompt_tokens": 107542,
+        "completion_tokens": 5836,
+        "total_tokens": 113378,
+        "reasoning_tokens": 2473,
+        "cached_tokens": 59392
+      },
+      "usage_events": 15,
+      "errors": {
+        "RateLimitError": 5
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "approved"
+    },
+    {
+      "folder": "ansible/case_038",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 912.346,
+      "usage": {
+        "prompt_tokens": 448950,
+        "completion_tokens": 23308,
+        "total_tokens": 472258,
+        "reasoning_tokens": 14651,
+        "cached_tokens": 316416
+      },
+      "usage_events": 33,
+      "errors": {
+        "RateLimitError": 2,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_039",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1460.819,
+      "usage": {
+        "prompt_tokens": 837859,
+        "completion_tokens": 52718,
+        "total_tokens": 890577,
+        "reasoning_tokens": 36664,
+        "cached_tokens": 655872
+      },
+      "usage_events": 38,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 7,
+        "APITimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_040",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1472.956,
+      "usage": {
+        "prompt_tokens": 1103115,
+        "completion_tokens": 60723,
+        "total_tokens": 1163838,
+        "reasoning_tokens": 45273,
+        "cached_tokens": 829440
+      },
+      "usage_events": 42,
+      "errors": {
+        "TimeoutError": 2,
+        "CancelledError": 1,
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_041",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.044,
+      "usage": {
+        "prompt_tokens": 820164,
+        "completion_tokens": 36719,
+        "total_tokens": 856883,
+        "reasoning_tokens": 25760,
+        "cached_tokens": 666368
+      },
+      "usage_events": 37,
+      "errors": {
+        "RateLimitError": 14,
+        "CancelledError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_042",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.38,
+      "usage": {
+        "prompt_tokens": 231289,
+        "completion_tokens": 18387,
+        "total_tokens": 249676,
+        "reasoning_tokens": 13336,
+        "cached_tokens": 139264
+      },
+      "usage_events": 16,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 29,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_043",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1474.612,
+      "usage": {
+        "prompt_tokens": 431647,
+        "completion_tokens": 20365,
+        "total_tokens": 452012,
+        "reasoning_tokens": 11434,
+        "cached_tokens": 312064
+      },
+      "usage_events": 33,
+      "errors": {
+        "TimeoutError": 4,
+        "RateLimitError": 13
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_044",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1466.836,
+      "usage": {
+        "prompt_tokens": 1011912,
+        "completion_tokens": 22361,
+        "total_tokens": 1034273,
+        "reasoning_tokens": 15850,
+        "cached_tokens": 783616
+      },
+      "usage_events": 45,
+      "errors": {
+        "TimeoutError": 3,
+        "RateLimitError": 10,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "ansible/case_045",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1365.501,
+      "usage": {
+        "prompt_tokens": 1032726,
+        "completion_tokens": 70385,
+        "total_tokens": 1103111,
+        "reasoning_tokens": 53888,
+        "cached_tokens": 779776
+      },
+      "usage_events": 40,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 5
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_046",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1404.558,
+      "usage": {
+        "prompt_tokens": 1460875,
+        "completion_tokens": 50251,
+        "total_tokens": 1511126,
+        "reasoning_tokens": 28745,
+        "cached_tokens": 1196544
+      },
+      "usage_events": 54,
+      "errors": {
+        "RateLimitError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_047",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.003,
+      "usage": {
+        "prompt_tokens": 1508110,
+        "completion_tokens": 82829,
+        "total_tokens": 1590939,
+        "reasoning_tokens": 65198,
+        "cached_tokens": 1214464
+      },
+      "usage_events": 42,
+      "errors": {
+        "RateLimitError": 6,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_048",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1005.835,
+      "usage": {
+        "prompt_tokens": 889970,
+        "completion_tokens": 41354,
+        "total_tokens": 931324,
+        "reasoning_tokens": 30345,
+        "cached_tokens": 722688
+      },
+      "usage_events": 46,
+      "errors": {
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_049",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.017,
+      "usage": {
+        "prompt_tokens": 1526763,
+        "completion_tokens": 66155,
+        "total_tokens": 1592918,
+        "reasoning_tokens": 52558,
+        "cached_tokens": 1253376
+      },
+      "usage_events": 58,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_050",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1213.046,
+      "usage": {
+        "prompt_tokens": 1440997,
+        "completion_tokens": 44733,
+        "total_tokens": 1485730,
+        "reasoning_tokens": 30706,
+        "cached_tokens": 1220608
+      },
+      "usage_events": 58,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_051",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1205.248,
+      "usage": {
+        "prompt_tokens": 1486582,
+        "completion_tokens": 60775,
+        "total_tokens": 1547357,
+        "reasoning_tokens": 42788,
+        "cached_tokens": 1210624
+      },
+      "usage_events": 48,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_052",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1477.011,
+      "usage": {
+        "prompt_tokens": 1710978,
+        "completion_tokens": 60398,
+        "total_tokens": 1771376,
+        "reasoning_tokens": 49663,
+        "cached_tokens": 1426944
+      },
+      "usage_events": 65,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "ansible/case_053",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 690.773,
+      "usage": {
+        "prompt_tokens": 585660,
+        "completion_tokens": 38805,
+        "total_tokens": 624465,
+        "reasoning_tokens": 26950,
+        "cached_tokens": 460032
+      },
+      "usage_events": 40,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_054",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.004,
+      "usage": {
+        "prompt_tokens": 1640502,
+        "completion_tokens": 100149,
+        "total_tokens": 1740651,
+        "reasoning_tokens": 83317,
+        "cached_tokens": 1348096
+      },
+      "usage_events": 49,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_055",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1392.155,
+      "usage": {
+        "prompt_tokens": 1363541,
+        "completion_tokens": 62731,
+        "total_tokens": 1426272,
+        "reasoning_tokens": 48067,
+        "cached_tokens": 1086720
+      },
+      "usage_events": 59,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 5,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_056",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 513.697,
+      "usage": {
+        "prompt_tokens": 266561,
+        "completion_tokens": 27618,
+        "total_tokens": 294179,
+        "reasoning_tokens": 20239,
+        "cached_tokens": 146432
+      },
+      "usage_events": 32,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_057",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 271.314,
+      "usage": {
+        "prompt_tokens": 183469,
+        "completion_tokens": 12364,
+        "total_tokens": 195833,
+        "reasoning_tokens": 7611,
+        "cached_tokens": 87296
+      },
+      "usage_events": 19,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "approved"
+    },
+    {
+      "folder": "ansible/case_058",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.004,
+      "usage": {
+        "prompt_tokens": 1274634,
+        "completion_tokens": 97902,
+        "total_tokens": 1372536,
+        "reasoning_tokens": 82509,
+        "cached_tokens": 907520
+      },
+      "usage_events": 43,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_059",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 700.074,
+      "usage": {
+        "prompt_tokens": 768733,
+        "completion_tokens": 31337,
+        "total_tokens": 800070,
+        "reasoning_tokens": 18787,
+        "cached_tokens": 600832
+      },
+      "usage_events": 44,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 8,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_060",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1458.077,
+      "usage": {
+        "prompt_tokens": 1555960,
+        "completion_tokens": 77426,
+        "total_tokens": 1633386,
+        "reasoning_tokens": 62629,
+        "cached_tokens": 1275648
+      },
+      "usage_events": 48,
+      "errors": {
+        "CancelledError": 1,
+        "APITimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_061",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 530.846,
+      "usage": {
+        "prompt_tokens": 478652,
+        "completion_tokens": 24784,
+        "total_tokens": 503436,
+        "reasoning_tokens": 16844,
+        "cached_tokens": 345600
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_062",
+      "domain": "ansible",
+      "outcome": "unresolved",
+      "generation_seconds": 1330.944,
+      "usage": {
+        "prompt_tokens": 1320528,
+        "completion_tokens": 91339,
+        "total_tokens": 1411867,
+        "reasoning_tokens": 74807,
+        "cached_tokens": 1086720
+      },
+      "usage_events": 50,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "ansible/case_063",
+      "domain": "ansible",
+      "outcome": "resolved",
+      "generation_seconds": 1241.025,
+      "usage": {
+        "prompt_tokens": 1620598,
+        "completion_tokens": 64412,
+        "total_tokens": 1685010,
+        "reasoning_tokens": 49264,
+        "cached_tokens": 1366528
+      },
+      "usage_events": 55,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_008",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1477.534,
+      "usage": {
+        "prompt_tokens": 1250376,
+        "completion_tokens": 59097,
+        "total_tokens": 1309473,
+        "reasoning_tokens": 43401,
+        "cached_tokens": 1008128
+      },
+      "usage_events": 73,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_009",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 981.133,
+      "usage": {
+        "prompt_tokens": 996902,
+        "completion_tokens": 27950,
+        "total_tokens": 1024852,
+        "reasoning_tokens": 18077,
+        "cached_tokens": 855296
+      },
+      "usage_events": 43,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "flipt/case_010",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1350.695,
+      "usage": {
+        "prompt_tokens": 1519567,
+        "completion_tokens": 35581,
+        "total_tokens": 1555148,
+        "reasoning_tokens": 22342,
+        "cached_tokens": 1248768
+      },
+      "usage_events": 64,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 5,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_011",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1443.823,
+      "usage": {
+        "prompt_tokens": 1417492,
+        "completion_tokens": 42892,
+        "total_tokens": 1460384,
+        "reasoning_tokens": 29098,
+        "cached_tokens": 1191168
+      },
+      "usage_events": 71,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_012",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1209.443,
+      "usage": {
+        "prompt_tokens": 1186666,
+        "completion_tokens": 29095,
+        "total_tokens": 1215761,
+        "reasoning_tokens": 15440,
+        "cached_tokens": 986112
+      },
+      "usage_events": 57,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_013",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1425.035,
+      "usage": {
+        "prompt_tokens": 1601728,
+        "completion_tokens": 41554,
+        "total_tokens": 1643282,
+        "reasoning_tokens": 26685,
+        "cached_tokens": 1320448
+      },
+      "usage_events": 58,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_014",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1349.474,
+      "usage": {
+        "prompt_tokens": 1147051,
+        "completion_tokens": 38845,
+        "total_tokens": 1185896,
+        "reasoning_tokens": 25736,
+        "cached_tokens": 929792
+      },
+      "usage_events": 56,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_015",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1392.889,
+      "usage": {
+        "prompt_tokens": 914016,
+        "completion_tokens": 42067,
+        "total_tokens": 956083,
+        "reasoning_tokens": 28057,
+        "cached_tokens": 719104
+      },
+      "usage_events": 55,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_016",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 632.223,
+      "usage": {
+        "prompt_tokens": 395666,
+        "completion_tokens": 15374,
+        "total_tokens": 411040,
+        "reasoning_tokens": 6532,
+        "cached_tokens": 279296
+      },
+      "usage_events": 35,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_017",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1383.285,
+      "usage": {
+        "prompt_tokens": 1486632,
+        "completion_tokens": 33966,
+        "total_tokens": 1520598,
+        "reasoning_tokens": 20411,
+        "cached_tokens": 1276672
+      },
+      "usage_events": 68,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "flipt/case_018",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 981.086,
+      "usage": {
+        "prompt_tokens": 747899,
+        "completion_tokens": 49853,
+        "total_tokens": 797752,
+        "reasoning_tokens": 41968,
+        "cached_tokens": 561408
+      },
+      "usage_events": 40,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_019",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.024,
+      "usage": {
+        "prompt_tokens": 1295960,
+        "completion_tokens": 57666,
+        "total_tokens": 1353626,
+        "reasoning_tokens": 41850,
+        "cached_tokens": 1024000
+      },
+      "usage_events": 56,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_020",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 707.907,
+      "usage": {
+        "prompt_tokens": 412451,
+        "completion_tokens": 31710,
+        "total_tokens": 444161,
+        "reasoning_tokens": 23662,
+        "cached_tokens": 282880
+      },
+      "usage_events": 33,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_021",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1245.001,
+      "usage": {
+        "prompt_tokens": 1151829,
+        "completion_tokens": 35935,
+        "total_tokens": 1187764,
+        "reasoning_tokens": 25500,
+        "cached_tokens": 952832
+      },
+      "usage_events": 65,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_022",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1351.589,
+      "usage": {
+        "prompt_tokens": 1257688,
+        "completion_tokens": 43453,
+        "total_tokens": 1301141,
+        "reasoning_tokens": 31511,
+        "cached_tokens": 1074688
+      },
+      "usage_events": 62,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_023",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1369.183,
+      "usage": {
+        "prompt_tokens": 1505712,
+        "completion_tokens": 51285,
+        "total_tokens": 1556997,
+        "reasoning_tokens": 36099,
+        "cached_tokens": 1262848
+      },
+      "usage_events": 75,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_024",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1413.949,
+      "usage": {
+        "prompt_tokens": 1246224,
+        "completion_tokens": 54596,
+        "total_tokens": 1300820,
+        "reasoning_tokens": 41441,
+        "cached_tokens": 1046272
+      },
+      "usage_events": 60,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_025",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1300.537,
+      "usage": {
+        "prompt_tokens": 1435156,
+        "completion_tokens": 26674,
+        "total_tokens": 1461830,
+        "reasoning_tokens": 13953,
+        "cached_tokens": 1234688
+      },
+      "usage_events": 55,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_026",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1370.48,
+      "usage": {
+        "prompt_tokens": 1948709,
+        "completion_tokens": 59340,
+        "total_tokens": 2008049,
+        "reasoning_tokens": 40417,
+        "cached_tokens": 1642240
+      },
+      "usage_events": 62,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_027",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1310.957,
+      "usage": {
+        "prompt_tokens": 2463008,
+        "completion_tokens": 38264,
+        "total_tokens": 2501272,
+        "reasoning_tokens": 23256,
+        "cached_tokens": 2212352
+      },
+      "usage_events": 81,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_028",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1172.978,
+      "usage": {
+        "prompt_tokens": 1602215,
+        "completion_tokens": 38778,
+        "total_tokens": 1640993,
+        "reasoning_tokens": 26884,
+        "cached_tokens": 1383424
+      },
+      "usage_events": 64,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_029",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1378.552,
+      "usage": {
+        "prompt_tokens": 2053542,
+        "completion_tokens": 40805,
+        "total_tokens": 2094347,
+        "reasoning_tokens": 27481,
+        "cached_tokens": 1779200
+      },
+      "usage_events": 78,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_030",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 486.651,
+      "usage": {
+        "prompt_tokens": 274879,
+        "completion_tokens": 14322,
+        "total_tokens": 289201,
+        "reasoning_tokens": 7911,
+        "cached_tokens": 169984
+      },
+      "usage_events": 32,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 6,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_031",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1073.368,
+      "usage": {
+        "prompt_tokens": 1053912,
+        "completion_tokens": 35298,
+        "total_tokens": 1089210,
+        "reasoning_tokens": 23093,
+        "cached_tokens": 864256
+      },
+      "usage_events": 63,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_032",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 707.434,
+      "usage": {
+        "prompt_tokens": 728449,
+        "completion_tokens": 18167,
+        "total_tokens": 746616,
+        "reasoning_tokens": 11845,
+        "cached_tokens": 620800
+      },
+      "usage_events": 37,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "folder": "flipt/case_033",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 974.84,
+      "usage": {
+        "prompt_tokens": 1114518,
+        "completion_tokens": 36740,
+        "total_tokens": 1151258,
+        "reasoning_tokens": 19609,
+        "cached_tokens": 898560
+      },
+      "usage_events": 58,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_034",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 909.688,
+      "usage": {
+        "prompt_tokens": 1315366,
+        "completion_tokens": 43093,
+        "total_tokens": 1358459,
+        "reasoning_tokens": 29413,
+        "cached_tokens": 1175040
+      },
+      "usage_events": 38,
+      "errors": {
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_035",
+      "domain": "flipt",
+      "outcome": "empty_patch",
+      "generation_seconds": 551.785,
+      "usage": {},
+      "usage_events": 0,
+      "errors": {
+        "RateLimitError": 22
+      },
+      "terminal_api_error": true,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": null,
+      "parsed_test_results": null,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_036",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1400.751,
+      "usage": {
+        "prompt_tokens": 919823,
+        "completion_tokens": 33620,
+        "total_tokens": 953443,
+        "reasoning_tokens": 21185,
+        "cached_tokens": 759808
+      },
+      "usage_events": 53,
+      "errors": {
+        "RateLimitError": 3
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_037",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1147.457,
+      "usage": {
+        "prompt_tokens": 729438,
+        "completion_tokens": 17898,
+        "total_tokens": 747336,
+        "reasoning_tokens": 9393,
+        "cached_tokens": 587520
+      },
+      "usage_events": 46,
+      "errors": {
+        "RateLimitError": 6,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_038",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.059,
+      "usage": {
+        "prompt_tokens": 658841,
+        "completion_tokens": 50175,
+        "total_tokens": 709016,
+        "reasoning_tokens": 41355,
+        "cached_tokens": 435968
+      },
+      "usage_events": 45,
+      "errors": {
+        "RateLimitError": 6,
+        "TimeoutError": 1,
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_039",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1327.424,
+      "usage": {
+        "prompt_tokens": 656085,
+        "completion_tokens": 35545,
+        "total_tokens": 691630,
+        "reasoning_tokens": 26773,
+        "cached_tokens": 487168
+      },
+      "usage_events": 46,
+      "errors": {
+        "TimeoutError": 2,
+        "CancelledError": 2,
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_040",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.017,
+      "usage": {
+        "prompt_tokens": 554517,
+        "completion_tokens": 24154,
+        "total_tokens": 578671,
+        "reasoning_tokens": 16410,
+        "cached_tokens": 427008
+      },
+      "usage_events": 35,
+      "errors": {
+        "RateLimitError": 17,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_041",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.276,
+      "usage": {
+        "prompt_tokens": 255014,
+        "completion_tokens": 9094,
+        "total_tokens": 264108,
+        "reasoning_tokens": 5163,
+        "cached_tokens": 161024
+      },
+      "usage_events": 24,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 23,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_042",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1466.173,
+      "usage": {
+        "prompt_tokens": 426014,
+        "completion_tokens": 20533,
+        "total_tokens": 446547,
+        "reasoning_tokens": 11810,
+        "cached_tokens": 289280
+      },
+      "usage_events": 29,
+      "errors": {
+        "TimeoutError": 3,
+        "RateLimitError": 16
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_043",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1052.344,
+      "usage": {
+        "prompt_tokens": 530481,
+        "completion_tokens": 11015,
+        "total_tokens": 541496,
+        "reasoning_tokens": 5480,
+        "cached_tokens": 406016
+      },
+      "usage_events": 30,
+      "errors": {
+        "RateLimitError": 8,
+        "APITimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_044",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1373.36,
+      "usage": {
+        "prompt_tokens": 747389,
+        "completion_tokens": 18484,
+        "total_tokens": 765873,
+        "reasoning_tokens": 9777,
+        "cached_tokens": 592896
+      },
+      "usage_events": 51,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 7,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_045",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1484.868,
+      "usage": {
+        "prompt_tokens": 1244245,
+        "completion_tokens": 34536,
+        "total_tokens": 1278781,
+        "reasoning_tokens": 22336,
+        "cached_tokens": 982016
+      },
+      "usage_events": 56,
+      "errors": {
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_046",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.055,
+      "usage": {
+        "prompt_tokens": 1251560,
+        "completion_tokens": 39552,
+        "total_tokens": 1291112,
+        "reasoning_tokens": 24373,
+        "cached_tokens": 930304
+      },
+      "usage_events": 44,
+      "errors": {
+        "RateLimitError": 9,
+        "CancelledError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_047",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1450.679,
+      "usage": {
+        "prompt_tokens": 1075946,
+        "completion_tokens": 52534,
+        "total_tokens": 1128480,
+        "reasoning_tokens": 35662,
+        "cached_tokens": 875776
+      },
+      "usage_events": 61,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_048",
+      "domain": "flipt",
+      "outcome": "resolved",
+      "generation_seconds": 1359.108,
+      "usage": {
+        "prompt_tokens": 2418332,
+        "completion_tokens": 36473,
+        "total_tokens": 2454805,
+        "reasoning_tokens": 21599,
+        "cached_tokens": 2047488
+      },
+      "usage_events": 72,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 8,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_049",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1383.812,
+      "usage": {
+        "prompt_tokens": 1312418,
+        "completion_tokens": 58983,
+        "total_tokens": 1371401,
+        "reasoning_tokens": 43347,
+        "cached_tokens": 1078016
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_050",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1409.795,
+      "usage": {
+        "prompt_tokens": 1473511,
+        "completion_tokens": 44029,
+        "total_tokens": 1517540,
+        "reasoning_tokens": 28692,
+        "cached_tokens": 1242368
+      },
+      "usage_events": 65,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "flipt/case_051",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 495.18,
+      "usage": {
+        "prompt_tokens": 248477,
+        "completion_tokens": 11760,
+        "total_tokens": 260237,
+        "reasoning_tokens": 6767,
+        "cached_tokens": 167936
+      },
+      "usage_events": 33,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_052",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1302.38,
+      "usage": {
+        "prompt_tokens": 1225424,
+        "completion_tokens": 56488,
+        "total_tokens": 1281912,
+        "reasoning_tokens": 41683,
+        "cached_tokens": 977920
+      },
+      "usage_events": 59,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_053",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1394.12,
+      "usage": {
+        "prompt_tokens": 1789530,
+        "completion_tokens": 36285,
+        "total_tokens": 1825815,
+        "reasoning_tokens": 26026,
+        "cached_tokens": 1525760
+      },
+      "usage_events": 73,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "flipt/case_054",
+      "domain": "flipt",
+      "outcome": "unresolved",
+      "generation_seconds": 1201.538,
+      "usage": {
+        "prompt_tokens": 1184086,
+        "completion_tokens": 46869,
+        "total_tokens": 1230955,
+        "reasoning_tokens": 32997,
+        "cached_tokens": 914432
+      },
+      "usage_events": 56,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_008",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 952.4,
+      "usage": {
+        "prompt_tokens": 977865,
+        "completion_tokens": 47981,
+        "total_tokens": 1025846,
+        "reasoning_tokens": 33013,
+        "cached_tokens": 771584
+      },
+      "usage_events": 46,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 6,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_009",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1119.086,
+      "usage": {
+        "prompt_tokens": 1529204,
+        "completion_tokens": 26253,
+        "total_tokens": 1555457,
+        "reasoning_tokens": 12103,
+        "cached_tokens": 1350144
+      },
+      "usage_events": 63,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 6,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_010",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 600.562,
+      "usage": {
+        "prompt_tokens": 581268,
+        "completion_tokens": 19665,
+        "total_tokens": 600933,
+        "reasoning_tokens": 10177,
+        "cached_tokens": 423936
+      },
+      "usage_events": 45,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_011",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1029.375,
+      "usage": {
+        "prompt_tokens": 1229274,
+        "completion_tokens": 36065,
+        "total_tokens": 1265339,
+        "reasoning_tokens": 25434,
+        "cached_tokens": 1024768
+      },
+      "usage_events": 55,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_012",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1461.847,
+      "usage": {
+        "prompt_tokens": 1869125,
+        "completion_tokens": 63377,
+        "total_tokens": 1932502,
+        "reasoning_tokens": 42618,
+        "cached_tokens": 1539072
+      },
+      "usage_events": 53,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_013",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1447.706,
+      "usage": {
+        "prompt_tokens": 1767081,
+        "completion_tokens": 77627,
+        "total_tokens": 1844708,
+        "reasoning_tokens": 54587,
+        "cached_tokens": 1453056
+      },
+      "usage_events": 52,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 11,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_014",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 952.986,
+      "usage": {
+        "prompt_tokens": 814366,
+        "completion_tokens": 45098,
+        "total_tokens": 859464,
+        "reasoning_tokens": 33392,
+        "cached_tokens": 639744
+      },
+      "usage_events": 49,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_015",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1292.03,
+      "usage": {
+        "prompt_tokens": 982873,
+        "completion_tokens": 50506,
+        "total_tokens": 1033379,
+        "reasoning_tokens": 39744,
+        "cached_tokens": 778752
+      },
+      "usage_events": 50,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_016",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1428.921,
+      "usage": {
+        "prompt_tokens": 1566767,
+        "completion_tokens": 44997,
+        "total_tokens": 1611764,
+        "reasoning_tokens": 29473,
+        "cached_tokens": 1306368
+      },
+      "usage_events": 66,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "openlibrary/case_017",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 217.547,
+      "usage": {
+        "prompt_tokens": 63901,
+        "completion_tokens": 3753,
+        "total_tokens": 67654,
+        "reasoning_tokens": 1636,
+        "cached_tokens": 32000
+      },
+      "usage_events": 13,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_018",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1414.442,
+      "usage": {
+        "prompt_tokens": 1535462,
+        "completion_tokens": 51331,
+        "total_tokens": 1586793,
+        "reasoning_tokens": 34475,
+        "cached_tokens": 1289984
+      },
+      "usage_events": 61,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 23,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_019",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 612.84,
+      "usage": {
+        "prompt_tokens": 356765,
+        "completion_tokens": 28967,
+        "total_tokens": 385732,
+        "reasoning_tokens": 21039,
+        "cached_tokens": 227840
+      },
+      "usage_events": 34,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_020",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1142.917,
+      "usage": {
+        "prompt_tokens": 970578,
+        "completion_tokens": 48656,
+        "total_tokens": 1019234,
+        "reasoning_tokens": 35200,
+        "cached_tokens": 715008
+      },
+      "usage_events": 57,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_021",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 293.565,
+      "usage": {
+        "prompt_tokens": 164380,
+        "completion_tokens": 11783,
+        "total_tokens": 176163,
+        "reasoning_tokens": 6737,
+        "cached_tokens": 95488
+      },
+      "usage_events": 23,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 5,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_022",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 786.732,
+      "usage": {
+        "prompt_tokens": 707733,
+        "completion_tokens": 33908,
+        "total_tokens": 741641,
+        "reasoning_tokens": 22208,
+        "cached_tokens": 543488
+      },
+      "usage_events": 44,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 8,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_023",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 619.658,
+      "usage": {
+        "prompt_tokens": 446371,
+        "completion_tokens": 24328,
+        "total_tokens": 470699,
+        "reasoning_tokens": 13942,
+        "cached_tokens": 319488
+      },
+      "usage_events": 39,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_024",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1099.152,
+      "usage": {
+        "prompt_tokens": 1195981,
+        "completion_tokens": 58524,
+        "total_tokens": 1254505,
+        "reasoning_tokens": 40917,
+        "cached_tokens": 950528
+      },
+      "usage_events": 55,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_025",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1441.062,
+      "usage": {
+        "prompt_tokens": 1937330,
+        "completion_tokens": 41545,
+        "total_tokens": 1978875,
+        "reasoning_tokens": 25555,
+        "cached_tokens": 1655296
+      },
+      "usage_events": 70,
+      "errors": {
+        "BadGatewayError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_026",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 377.045,
+      "usage": {
+        "prompt_tokens": 225050,
+        "completion_tokens": 25419,
+        "total_tokens": 250469,
+        "reasoning_tokens": 16283,
+        "cached_tokens": 123904
+      },
+      "usage_events": 27,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_027",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1375.498,
+      "usage": {
+        "prompt_tokens": 1774520,
+        "completion_tokens": 56741,
+        "total_tokens": 1831261,
+        "reasoning_tokens": 35941,
+        "cached_tokens": 1516800
+      },
+      "usage_events": 76,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_028",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 218.329,
+      "usage": {
+        "prompt_tokens": 93976,
+        "completion_tokens": 8033,
+        "total_tokens": 102009,
+        "reasoning_tokens": 5123,
+        "cached_tokens": 44032
+      },
+      "usage_events": 16,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_029",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1255.509,
+      "usage": {
+        "prompt_tokens": 1334771,
+        "completion_tokens": 57954,
+        "total_tokens": 1392725,
+        "reasoning_tokens": 39819,
+        "cached_tokens": 1005824
+      },
+      "usage_events": 77,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 6,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "openlibrary/case_030",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 714.796,
+      "usage": {
+        "prompt_tokens": 213610,
+        "completion_tokens": 20270,
+        "total_tokens": 233880,
+        "reasoning_tokens": 11860,
+        "cached_tokens": 124672
+      },
+      "usage_events": 22,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_031",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1399.66,
+      "usage": {
+        "prompt_tokens": 2392023,
+        "completion_tokens": 55984,
+        "total_tokens": 2448007,
+        "reasoning_tokens": 37152,
+        "cached_tokens": 2012928
+      },
+      "usage_events": 91,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_032",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 920.614,
+      "usage": {
+        "prompt_tokens": 1330389,
+        "completion_tokens": 30882,
+        "total_tokens": 1361271,
+        "reasoning_tokens": 17302,
+        "cached_tokens": 1084416
+      },
+      "usage_events": 56,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 43,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_033",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1500.121,
+      "usage": {
+        "prompt_tokens": 1796359,
+        "completion_tokens": 88789,
+        "total_tokens": 1885148,
+        "reasoning_tokens": 73155,
+        "cached_tokens": 1489664
+      },
+      "usage_events": 57,
+      "errors": {
+        "CancelledError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_034",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 258.166,
+      "usage": {
+        "prompt_tokens": 82060,
+        "completion_tokens": 5914,
+        "total_tokens": 87974,
+        "reasoning_tokens": 2402,
+        "cached_tokens": 34304
+      },
+      "usage_events": 18,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_035",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1210.171,
+      "usage": {
+        "prompt_tokens": 1145611,
+        "completion_tokens": 72559,
+        "total_tokens": 1218170,
+        "reasoning_tokens": 57249,
+        "cached_tokens": 935168
+      },
+      "usage_events": 56,
+      "errors": {
+        "CancelledError": 1,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_036",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1059.964,
+      "usage": {
+        "prompt_tokens": 2041539,
+        "completion_tokens": 47975,
+        "total_tokens": 2089514,
+        "reasoning_tokens": 34962,
+        "cached_tokens": 1831424
+      },
+      "usage_events": 61,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_037",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 189.928,
+      "usage": {
+        "prompt_tokens": 65473,
+        "completion_tokens": 6822,
+        "total_tokens": 72295,
+        "reasoning_tokens": 2797,
+        "cached_tokens": 33792
+      },
+      "usage_events": 13,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_038",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1007.354,
+      "usage": {
+        "prompt_tokens": 947337,
+        "completion_tokens": 66919,
+        "total_tokens": 1014256,
+        "reasoning_tokens": 50810,
+        "cached_tokens": 713472
+      },
+      "usage_events": 44,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_039",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 911.226,
+      "usage": {
+        "prompt_tokens": 1407629,
+        "completion_tokens": 54862,
+        "total_tokens": 1462491,
+        "reasoning_tokens": 39611,
+        "cached_tokens": 1194240
+      },
+      "usage_events": 48,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_040",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1191.221,
+      "usage": {
+        "prompt_tokens": 1801238,
+        "completion_tokens": 47967,
+        "total_tokens": 1849205,
+        "reasoning_tokens": 28314,
+        "cached_tokens": 1541120
+      },
+      "usage_events": 74,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_041",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 240.721,
+      "usage": {
+        "prompt_tokens": 127072,
+        "completion_tokens": 5902,
+        "total_tokens": 132974,
+        "reasoning_tokens": 1852,
+        "cached_tokens": 74496
+      },
+      "usage_events": 18,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_042",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1325.024,
+      "usage": {
+        "prompt_tokens": 2151978,
+        "completion_tokens": 58158,
+        "total_tokens": 2210136,
+        "reasoning_tokens": 43168,
+        "cached_tokens": 1839872
+      },
+      "usage_events": 67,
+      "errors": {
+        "RateLimitError": 7
+      },
+      "terminal_api_error": true,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_043",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 711.3,
+      "usage": {
+        "prompt_tokens": 279413,
+        "completion_tokens": 20725,
+        "total_tokens": 300138,
+        "reasoning_tokens": 13756,
+        "cached_tokens": 176384
+      },
+      "usage_events": 33,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_044",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 982.248,
+      "usage": {
+        "prompt_tokens": 367633,
+        "completion_tokens": 18703,
+        "total_tokens": 386336,
+        "reasoning_tokens": 12114,
+        "cached_tokens": 247040
+      },
+      "usage_events": 33,
+      "errors": {
+        "RateLimitError": 5,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_045",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.052,
+      "usage": {
+        "prompt_tokens": 1122729,
+        "completion_tokens": 50638,
+        "total_tokens": 1173367,
+        "reasoning_tokens": 36550,
+        "cached_tokens": 897024
+      },
+      "usage_events": 43,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_046",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1150.384,
+      "usage": {
+        "prompt_tokens": 671256,
+        "completion_tokens": 31231,
+        "total_tokens": 702487,
+        "reasoning_tokens": 19276,
+        "cached_tokens": 492032
+      },
+      "usage_events": 45,
+      "errors": {
+        "RateLimitError": 9
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_047",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1370.832,
+      "usage": {
+        "prompt_tokens": 947576,
+        "completion_tokens": 37341,
+        "total_tokens": 984917,
+        "reasoning_tokens": 26216,
+        "cached_tokens": 761600
+      },
+      "usage_events": 53,
+      "errors": {
+        "CancelledError": 1,
+        "RateLimitError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_048",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.319,
+      "usage": {
+        "prompt_tokens": 439786,
+        "completion_tokens": 19449,
+        "total_tokens": 459235,
+        "reasoning_tokens": 14596,
+        "cached_tokens": 309248
+      },
+      "usage_events": 26,
+      "errors": {
+        "RateLimitError": 21,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_049",
+      "domain": "openlibrary",
+      "outcome": "empty_patch",
+      "generation_seconds": 1320.406,
+      "usage": {
+        "prompt_tokens": 105716,
+        "completion_tokens": 8318,
+        "total_tokens": 114034,
+        "reasoning_tokens": 6736,
+        "cached_tokens": 60416
+      },
+      "usage_events": 9,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 30
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": null,
+      "parsed_test_results": null,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "openlibrary/case_050",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1149.02,
+      "usage": {
+        "prompt_tokens": 416849,
+        "completion_tokens": 16275,
+        "total_tokens": 433124,
+        "reasoning_tokens": 9176,
+        "cached_tokens": 311808
+      },
+      "usage_events": 36,
+      "errors": {
+        "RateLimitError": 7,
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_051",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1056.074,
+      "usage": {
+        "prompt_tokens": 335690,
+        "completion_tokens": 41119,
+        "total_tokens": 376809,
+        "reasoning_tokens": 34616,
+        "cached_tokens": 252672
+      },
+      "usage_events": 25,
+      "errors": {
+        "RateLimitError": 9
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 10,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_052",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1022.707,
+      "usage": {
+        "prompt_tokens": 224442,
+        "completion_tokens": 15928,
+        "total_tokens": 240370,
+        "reasoning_tokens": 8044,
+        "cached_tokens": 136448
+      },
+      "usage_events": 27,
+      "errors": {
+        "RateLimitError": 9,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_053",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1084.174,
+      "usage": {
+        "prompt_tokens": 606359,
+        "completion_tokens": 35381,
+        "total_tokens": 641740,
+        "reasoning_tokens": 25152,
+        "cached_tokens": 454656
+      },
+      "usage_events": 42,
+      "errors": {
+        "TimeoutError": 1,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 4,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_054",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 823.531,
+      "usage": {
+        "prompt_tokens": 533221,
+        "completion_tokens": 31613,
+        "total_tokens": 564834,
+        "reasoning_tokens": 19994,
+        "cached_tokens": 396544
+      },
+      "usage_events": 41,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_055",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1239.619,
+      "usage": {
+        "prompt_tokens": 981660,
+        "completion_tokens": 62965,
+        "total_tokens": 1044625,
+        "reasoning_tokens": 45354,
+        "cached_tokens": 779520
+      },
+      "usage_events": 49,
+      "errors": {
+        "RateLimitError": 4
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_056",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 1012.518,
+      "usage": {
+        "prompt_tokens": 921044,
+        "completion_tokens": 40244,
+        "total_tokens": 961288,
+        "reasoning_tokens": 27370,
+        "cached_tokens": 714752
+      },
+      "usage_events": 48,
+      "errors": {
+        "RateLimitError": 9
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_057",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 795.294,
+      "usage": {
+        "prompt_tokens": 870668,
+        "completion_tokens": 28848,
+        "total_tokens": 899516,
+        "reasoning_tokens": 20313,
+        "cached_tokens": 694272
+      },
+      "usage_events": 36,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "openlibrary/case_058",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 1437.283,
+      "usage": {
+        "prompt_tokens": 2067991,
+        "completion_tokens": 75034,
+        "total_tokens": 2143025,
+        "reasoning_tokens": 56789,
+        "cached_tokens": 1780736
+      },
+      "usage_events": 63,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 2,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_059",
+      "domain": "openlibrary",
+      "outcome": "unresolved",
+      "generation_seconds": 745.386,
+      "usage": {
+        "prompt_tokens": 532230,
+        "completion_tokens": 38465,
+        "total_tokens": 570695,
+        "reasoning_tokens": 28266,
+        "cached_tokens": 394240
+      },
+      "usage_events": 35,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "openlibrary/case_060",
+      "domain": "openlibrary",
+      "outcome": "resolved",
+      "generation_seconds": 631.645,
+      "usage": {
+        "prompt_tokens": 345125,
+        "completion_tokens": 14402,
+        "total_tokens": 359527,
+        "reasoning_tokens": 8565,
+        "cached_tokens": 227072
+      },
+      "usage_events": 37,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_007",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1372.039,
+      "usage": {
+        "prompt_tokens": 2428699,
+        "completion_tokens": 54814,
+        "total_tokens": 2483513,
+        "reasoning_tokens": 40069,
+        "cached_tokens": 2111232
+      },
+      "usage_events": 68,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_008",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 740.621,
+      "usage": {
+        "prompt_tokens": 480136,
+        "completion_tokens": 15022,
+        "total_tokens": 495158,
+        "reasoning_tokens": 7879,
+        "cached_tokens": 374528
+      },
+      "usage_events": 44,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_009",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1435.425,
+      "usage": {
+        "prompt_tokens": 1539494,
+        "completion_tokens": 46010,
+        "total_tokens": 1585504,
+        "reasoning_tokens": 31188,
+        "cached_tokens": 1257216
+      },
+      "usage_events": 59,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_010",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1204.752,
+      "usage": {
+        "prompt_tokens": 985452,
+        "completion_tokens": 33236,
+        "total_tokens": 1018688,
+        "reasoning_tokens": 24416,
+        "cached_tokens": 751360
+      },
+      "usage_events": 47,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_011",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1485.011,
+      "usage": {
+        "prompt_tokens": 1264308,
+        "completion_tokens": 33832,
+        "total_tokens": 1298140,
+        "reasoning_tokens": 21785,
+        "cached_tokens": 1059072
+      },
+      "usage_events": 58,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_012",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1432.242,
+      "usage": {
+        "prompt_tokens": 1032183,
+        "completion_tokens": 46139,
+        "total_tokens": 1078322,
+        "reasoning_tokens": 34004,
+        "cached_tokens": 844800
+      },
+      "usage_events": 56,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_013",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1500.144,
+      "usage": {
+        "prompt_tokens": 972020,
+        "completion_tokens": 67645,
+        "total_tokens": 1039665,
+        "reasoning_tokens": 57781,
+        "cached_tokens": 754688
+      },
+      "usage_events": 45,
+      "errors": {
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 8,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_014",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1320.463,
+      "usage": {
+        "prompt_tokens": 1264721,
+        "completion_tokens": 27082,
+        "total_tokens": 1291803,
+        "reasoning_tokens": 18621,
+        "cached_tokens": 1080832
+      },
+      "usage_events": 57,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "webclients/case_015",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1384.192,
+      "usage": {
+        "prompt_tokens": 1649608,
+        "completion_tokens": 37884,
+        "total_tokens": 1687492,
+        "reasoning_tokens": 18868,
+        "cached_tokens": 1346048
+      },
+      "usage_events": 60,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_016",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1011.935,
+      "usage": {
+        "prompt_tokens": 674332,
+        "completion_tokens": 22451,
+        "total_tokens": 696783,
+        "reasoning_tokens": 13072,
+        "cached_tokens": 516608
+      },
+      "usage_events": 47,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_017",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1094.275,
+      "usage": {
+        "prompt_tokens": 812172,
+        "completion_tokens": 23284,
+        "total_tokens": 835456,
+        "reasoning_tokens": 14654,
+        "cached_tokens": 657408
+      },
+      "usage_events": 51,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 3,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_018",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1035.448,
+      "usage": {
+        "prompt_tokens": 1132802,
+        "completion_tokens": 34657,
+        "total_tokens": 1167459,
+        "reasoning_tokens": 21590,
+        "cached_tokens": 927232
+      },
+      "usage_events": 55,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_019",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1409.755,
+      "usage": {
+        "prompt_tokens": 1246340,
+        "completion_tokens": 36960,
+        "total_tokens": 1283300,
+        "reasoning_tokens": 22647,
+        "cached_tokens": 1012992
+      },
+      "usage_events": 66,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 13,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_020",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1261.504,
+      "usage": {
+        "prompt_tokens": 1054176,
+        "completion_tokens": 20389,
+        "total_tokens": 1074565,
+        "reasoning_tokens": 11087,
+        "cached_tokens": 899840
+      },
+      "usage_events": 62,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "webclients/case_021",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1390.603,
+      "usage": {
+        "prompt_tokens": 1271413,
+        "completion_tokens": 56203,
+        "total_tokens": 1327616,
+        "reasoning_tokens": 41816,
+        "cached_tokens": 1052160
+      },
+      "usage_events": 58,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_022",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1160.212,
+      "usage": {
+        "prompt_tokens": 1248569,
+        "completion_tokens": 33962,
+        "total_tokens": 1282531,
+        "reasoning_tokens": 20527,
+        "cached_tokens": 1008896
+      },
+      "usage_events": 60,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_023",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1235.483,
+      "usage": {
+        "prompt_tokens": 1372176,
+        "completion_tokens": 38566,
+        "total_tokens": 1410742,
+        "reasoning_tokens": 26407,
+        "cached_tokens": 1158144
+      },
+      "usage_events": 57,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_024",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 457.184,
+      "usage": {
+        "prompt_tokens": 224566,
+        "completion_tokens": 12363,
+        "total_tokens": 236929,
+        "reasoning_tokens": 6822,
+        "cached_tokens": 152320
+      },
+      "usage_events": 30,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_025",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1443.517,
+      "usage": {
+        "prompt_tokens": 1604648,
+        "completion_tokens": 43169,
+        "total_tokens": 1647817,
+        "reasoning_tokens": 27783,
+        "cached_tokens": 1379072
+      },
+      "usage_events": 71,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "webclients/case_026",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1291.806,
+      "usage": {
+        "prompt_tokens": 1258616,
+        "completion_tokens": 32394,
+        "total_tokens": 1291010,
+        "reasoning_tokens": 17666,
+        "cached_tokens": 1015296
+      },
+      "usage_events": 65,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 9,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_027",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1293.932,
+      "usage": {
+        "prompt_tokens": 1360575,
+        "completion_tokens": 45373,
+        "total_tokens": 1405948,
+        "reasoning_tokens": 29779,
+        "cached_tokens": 1150720
+      },
+      "usage_events": 61,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_028",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1302.989,
+      "usage": {
+        "prompt_tokens": 1784731,
+        "completion_tokens": 38350,
+        "total_tokens": 1823081,
+        "reasoning_tokens": 26626,
+        "cached_tokens": 1500416
+      },
+      "usage_events": 67,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_029",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1155.552,
+      "usage": {
+        "prompt_tokens": 826213,
+        "completion_tokens": 62916,
+        "total_tokens": 889129,
+        "reasoning_tokens": 49292,
+        "cached_tokens": 640000
+      },
+      "usage_events": 56,
+      "errors": {
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_030",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 356.332,
+      "usage": {
+        "prompt_tokens": 199197,
+        "completion_tokens": 11374,
+        "total_tokens": 210571,
+        "reasoning_tokens": 6500,
+        "cached_tokens": 148224
+      },
+      "usage_events": 24,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": false,
+      "passed_f2p": null,
+      "last_review": "approved"
+    },
+    {
+      "folder": "webclients/case_031",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1054.996,
+      "usage": {
+        "prompt_tokens": 1131887,
+        "completion_tokens": 31111,
+        "total_tokens": 1162998,
+        "reasoning_tokens": 19234,
+        "cached_tokens": 881152
+      },
+      "usage_events": 68,
+      "errors": {},
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_032",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1329.304,
+      "usage": {
+        "prompt_tokens": 1335781,
+        "completion_tokens": 41547,
+        "total_tokens": 1377328,
+        "reasoning_tokens": 27303,
+        "cached_tokens": 1144320
+      },
+      "usage_events": 59,
+      "errors": {
+        "RateLimitError": 3
+      },
+      "terminal_api_error": true,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_033",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1469.285,
+      "usage": {
+        "prompt_tokens": 831877,
+        "completion_tokens": 35928,
+        "total_tokens": 867805,
+        "reasoning_tokens": 23983,
+        "cached_tokens": 617472
+      },
+      "usage_events": 45,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 2
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_034",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1469.543,
+      "usage": {
+        "prompt_tokens": 862183,
+        "completion_tokens": 30656,
+        "total_tokens": 892839,
+        "reasoning_tokens": 18521,
+        "cached_tokens": 669184
+      },
+      "usage_events": 43,
+      "errors": {
+        "RateLimitError": 7,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_035",
+      "domain": "webclients",
+      "outcome": "unresolved",
+      "generation_seconds": 1343.28,
+      "usage": {
+        "prompt_tokens": 779735,
+        "completion_tokens": 34177,
+        "total_tokens": 813912,
+        "reasoning_tokens": 22678,
+        "cached_tokens": 600064
+      },
+      "usage_events": 46,
+      "errors": {
+        "TimeoutError": 1,
+        "RateLimitError": 5
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": null,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_036",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1289.678,
+      "usage": {
+        "prompt_tokens": 500695,
+        "completion_tokens": 20816,
+        "total_tokens": 521511,
+        "reasoning_tokens": 13274,
+        "cached_tokens": 357376
+      },
+      "usage_events": 48,
+      "errors": {
+        "RateLimitError": 2,
+        "TimeoutError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_037",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1320.36,
+      "usage": {
+        "prompt_tokens": 266005,
+        "completion_tokens": 11019,
+        "total_tokens": 277024,
+        "reasoning_tokens": 7294,
+        "cached_tokens": 188672
+      },
+      "usage_events": 25,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 22,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    },
+    {
+      "folder": "webclients/case_038",
+      "domain": "webclients",
+      "outcome": "empty_patch",
+      "generation_seconds": 1320.46,
+      "usage": {
+        "prompt_tokens": 151164,
+        "completion_tokens": 2696,
+        "total_tokens": 153860,
+        "reasoning_tokens": 1113,
+        "cached_tokens": 100352
+      },
+      "usage_events": 10,
+      "errors": {
+        "TimeoutError": 2,
+        "RateLimitError": 28
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": null,
+      "parsed_test_results": null,
+      "passed_f2p": null,
+      "last_review": "changes_requested"
+    },
+    {
+      "folder": "webclients/case_039",
+      "domain": "webclients",
+      "outcome": "resolved",
+      "generation_seconds": 1477.14,
+      "usage": {
+        "prompt_tokens": 481742,
+        "completion_tokens": 16464,
+        "total_tokens": 498206,
+        "reasoning_tokens": 9151,
+        "cached_tokens": 359936
+      },
+      "usage_events": 34,
+      "errors": {
+        "TimeoutError": 3,
+        "RateLimitError": 9,
+        "CancelledError": 1
+      },
+      "terminal_api_error": false,
+      "generation_network_none": true,
+      "history_isolated": true,
+      "evaluation_network_none": true,
+      "parsed_test_results": true,
+      "passed_f2p": 1,
+      "last_review": "inconclusive"
+    }
+  ]
+}
