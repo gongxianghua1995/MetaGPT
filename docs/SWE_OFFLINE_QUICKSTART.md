@@ -56,7 +56,7 @@ python3 scripts/swe_offline.py resume --benchmark pro --output workspace/pro_new
 
 不要把旧报告的 `predictions.jsonl` 当作任务输入。已提交 `scripts/swe_offline_ids/{verified,pro}.txt` 固定 test 子集：Verified 154 条（59/23/33/39），Pro 216 条（63/54/60/39）。脚本按 ID 选择，缺题或重复 ID 直接失败。
 
-为了避免同事重新猜测输入 schema，已准备配套输入包，**不含历史模型补丁、轨迹或 API 配置**。实验机上的分发目录是 `/home/xhgong/swe_offline_inputs_20260929/`；请从实验维护者或实验机取得 `metagpt-swe-inputs.tar.gz`，复制到本机 `/path/to/` 后执行：
+为了避免同事重新猜测输入 schema，已准备配套输入包，**不含历史模型补丁、轨迹或 API 配置**。配套输入包由维护者分发，共享位置以 `/path/to/shared/swe-inputs/` 为占位符（请替换成团队实际路径）；请从实验维护者或共享目录取得 `metagpt-swe-inputs.tar.gz`，复制到本机 `/path/to/` 后执行：
 
 ```bash
 tar -xzf /path/to/metagpt-swe-inputs.tar.gz -C .
