@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-29",
+  "base_commit": "204fc7aae1735f7bddaa5341a62883cf9e1b4e91",
+  "checks": [
+    {
+      "project": "MetaGPT",
+      "benchmark": "verified",
+      "tasks": 154,
+      "domains": {
+        "django": 59,
+        "matplotlib": 23,
+        "sphinx": 33,
+        "sympy": 39
+      },
+      "input_sha256": "b82c234517d04d63effaa982f5c187b63952400df61f99529e12ca8fc3222c5c",
+      "dependencies": {
+        "python": "3.11.15",
+        "mini-swe-agent": "2.4.6",
+        "swebench": "5.0.2"
+      },
+      "images_checked": 154,
+      "cli_commands_checked": 3,
+      "model_calls": 0,
+      "containers_started": 0,
+      "scope": "Imports, real CLI parsing, input selection, budget/config and read-only image availability; API quota and container execution not tested."
+    },
+    {
+      "project": "MetaGPT",
+      "benchmark": "pro",
+      "tasks": 216,
+      "domains": {
+        "ansible": 63,
+        "flipt": 54,
+        "openlibrary": 60,
+        "webclients": 39
+      },
+      "input_sha256": "c9277b7636436ba094f92db387b1d239efb1c00d47d2818219b762634a273f42",
+      "dependencies": {
+        "python": "3.11.15",
+        "mini-swe-agent": "2.4.6",
+        "swebench": "5.0.2"
+      },
+      "images_checked": 216,
+      "cli_commands_checked": 3,
+      "model_calls": 0,
+      "containers_started": 0,
+      "scope": "Imports, real CLI parsing, input selection, budget/config and read-only image availability; API quota and container execution not tested."
+    }
+  ],
+  "launcher_regression_tests_passed": 7,
+  "additional_smoke": "Main controller, generation runner and both evaluators parsed with the selected Python environments.",
+  "runtime_executed": false,
+  "source_sha256": {
+    "scripts/swe_offline.py": "34975c38da5c26d6ee317593b8d197b7e36d1592c70b46bf5c156cf8c09a475f",
+    "scripts/swe_offline_ids/input_manifest.json": "8eed9995e6abb4f63b7d4883c59a83c0aced4a601b2277068173c6968c1bafc5",
+    "scripts/swe_offline_ids/pro.txt": "15bb5a29693292502c14f990ce8be3a6271eefa3371edfc481d08c6c24e2d3d3",
+    "scripts/swe_offline_ids/verified.txt": "51f7b57853da9bdb9ef5f4aa1d16ff8586dd8c683653f1928402f8c9f05b5240",
+    "scripts/test_swe_offline.py": "77da68c577def3a87b00c4599349f43586e6a15d403431acadb82dce2b18467d"
+  },
+  "limits": "This validates existing environments and launch wiring. No paid API request, benchmark execution, image pull/build or container creation. It does not establish model capability, quota availability, clean-machine installation or in-container test validity."
+}
