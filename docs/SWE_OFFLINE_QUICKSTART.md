@@ -1,6 +1,6 @@
 # MetaGPT：SWE 断网基线快速启动
 
-更新：2026-09-29。面向接手实验的同事；先做零模型调用检查，再按需启动真实实验。
+更新：2026-09-30。面向接手实验的同事；先做零模型调用检查，再按需启动真实实验。
 
 ## MetaGPT 的双环境、团队参数与续跑
 
@@ -54,25 +54,20 @@ python3 scripts/swe_offline.py resume --benchmark pro --output workspace/pro_new
 
 工作分支是 `swe-baselines-offline-20260928`。下面所有命令在仓库根目录执行；Linux / x86_64，Docker daemon 可访问。模型 API 由宿主机调用，生成和评估容器断网，宿主机仍需要访问 API。
 
-不要把旧报告的 `predictions.jsonl` 当作任务输入。已提交 `scripts/swe_offline_ids/{verified,pro}.txt` 固定 test 子集：Verified 154 条（59/23/33/39），Pro 216 条（63/54/60/39）。脚本按 ID 选择，缺题或重复 ID 直接失败。
-
-为了避免同事重新猜测输入 schema，已准备配套输入包，**不含历史模型补丁、轨迹或 API 配置**。配套输入包由维护者分发，共享位置以 `/path/to/shared/swe-inputs/` 为占位符（请替换成团队实际路径）；请从实验维护者或共享目录取得 `metagpt-swe-inputs.tar.gz`，复制到本机 `/path/to/` 后执行：
+首次获取（从项目的父目录执行）；已有此分支的工作副本直接 `git pull --ff-only`：
 
 ```bash
-tar -xzf /path/to/metagpt-swe-inputs.tar.gz -C .
-python3 - <<'PY'
-import hashlib, json
-from pathlib import Path
-m = json.loads(Path('scripts/swe_offline_ids/input_manifest.json').read_text())
-for name, record in m['files'].items():
-    p = Path(name)
-    assert p.is_file(), f'缺少输入: {p}'
-    assert hashlib.sha256(p.read_bytes()).hexdigest() == record['sha256'], f'输入版本不同: {p}'
-print('输入文件 SHA-256 校验通过')
-PY
+git clone --single-branch --branch swe-baselines-offline-20260928 https://gitcode.com/gxh_1995/MetaGPT.git
+cd MetaGPT
 ```
 
-输入包独立于 Git 分发，其文件列表、字节数及包/文件 SHA-256 已提交到上述 `input_manifest.json`。另一台机器仅 clone 仓库并不包含完整任务输入和 Docker 镜像；不要通过缩小分母来绕过缺项。gold patch、测试补丁和隐藏评估信息只用于宿主评估路径；EvoMAS 历史基线的 F2P 提示注入例外见下文。
+不要把旧报告的 `predictions.jsonl` 当作任务输入。已提交 `scripts/swe_offline_ids/{verified,pro}.txt` 固定 test 子集：Verified 154 条（59/23/33/39），Pro 216 条（63/54/60/39）。脚本按 ID 选择，缺题或重复 ID 直接失败。
+
+配套输入包已随 Git 提交到 `scripts/swe_offline_ids/metagpt-swe-inputs.tar.gz`，普通 clone/pull 即可取得，不使用 Git LFS，也无需另外下载或手动解压。使用默认输入路径执行下文的 `check` / `run` / `resume` 时，启动器会自动补齐缺失输入，校验压缩包和文件的 SHA-256；校验失败会停止，已有内容不同的文件不会被覆盖。显式 `--data` 指向其他位置时，仍使用你提供的输入，不自动还原默认数据。
+
+包内包含任务描述、仓库/基础提交、参考补丁和测试元数据，**不含历史模型补丁、轨迹或 API 配置，也不含 Docker 镜像或 Python 环境**。文件列表、大小和 SHA-256 见同目录 `input_manifest.json`。EvoMAS 包保留较大的源数据集合，实际实验仍按固定 ID 选择 Verified 154 条 / Pro 216 条；GPTSwarm、MetaGPT 包直接包含这两个子集。
+
+在已准备好 Python 环境、API 配置和本地镜像的服务器上，拉取此分支后按下文先 `check` 再 `run`，无需维护者另发数据包。新服务器仍须先准备环境和镜像。gold patch、测试补丁和隐藏评估信息只用于宿主评估路径；EvoMAS 历史基线的 F2P 提示注入例外见下文。
 
 Docker 镜像需要提前取得。`check` 只读本地镜像列表，缺镜像会返回非零；不会联网拉取、构建或启动容器。在实验机可以 `docker save -o swe-images.tar <所需镜像标签...>`，在新机器 `docker load -i swe-images.tar`。Verified 生成标签为 `swebench/sweb.eval.x86_64.<instance_id 的 __ 替换成 _1776_>:latest`；Pro 为 `jefzda/sweap-images:<dockerhub_tag 前 128 字符>`。GPTSwarm Verified 还需同内容的 `sweb.eval.x86_64.<原 instance_id>:latest` 评估标签。镜像及其环境改动也属于复现条件；不能把任意同名镜像视为等价。
 
@@ -88,7 +83,7 @@ python3 scripts/swe_offline.py check --benchmark pro \
   --output workspace/pro_check --limit-per-domain 1
 ```
 
-检查会加载真实入口及依赖、用真实 argparse 校验启动参数（解析后立即退出）、校验任务 ID/必要字段/配置，以及只读检查 Docker 镜像。检查子进程禁止 socket 连接。**不会调用模型、创建容器、运行测试集或创建实验输出目录**；框架导入可能写自身日志/缓存。首次导入依赖可能需要几分钟，不是 SWE 任务的生成时限。
+检查会加载真实入口及依赖、用真实 argparse 校验启动参数（解析后立即退出）、校验任务 ID/必要字段/配置，以及只读检查 Docker 镜像。检查子进程禁止 socket 连接。**不会调用模型、创建容器、运行测试集或创建实验输出目录**；首次使用默认路径会解压缺失输入，框架导入可能写自身日志/缓存。首次导入依赖可能需要几分钟，不是 SWE 任务的生成时限。
 
 成功返回码为 0，JSON 含 `model_calls: 0`、`containers_started: 0`。可加 `--report /tmp/check.json` 保存检查结果。删掉 `--limit-per-domain 1` 可检查完整 154/216 条输入及镜像；`--domain django` / `--domain ansible` 只选一个域。`--limit-per-domain` 对每个选中域分别限额。
 
@@ -119,8 +114,10 @@ python3 scripts/swe_offline.py run --benchmark pro --output workspace/pro_new
 - 非空 patch 不等于 resolved；最终评分来自对应任务的独立评估。基础设施失败、缺测试和模型未解决要分开保留。
 - 记录输入/config/source hash、每次尝试、API usage 和起止时间；重跑保留原始尝试，不按评估结果挑最好答案。EvoMAS 原报告的合并口径属于历史例外，不能用于新实验的单次成绩。
 
-运行结果和输入继续由 Git 忽略，提交代码、精简报告和必要审计材料。不得提交 `.env` 或 `config/config2.yaml`。
+压缩输入包随 Git 分发，解压数据沿用各项目原有跟踪/忽略规则；运行结果不提交，仅保留精简报告和必要审计材料。不得提交 `.env` 或 `config/config2.yaml`。
 
 ## 本次提交前的验证
 
 Verified 154 条和 Pro 216 条的完整输入/CLI/本地镜像检查均通过，模型调用和容器启动均为 0。启动器相关回归测试 7 项通过。详情与源码校验值见 [冒烟记录](SWE_OFFLINE_SMOKE_20260929.json)。
+
+2026-09-30 输入包随仓库分发：空目录自动恢复、重复恢复不改写、三个项目各自 Verified 154 / Pro 216 全量启动检查通过；未调用模型或启动容器。详见 [输入包冒烟记录](SWE_INPUT_BUNDLE_SMOKE_20260930.json)。

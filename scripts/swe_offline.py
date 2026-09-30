@@ -12,6 +12,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import tarfile
 import tempfile
 
 PROJECT = 'MetaGPT'
@@ -40,6 +41,61 @@ script = sys.argv[1]
 sys.argv = sys.argv[1:]
 runpy.run_path(script, run_name='__main__')
 """
+
+
+def prepare_inputs():
+    """Restore missing bundled inputs; never replace differing local data."""
+    manifest = json.loads((ROOT/'scripts/swe_offline_ids/input_manifest.json').read_text())
+    missing = {}
+    for name, record in manifest['files'].items():
+        target = ROOT/name
+        try:
+            target.resolve().relative_to(ROOT.resolve())
+        except ValueError:
+            raise ValueError('Input path escapes repository: ' + name)
+        if target.is_symlink():
+            raise ValueError('Input path must not be a symlink: ' + name)
+        if target.exists():
+            if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != record['sha256']:
+                raise ValueError('Existing input differs from manifest (left unchanged): ' + name)
+        else:
+            missing[name] = target
+    if not missing:
+        return
+    bundle = ROOT/'scripts/swe_offline_ids'/manifest['bundle']
+    if hashlib.sha256(bundle.read_bytes()).hexdigest() != manifest['bundle_sha256']:
+        raise ValueError('Input bundle SHA-256 mismatch: ' + bundle.name)
+    payloads = {}
+    with tarfile.open(bundle, 'r:gz') as archive:
+        members = archive.getmembers()
+        if len(members) != len(manifest['files']) or {m.name for m in members} != set(manifest['files']):
+            raise ValueError('Input bundle members differ from manifest')
+        for member in members:
+            record = manifest['files'][member.name]
+            if not member.isfile() or member.size != record['bytes']:
+                raise ValueError('Invalid input bundle member: ' + member.name)
+            content = archive.extractfile(member).read()
+            if hashlib.sha256(content).hexdigest() != record['sha256']:
+                raise ValueError('Input file SHA-256 mismatch: ' + member.name)
+            if member.name in missing:
+                payloads[member.name] = content
+    # Validate the complete archive before creating any input files.
+    for name, content in payloads.items():
+        target = missing[name]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(dir=target.parent, delete=False) as temp:
+            temp_path = Path(temp.name)
+            temp.write(content)
+        try:
+            # Concurrent launches may restore the same files; never overwrite them.
+            try:
+                os.link(temp_path, target)
+            except FileExistsError:
+                if hashlib.sha256(target.read_bytes()).hexdigest() != manifest['files'][name]['sha256']:
+                    raise ValueError('Input changed during restoration: ' + name)
+        finally:
+            temp_path.unlink()
+    print(f'Restored {len(payloads)} input files from {bundle.name}', file=sys.stderr)
 
 
 def read_rows(path):
@@ -264,6 +320,8 @@ def main():
     elif PROJECT == 'GPTSwarm':default_data=ROOT/'outputs/swebench'/('pro_test_216.json' if args.benchmark=='pro' else 'swebench_verified_test_154.json')
     else:default_data=ROOT/'workspace/inputs'/(args.benchmark+'.jsonl')
     args.data = (args.data or default_data).absolute()
+    if args.data == default_data.absolute():
+        prepare_inputs()
     rows, domains = select_rows(args)
     env = dict(os.environ, HF_HUB_OFFLINE='1', HF_DATASETS_OFFLINE='1', PYTHONUNBUFFERED='1',
                PYTHONPATH=str(ROOT)+os.pathsep+os.environ.get('PYTHONPATH', ''))
@@ -329,6 +387,6 @@ def main():
 if __name__ == '__main__':
     try:
         main()
-    except (ValueError, RuntimeError, FileNotFoundError, subprocess.SubprocessError) as error:
+    except (ValueError, RuntimeError, OSError, tarfile.TarError, subprocess.SubprocessError) as error:
         print('ERROR: '+str(error), file=sys.stderr)
         raise SystemExit(1)

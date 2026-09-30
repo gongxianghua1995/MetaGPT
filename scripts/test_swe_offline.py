@@ -1,9 +1,12 @@
 """Offline launcher regressions; no models, Docker daemon or benchmark runs."""
 import importlib.util
+import hashlib
+import io
 import json
 import os
 from pathlib import Path
 import sys
+import tarfile
 import tempfile
 from types import SimpleNamespace
 import unittest
@@ -15,6 +18,72 @@ spec.loader.exec_module(launcher)
 
 
 class LauncherTests(unittest.TestCase):
+    def make_bundle(self, root, extra=None):
+        folder = root/'scripts/swe_offline_ids'
+        folder.mkdir(parents=True)
+        contents = {'inputs/verified.json': b'[{"id": "verified"}]',
+                    'inputs/pro.json': b'[{"id": "pro"}]'}
+        bundle = folder/'test.tar.gz'
+        with tarfile.open(bundle, 'w:gz') as archive:
+            for name, content in contents.items():
+                member = tarfile.TarInfo(name)
+                member.size = len(content)
+                archive.addfile(member, io.BytesIO(content))
+            if extra:
+                archive.addfile(tarfile.TarInfo(extra), io.BytesIO(b''))
+        manifest = {'bundle': bundle.name,
+                    'bundle_sha256': hashlib.sha256(bundle.read_bytes()).hexdigest(),
+                    'files': {name: {'bytes': len(content), 'sha256': hashlib.sha256(content).hexdigest()}
+                              for name, content in contents.items()}}
+        (folder/'input_manifest.json').write_text(json.dumps(manifest))
+        return bundle, contents
+
+    def test_bundle_restoration_is_complete_and_idempotent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            _, contents = self.make_bundle(root)
+            with patch.object(launcher, 'ROOT', root):
+                launcher.prepare_inputs()
+                mtimes = {name: (root/name).stat().st_mtime_ns for name in contents}
+                launcher.prepare_inputs()
+            for name, content in contents.items():
+                self.assertEqual((root/name).read_bytes(), content)
+                self.assertEqual((root/name).stat().st_mtime_ns, mtimes[name])
+
+    def test_bundle_does_not_overwrite_existing_modified_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.make_bundle(root)
+            (root/'inputs').mkdir()
+            target = root/'inputs/pro.json'
+            target.write_bytes(b'local modification')
+            with patch.object(launcher, 'ROOT', root), self.assertRaisesRegex(ValueError, 'left unchanged'):
+                launcher.prepare_inputs()
+            self.assertEqual(target.read_bytes(), b'local modification')
+            self.assertFalse((root/'inputs/verified.json').exists())
+
+    def test_bad_bundle_hash_and_unexpected_members_fail_before_writes(self):
+        for bad in ['hash', '../outside.json']:
+            with self.subTest(bad=bad), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                bundle, _ = self.make_bundle(root, extra=bad if bad != 'hash' else None)
+                if bad == 'hash':
+                    bundle.write_bytes(b'corrupted')
+                with patch.object(launcher, 'ROOT', root), self.assertRaises(ValueError):
+                    launcher.prepare_inputs()
+                self.assertFalse((root/'inputs').exists())
+
+    def test_bundle_rejects_destination_symlink_outside_repository(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)/'repo'
+            outside = Path(tmp)/'outside'
+            outside.mkdir()
+            self.make_bundle(root)
+            (root/'inputs').symlink_to(outside, target_is_directory=True)
+            with patch.object(launcher, 'ROOT', root), self.assertRaisesRegex(ValueError, 'escapes repository'):
+                launcher.prepare_inputs()
+            self.assertEqual(list(outside.iterdir()), [])
+
     def test_jsonl_preserves_unicode_line_separators(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)/'data.jsonl'

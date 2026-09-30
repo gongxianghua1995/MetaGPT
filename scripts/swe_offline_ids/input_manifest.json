@@ -1,7 +1,7 @@
 {
   "bundle": "metagpt-swe-inputs.tar.gz",
   "bundle_sha256": "c3360d294723a9e71a88b4915b748eec310439e0f0ef5f0554153d2b4e52d6a2",
-  "note": "Full local benchmark inputs; distributed separately from Git. Contains gold/test metadata for evaluator only, no experiment predictions or model credentials.",
+  "note": "Bundled with Git beside this manifest. The launcher restores missing default inputs and verifies SHA-256. Contains benchmark gold/test metadata, no experiment predictions or model credentials; see the quickstart for information-isolation limits.",
   "files": {
     "workspace/inputs/verified.jsonl": {
       "sha256": "b82c234517d04d63effaa982f5c187b63952400df61f99529e12ca8fc3222c5c",

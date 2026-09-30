@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-30",
+  "base_commit": "5720ecf2f424063f302a4a6f83b446da47c596d1",
+  "bundle": "metagpt-swe-inputs.tar.gz",
+  "clean_directory_restore": {
+    "restored_files": 2,
+    "second_restore_unchanged": true,
+    "selections": {
+      "verified": {
+        "tasks": 154,
+        "domains": {
+          "django": 59,
+          "matplotlib": 23,
+          "sphinx": 33,
+          "sympy": 39
+        }
+      },
+      "pro": {
+        "tasks": 216,
+        "domains": {
+          "ansible": 63,
+          "flipt": 54,
+          "openlibrary": 60,
+          "webclients": 39
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "project": "MetaGPT",
+      "benchmark": "verified",
+      "tasks": 154,
+      "domains": {
+        "django": 59,
+        "matplotlib": 23,
+        "sphinx": 33,
+        "sympy": 39
+      },
+      "input_sha256": "b82c234517d04d63effaa982f5c187b63952400df61f99529e12ca8fc3222c5c",
+      "dependencies": {
+        "python": "3.11.15",
+        "mini-swe-agent": "2.4.6",
+        "swebench": "5.0.2"
+      },
+      "images_checked": 154,
+      "cli_commands_checked": 3,
+      "model_calls": 0,
+      "containers_started": 0,
+      "scope": "Imports, real CLI parsing, input selection, budget/config and read-only image availability; API quota and container execution not tested."
+    },
+    {
+      "project": "MetaGPT",
+      "benchmark": "pro",
+      "tasks": 216,
+      "domains": {
+        "ansible": 63,
+        "flipt": 54,
+        "openlibrary": 60,
+        "webclients": 39
+      },
+      "input_sha256": "c9277b7636436ba094f92db387b1d239efb1c00d47d2818219b762634a273f42",
+      "dependencies": {
+        "python": "3.11.15",
+        "mini-swe-agent": "2.4.6",
+        "swebench": "5.0.2"
+      },
+      "images_checked": 216,
+      "cli_commands_checked": 3,
+      "model_calls": 0,
+      "containers_started": 0,
+      "scope": "Imports, real CLI parsing, input selection, budget/config and read-only image availability; API quota and container execution not tested."
+    }
+  ],
+  "regression_tests_passed": 11,
+  "runtime_executed": false,
+  "source_sha256": {
+    "scripts/swe_offline.py": "2b5e7186e641949706952a5a384da09dab150dfe8c9c6f1924a0a06ef777e9ac",
+    "scripts/test_swe_offline.py": "579dfafae22e7c0ca2834b654712d340a11f51b3658a7dd71e94b590056a5ca4",
+    "scripts/swe_offline_ids/input_manifest.json": "efd99aa39ccf9f6932d22cd372cc16b037c4df1f1a7d359a815a9c168efc0c0d",
+    "scripts/swe_offline_ids/metagpt-swe-inputs.tar.gz": "c3360d294723a9e71a88b4915b748eec310439e0f0ef5f0554153d2b4e52d6a2",
+    "docs/SWE_OFFLINE_QUICKSTART.md": "a5bd80addec03baaa023b8369c879786af70b3a51e6b64e2fd62ecd970321081"
+  },
+  "limits": "Bundle restoration tested in a temporary empty directory; CLI/dependency/image checks use existing server environments. No model requests, containers, benchmark execution, image downloads or clean-machine dependency installation."
+}
